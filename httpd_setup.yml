@@ -1,16 +1,32 @@
 ---
 - name: This is my first Ansible playbook
-  host: webserver
-    task:
-	- name: Install webserver
-	  yum: name=httpd state=absent
-    task:
-	- name: Install webserver
-	  yum: name=httpd state=present
-    task:   
-	- name: Start webserver
-	  service: name=httpd state=started
-    task:   
-	- name: Copy webserver
-	  copy: src=/root/index.html dest=/var/www/html/index.html mode=644
----
+  hosts: webserver
+  remote_user: root
+  vars:
+    - company: Verizon
+  tasks:
+    #- name: remove/uninstall webserver
+    #  yum: name=httpd state=absent
+    #- name: Install webserver
+    #  yum: name=httpd state=present
+    #- name: Start webserver
+    #  service: name=httpd state=started
+
+    #- name: Unnstall git/ntpd/vim on remote server
+    #  yum: pkg={{item}} state=absent
+    #  with_items:
+    #   - git
+    #   - ntp
+    #   - vim
+    #- name: Install git/ntpd/vim on remote server
+    #  yum: pkg={{item}} state=installed
+    #  with_items:
+    #   - git
+    #   - ntp
+    #   - vim
+    #- name: Copy webserver
+    #  template: src=/home/vashist/index.html dest=/var/www/html/index.html mode=644
+    file: path=/tmp/test.when state=touch 
+    when:
+     ansible_hostname == RemoteServer
+...

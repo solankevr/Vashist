@@ -1,0 +1,23 @@
+---
+- hosts: webserver
+  remote_user: root
+  vars_prompt:
+  - name: username
+    prompt:  What is your name?  What is your fav color?
+  tasks:
+  - name: Ansible register variable basic example
+    shell: "find *.txt"
+    args:
+      chdir: "/opt/"
+    register: output
+  - debug:
+      var: output
+  - name: Backape files 
+    shell: "cp {{ item }} {{ item }}_bkp" 
+    args: 
+      chdir: "/opt/"
+    with_items:
+      - "{{ output.stdout_lines }}"      
+  - debug:
+     msg: "{{ username }}"
+...

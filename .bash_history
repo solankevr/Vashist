@@ -286,3 +286,147 @@ docker run -itd ubuntu /bin/bash
 docker ps -a
 docker exec -it 9e47fb34f1fd /bin/bash
 exit
+uname -a
+ansible all -i 10.76.118.116, -m setup -u ec2-user -k
+ansible all -i 10.76.118.116, -m setup -u root -k
+ansible all 10.76.118.116, -m setup -u root -k
+ansible 10.76.118.116 -m setup -u root -k
+ansible all 10.76.118.116, -m setup -u root -k
+ansible all -i 10.76.118.116, -m setup -u root -k
+ansible all -i 10.76.118.116, -m setup -u vashist -k
+ssh root@10.76.118.116
+ansible all -i 10.76.118.116, -m setup -u vashist -k
+ansible all -i 10.76.118.116, -m setup -u vashist -k >/tmp/vash
+ls -ltr /tmp/vash
+cat /tmp/vash
+ansible all -i 10.76.118.116, -m setup -u root -k >/tmp/vash
+ansible all -i 10.76.118.116, -m setup -u root -k >/tmp/vash1
+ls -ltr /tmp/vash*
+ansible all -i 10.76.118.116, -m setup -u vashist -k >/tmp/vash
+ls -ltr /tmp/vash*
+diff /tmp/vash1 /tmp/vash
+ansible all -i 10.76.118.116, -m yum -a "name=httpd state=present" -u root -k
+ansible all -i 10.76.118.116, -m service -a "name=httpd state=started" -u root -k
+pwd
+vi index.html
+ansible all -i 10.76.118.116, -m copy -a "src=/root/index.html dest=/var/www/html/index.html mode=600" -u root -k
+ansible all -i 10.76.118.116, -m copy -a "src=/root/index.html dest=/var/www/html/index.html mode=600 owner=apache group=apache" -u root -k
+SERVER=10.76.118.116
+ansible all -i $SERVER -m copy -a "src=/root/index.html dest=/var/www/html/index.html mode=600 owner=apache group=apache" -u root -k
+su vashist
+sudo vashsit
+su - vashist
+passwd vashist
+adduser
+adduser vashist
+passwd vashsit
+passwd vashist
+su - vashist
+cd /var/www/
+su - vashist
+vi /etc/ssh/sshd_config
+su - vashist
+echo $ANSIBLE_CONFIG
+cd /etc/ansible/
+ls
+cat ansible.cfg
+clear
+cat ansible.cfg
+cat ansible.cfg | grep -i fork
+cat ansible.cfg | grep -i key
+cat ansible.cfg | grep -i log
+cat ansible.cfg | grep -i path
+cat ansible.cfg
+cat ansible.cfg | grep -v ^#
+cat ansible.cfg 
+cat ansible.cfg | more
+pwd
+cat ansible.cfg | more
+ansible-doc -1
+ansible-doc -l
+ansible-doc -s apt_rpm
+ansible-doc apt_rpm
+ansible-doc
+ansible-doc-2.7 apt_rpm
+ansible-doc -l | wc -l
+asbfdj
+stty -echo
+sxbkl
+ls
+ls -ltr
+stty echo
+slmlk
+skv;l
+ls
+ansible-doc-2.7 -l | wc -l
+ansible-doc-2.7 -l | grep setup
+ansible-doc-2.7 setup
+pwd
+ls
+vi ansible.cfg 
+ansible-doc-2.7 -l setup
+systemctl stop httpd
+which httpd
+pwd
+cd /root
+vi httpd_setup.yml
+pwd
+ls -ltr
+cat httpd_setup.yml
+vi inventory
+cat httpd_setup.yml
+cat inventory 
+vi httpd_setup.yml
+ansible-playbook httpd_setup.yml
+vi httpd_setup.yml
+ansible-playbook all -i inventory httpd_setup.yml -u vashist
+ansible-playbook -i all inventory httpd_setup.yml -u vashist
+ansible-playbook -i inventory httpd_setup.yml -u vashist
+ansible-playbook -i inventory httpd_setup.yml -u vashist -b
+ls -ltr
+chmod 755 httpd_setup.yml inventory 
+ls -ltr
+chown vashist:root httpd_setup.yml inventory
+su - vashist
+cp httpd_setup.yml /home/vashist
+cp inventory /home/vashist
+ls -ltr
+cat inventory
+cp inventory /home/vashist/inventory.1
+su - vashist
+cp -p /root/index.html /home/vashist/
+su - root
+su - vashist
+chown vashist:vashist /home/vashist/index.html
+su - vashsit
+su - vashist
+yum install git
+git init
+git config user.name solankevr
+git config user.name "solankevr@rediffmail.com"
+pwd
+ls -ltr
+git add .
+git commit -m"Adding my backp"
+git config --global user.name "solankevr"
+git config --global user.email "solankevr@rediffmail.com"
+git add .
+git commit -m"Adding my backp"
+git push HTTP-URL master
+git push https://github.com/solankevr/Vashist.git master
+ls -ltr
+cat httpd_setup.yml
+cp -p httpd_setup.yml common.yaml
+pwd
+cd /home/vashist
+ls -ltr
+git add .
+git init
+git add .
+git commit -m"Adding my backp"
+git push https://github.com/solankevr/Vashist.git master
+pwd
+ls -ltr
+cp * /root
+y
+exit
