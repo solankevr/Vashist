@@ -1,0 +1,33 @@
+VCS - Version Control System - Store the Source - Source Code Management
+Build Tools - Build Mgtm
+Packaging Mgtm
+
+Deploy to QA + STAGING + PRE PROD + PROD
+
+Install the OS ( Unix + Windows + Mac)
+Install other tools tools
+Config the env
+Install Webserver
+Install AppServer
+Deploy your package
+
+15 times in a day
+30 times a day 
+45 times 
+100 times.
+
+Chef + Puppet + Salk + Ansible = Configuration Managment tools
+
+Configuration Managment tools
+1. People
+2. Process
+3. Services
+4. Policies
+4. Hardware
+5. Software 
+etc
+
+
+
+
+

@@ -1,0 +1,50 @@
+Agent - 1 - 35.154.131.160
+
+Install JDK
+=========================
+sudo -s
+yum install wget
+yum install unzip
+wget -c --header "Cookie: oraclelicense=accept-securebackup-cookie" http://download.oracle.com/otn-pub/java/jdk/8u131-b11/d54c1d3a095b4ff2b6607d096fa80163/jdk-8u131-linux-x64.rpm
+rpm -ivh jdk-8u131-linux-x64.rpm
+
+
+Install Tomcat
+=============================
+> yum install tomcat
+> yum install tomcat-webapps tomcat-admin-webapps 
+
+# Most of the important Tomcat files will be located in /usr/share/tomcat. 
+
+# If you already have a Tomcat application that you want to run, you can place it in the /usr/share/tomcat/webapps directory, configure Tomcat, and restart the Tomcat service.
+
+> sudo vi /usr/share/tomcat/conf/tomcat.conf
+
+JAVA_OPTS="-Djava.security.egd=file:/dev/./urandom -Djava.awt.headless=true -Xmx512m -XX:MaxPermSize=256m -XX:+UseConcMarkSweepGC"
+
+> sudo systemctl start tomcat
+> sudo systemctl restart tomcat
+> sudo systemctl enable tomcat
+> sudo systemctl stop tomcat
+> sudo systemctl status tomcat
+==============
+
+unzip newrelic-java-3.47.0.zip	
+cp -rf newrelic /usr/share/tomcat
+cd /usr/share/tomcat/
+chown -R root:tomcat newrelic/
+
+vi /usr/share/tomcat/conf/tomcat.conf
+export JAVA_OPTS="-javaagent:/usr/share/tomcat/newrelic/newrelic.jar"
+export CATALINA_OPTS="-DJENKINS_HOME=/opt/tomcat/.jenkins -Xmx512m"
+JENKINS_HOME=/usr/share/tomcat/.jenkins
+
+wget http://mirrors.jenkins.io/war-stable/latest/jenkins.war
+
+=============================================================
+
+chmod +x catalina.sh
+export CATALINA_OPTS="-DJENKINS_HOME=/usr/share/tomcat/.jenkins -Xmx512m"	
+export JENKINS_HOME=/usr/share/tomcat/.jenkins
+
+https://wiki.jenkins.io/display/JENKINS/Tomcat

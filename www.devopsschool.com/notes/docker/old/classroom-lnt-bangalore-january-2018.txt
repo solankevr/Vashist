@@ -1,0 +1,155 @@
+What is Docker?
+How Docker Work?
+
+How to Use Docker?
+	Docker Engine --- Tool which enable and manage entire eco system of container?
+	Docker Images --- Base OS + APP
+	Docker Repos --- Pub Repos is place where we get images...https://hub.docker.com
+	Docker Container --- Running state of the image
+
+How to install Docker enginer?
+http://www.devopsschool.com/tutorial/docker/docker-install-and-configuration.html
+
+
+How to verify?
+> docker info
+> docker -v
+
+How to run container?
+
+How to know the list of images you?
+> docker images
+
+1. Download a docker image
+> docker pull jenkins
+
+2. Run the image
+> docker run 
+> docker run -d -p 8080:8080 -p 50000:50000 jenkins
+		web		node
+
+8080:8080
+external:internal
+
+> docker run -d -p 8081:8080 -p 50001:50000 jenkins
+> docker run -d -p 8082:8080 -p 50002:50000 jenkins
+
+How do you know running containers?
+> docker ps
+
+How to get inside the container?
+> docker exec -it <<cont-id>> /bin/bash
+> docker exec -it 9d6c8e49d6cd /bin/bash
+
+How to come out of container safetly? Without Exiting?
+> CTRL + P + Q
+
+How to stop running container?
+> docker stop cont_id
+
+How to know all containers(running + existed)
+> docker ps -a
+
+How to start a container?
+> docker start cont_id
+
+How to delete a container?
+> docker rm cont_id
+
+How to know the process runing inside a container?
+> docker top cont_id
+
+How to knwo the docker running  process log?
+> docker logs cont_id
+
+How to describe the containers?
+> docker inspect cont_id
+
+> docker help
+> docker help <command>
+
+ASSIGNEMENT
+http://www.devopsschool.com/tutorial/docker/labs/docker-lab-6.html
+
+Micro servicing
+--------------------
+How to delete images?
+> docker rmi imagename
+
+Volume
+> docker run -d -p 8080:8080 -p 50000:50000 jenkins
+> docker run -d -p 8081:8080 -p 50001:50000 -v /opt/jenkins:/var/jenkins_home jenkins
+
+USE the volument concept with Ubuntu
+
+Networking
+> docker network ls
+> docker inspect name-of-the-network
+> docker netork create <<name>>
+> docker run -it <<img-name>> --network=name /bin/bash
+
+How to create images from exisitng container?
+> docker commit -a"Rajesh" -m"For test" 78c560ec741f scmgalaxy/ub-git
+> docker commit -a"Rajesh" -m"For test" 78c560ec741f ub-git
+> docker commit -a"Rajesh" -m"For test" 78c560ec741f scmgalaxy/ub-git:1.0
+
+FROM ubuntu:14.04
+MAINTAINER Rajesh Kumar <rajesh@scmgalaxy.com>
+RUN apt-get update && apt-get install -y git
+RUN mkdir /tmp/bmc.txt
+
+docker build -t scmgalxy/sinatra1:v2 .
+
+
+
+
+ROUGHH
+===========
+docker run -d -p 8083:8080 -p 50003:50000 jenkins
+
+docker run -v /opt:/tmp ubuntu touch "/tmp/rajesh2.txt"
+
+
+
+
+
+You Data for Course Materials
+https://goo.gl/Y99HEH
+
+About me?
+Rajesh Kumar
+Email - DevOps@RajeshKumar.xyz
+CV - http://rajeshkumar.xyz/cv/
+Mobile - +91 8105843520
+
+
+Feedback 
+https://goo.gl/Lji4Km
+
+
+
+
+
+
+
+
+
+
+
+About me?
+
+Your Feedback Matters a lot for my growth
+https://goo.gl/Lji4Km
+
+
+
+
+
+
+
+
+
+
+
+
+

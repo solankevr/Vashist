@@ -1,0 +1,76 @@
+What is Chef?
+- A Configuration management tool.
+
+What is configuration?
+- What do you find in Servers?
+
+What it manages?
+========================================
+- SERVERS
+
+How to install Chef?
+====================================================
+CENTOS - deb -i filename.deb
+CENTOS - rpm -ivh filename.rpm
+RHEL - rpm -ivh filename.rpm
+WINDOWS - filename.msi
+MAC - filename.dmg
+
+How to verify?
+========================
+chef -v
+
+Terminology
+=====================
+CHEF is tool 
+recipe - is a unit program
+	resources - is a elements in SERVER
+	HOW???
+Cookbook - is collection of recipe
+
+Write a recipe
+	INGREDN === resources
+	Process == HOW?
+Mul Recipes -  Cookbook
+
+====================================
+RECIPE -- RESOURCES + HOW
+
+What is RESOURCES?
+RESOURCES?	Action--------
+file		UPDATE - CREATE(D) - DELETE 
+directory	UPDATE - CREATE(D) - DELETE
+package		Install(D) - remove - upgrade
+services	START - STOP - RESTARTS - NOTHING(D)
+=========================================
+Recipe file name - filename.rb
+================================
+file 'test.txt' do
+	action :delete
+end
+
+file 'test1.txt' do
+	content "This is my first chef program"
+
+end
+
+=================================
+
+How can you run a single recipe?
+> chef-apply filename.rb
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

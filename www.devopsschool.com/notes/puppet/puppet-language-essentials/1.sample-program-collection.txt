@@ -1,0 +1,218 @@
+puppet-service.pp
+========================================
+service { 'puppet':
+  ensure => 'stopped',
+  enable => 'false',
+}
+
+
+files.pp
+========================================
+File {
+  owner  => 'root',
+  group  => 'wheel',
+  mode   => '0664',
+  ensure => 'file',
+}
+
+file { '/tmp/puppet':
+  ensure => 'directory',
+}
+
+file { '/tmp/puppet/file1': }
+file { '/tmp/puppet/file2': }
+file { '/tmp/puppet/file3': 
+  mode => '0775'
+  
+user.pp
+==================================
+user { 'bob':
+  managehome => true,
+  groups     => ['wheel', 'users'],
+  password   => pw_hash('Password1','SHA-512','random'),
+}
+
+group.pp
+==================================
+group { 'admins':
+  ensure => 'absent',
+}
+
+host.pp
+=====================
+host { 'timeserver':
+  ip           => '192.168.0.3',
+  host_aliases => 'tock',
+}
+
+ntp1.pp
+==================================
+$ntp_conf = '#Managed by puppet
+server 192.168.0.3 iburst
+driftfile /var/lib/ntp/drift
+'
+package { 'ntp': }
+
+file { '/etc/ntp.conf':
+  ensure  => 'file',
+  content => $ntp_conf,
+  owner   => 'root',
+  group   => 'wheel',
+  mode    => '0664',
+}
+
+service {'NTP_Service':
+  ensure => 'running',
+  enable => true,
+  name   => 'ntpd'
+}
+
+ssh.pp
+=========================================
+ssh_authorized_key { 'tux@centos7':
+  user => 'tux',
+  type => 'ssh-rsa',
+  key  => 'AAAAB3NzaC1yc2EAAAADAQABAAABAQDjbq7zajLXcNtGpFASPDuYH4VKxUlcnhomW0U8VphOUygckrGBfqlDXbAIFBJhx0yWJLsb7GV82dCgqtRRM2zGd3shc+UuMUPdVAojbLBVFxoL+GxoXY1VU0sq1lOuva6sF6ZPwsTEm22i/xHbQ2RZ2MtaXgq8wDf2mL852gF8rPylXoQ4BQjc62EcuSRyI1P1VlILzKyb9hCDKzNoustanAb6lkCIElj4Y3LwvmToAg957zMHsTbvSyOILPAMoCT5vXJ+YVHYM07Z1jgTVVmGy3S8h0Pn/3Gs44VynaEYyCnPgh9OaHC79dTJ9ehma93FRCb6ab+GPi6RLgTLLQT1',
+}
+
+
+
+====================================================
+====================================================
+facts.pp
+========================================
+$display = @("END")
+
+Family: ${facts['os']['family']}
+OS: ${facts['os']['name']}
+Version: ${facts['os']['release']['full']}
+END
+
+notify { $display : }
+
+parts.pp
+================================
+each ( $facts['partitions'] ) | $devname, $devprops | {
+  if $devprops['mount'] {
+    notify { "Dev: ${devname} is ${devprops['size']}": }
+  }
+}
+
+ntp3.pp
+===============================
+#Manage NTP on CentOS and Ubuntu hosts
+
+$ntp_conf = @(END) 
+#Managed by puppet
+server 192.168.0.3 iburst prefer
+server uk.pool.ntp.org
+driftfile /var/lib/ntp/drift
+END
+
+case $facts['os']['family'] {
+  'RedHat': {
+    $ntp_service = 'ntpd'
+    $admingroup = 'wheel'
+  }
+  'Debian': {
+    $ntp_service = 'ntp'
+    $admingroup = 'sudo'
+  }
+  default : {
+    fail("Your ${facts['os']['family']} is not supported")
+  }
+}
+
+package { 'ntp': }
+
+File {
+  owner  => 'root',
+  group  => $admingroup,
+  mode   => '0664',
+  ensure => 'file',
+}
+
+file { '/etc/ntp.conf':
+  content => $ntp_conf,
+}
+
+service {'NTP_Service':
+  ensure => 'running',
+  enable => true,
+  name   => $ntp_service,
+}
+
+===========================================================
+ntpremove.pp
+=========================================================
+package { 'ntp':
+  ensure => 'purged',
+}
+
+file { '/etc/ntp.conf':
+  ensure  => 'absent',
+}
+
+userremove.pp
+===============================
+user { 'bob':
+  managehome => true,
+  ensure     => 'absent',
+}
+
+group { 'it':
+  ensure => 'absent',
+}
+===========================================================
+ntpfinal.pp
+=========================================================
+#Manage NTP on CentOS and Ubuntu hosts
+
+$ntp_conf = @(END) 
+#Managed by puppet - do not edit
+server 192.168.0.3 iburst prefer
+server uk.pool.ntp.org
+driftfile /var/lib/ntp/drift
+END
+
+case $facts['os']['family'] {
+  'RedHat': {
+    $ntp_service = 'ntpd'
+    $admingroup = 'wheel'
+  }
+  'Debian': {
+    $ntp_service = 'ntp'
+    $admingroup = 'sudo'
+  }
+  default : {
+    fail("Your ${facts['os']['family']} is not supported")
+  }
+}
+
+package { 'ntp':
+  before => File['/etc/ntp.conf'],
+}
+
+File {
+  owner  => 'root',
+  group  => $admingroup,
+  mode   => '0664',
+  ensure => 'file',
+}
+
+file { '/etc/ntp.conf':
+  content => $ntp_conf,
+  notify  => Service['NTP_Service'],
+}
+
+service {'NTP_Service':
+  ensure    => 'running',
+  enable    => true,
+  name      => $ntp_service,
+  subscribe => File['/etc/ntp.conf'],
+}
+
+
+
+
+  

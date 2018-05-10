@@ -1,0 +1,13 @@
+What is Ansible?
+What is config mgmt tool?
+What is there in the server which config can be managed by the Ansible?
+WHY DO WE NEED ANSIBLE?
+MANAGE THE CONFIG OF LARGE MACHINE 
+MANAGING THE STATE OF THE RESOURCES.
+USE OF ANSIBLE
+	IT ENGINEER -
+	DEV TEAM
+ROLES IN ANSIBLE?
+	DEV 
+	ADMIN
+How to Install Ansible?

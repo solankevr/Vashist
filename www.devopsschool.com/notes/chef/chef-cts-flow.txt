@@ -1,0 +1,32 @@
+Day 1 - 
+	Chef Programming Essential		DONE
+Day 2 -
+	Chef Attributes 			DONE
+	Chef Conditional Programming		DONE		
+	Chef Subscribe and Notifies		DONE
+	Chef Supermarket			DONE		
+	Ohia					DONE			
+
+	Know the CHEF INFRA			DONE
+	Setting up Chef Server			DONE
+	Chef Server Complete Workflow		DONE
+	
+Day 3 - YOU ARE BEING A ADMIN....
+	Before Lunch=========
+	Chef Environment		DONE
+	Chef Roles			DONE
+
+	After Lunch==========
+	Chef Solo			DONE				
+	CHef Foodcritic			DONE
+	Chef Databags			DONE			
+	Course Materials		DONE
+	About me?			DONE
+	Feedback			DONE 20% - 80%
+	Test Kitchen			DONE
+	QA
+	=========================================================
+	ANY QUESTION
+	=========================================================
+
+

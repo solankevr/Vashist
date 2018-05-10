@@ -1,0 +1,56 @@
+Why Jenkins?
+
+
+Git- Src Code
+Ant - Src code into binary
+Maven - 
+
+
+Jenkins - Web Based Framework - FOr Build, test, Deploy - CI Tool
+
+
+Open Source 
+=============================
+CruseControl -
+COntinum
+Hudson-
+Jenkins -
+
+Commercials
+==============
+AnthillPro
+uBuild
+Bamboo
+TeamCity
+BuildForger
+
+
+HOw to install it?
+=================================
+JDK 1.7 min
+http://jenkins-ci.org/
+
+How can you verif
+
+ps -eaf | grep -i jenkins
+
+Linux -
+
+
+ANT BASED
+MAVEN BASED
+
+SRC CODE
+github
+ANT
+Compiler
+
+
+
+
+
+
+
+TODO -
+
+How to create a VM?

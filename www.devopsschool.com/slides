@@ -1,0 +1,102 @@
+<html>
+	<head>
+		<title></title>
+	</head>
+	<body>
+		<ol>
+			<li>
+				<h3>
+					<a href="http://devopsschool.com/slides/chef/index.html">Chef</a></h3>
+			</li>
+			<li>
+				<h3>
+					<a href="http://devopsschool.com/slides/docker/index.html">Docker Fundamental</a></h3>
+			</li>
+			<li>
+				<h3>
+					<a href="http://devopsschool.com/slides/gerrit/index.html">Gerrit</a></h3>
+			</li>
+			<li>
+				<h3>
+					<a href="http://devopsschool.com/slides/git/index.html">Git&nbsp;</a></h3>
+			</li>
+			<li>
+				<h3>
+					<a href="http://devopsschool.com/slides/git-fundamental/index.html">Git Fundamental</a></h3>
+			</li>
+			<li>
+				<h3>
+					<a href="http://devopsschool.com/slides/nant/index.html">Nant</a></h3>
+			</li>
+			<li>
+				<h3>
+					<a href="http://devopsschool.com/slides/apache-antv1/index.html">Apache Ant v1</a></h3>
+			</li>
+			<li>
+				<h3>
+					<a href="http://devopsschool.com/slides/apache-antv2/index.html">Apache Ant v2</a></h3>
+			</li>
+			<li>
+				<h3>
+					<a href="http://devopsschool.com/slides/apache-antv3/index.html">Apache Ant v3</a></h3>
+			</li>
+			<li>
+				<h3>
+					<a href="http://devopsschool.com/slides/apache-antv4/index.html">Apache Ant v4</a></h3>
+			</li>
+			<li>
+				<h3>
+					<a href="http://devopsschool.com/slides/nuget/index.html">Nuget</a></h3>
+			</li>
+			<li>
+				<h3>
+					<a href="http://devopsschool.com/slides/devops1/index.html">DevOps V1</a></h3>
+			</li>
+			<li>
+				<h3>
+					<a href="http://devopsschool.com/slides/devops2/index.html">DevOps V2</a></h3>
+			</li>
+			<li>
+				<h3>
+					<a href="http://www.devopsschool.com/slides/maven/">Maven</a></h3>
+			</li>
+			<li>
+				<h3>
+					<a href="http://www.devopsschool.com/slides/ruby-fundamental/index.html">Ruby Fundamental</a></h3>
+			</li>
+           	<li>
+				<h3>
+					<a href="http://www.devopsschool.com/slides/splunk/index.html">Splunk</a>
+                </h3>
+			</li>
+            
+                     	<li>
+				<h3>
+					<a href="http://www.devopsschool.com/slides/elbk/index.html">Elastic Logstash Beans Kibana</a>
+                </h3>
+			</li>
+            
+             <li>
+				<h3>
+					<a href="http://www.devopsschool.com/slides/aws/index.html">AWS</a>
+                </h3>
+			</li>
+			
+			<li><h3><a href="http://www.devopsschool.com/slides/puppet/">Puppet</a></h3></li>
+			<li><h3><a href="http://www.devopsschool.com/slides/ansible/">Ansible</a></h3></li>
+			<li><h3><a href="http://www.devopsschool.com/slides/kubernetes/">Kubernetes</a></h3></li>
+			<li><h3><a href="http://www.devopsschool.com/slides/microservices/">Microservices</a></h3></li>
+            <li><h3><a href="http://www.devopsschool.com/slides/jenkins/">Jenkins</a></h3></li>
+            <li><h3><a href="http://www.devopsschool.com/slides/elbk/">ELBK - Elastic - LogStash - Beats - Kibana</a></h3></li>
+            <li><h3><a href="http://www.devopsschool.com/slides/jira/">Jira</a></h3></li>
+				
+					
+				
+			
+			
+			
+			
+		</ol>
+	</body>
+</html>
+

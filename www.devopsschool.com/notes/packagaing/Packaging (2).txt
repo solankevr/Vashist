@@ -1,0 +1,153 @@
+Windows - Zip + tar + exe + msi 
+EXE + MSI = InstallShied + Wise Installer + InstallAnywhere + VS
+
+Windows Developer - NUget (DO NET) - 
+
+
+Mac - Zip + Tar + dmg
+
+Linux -
+	RHEL/CENTOS - RRM
+	Ubantu/Deb - deb
+	
+How can you use it?
+Repository - 
+Window - Nuget.org
+RHEL - yum
+Ub - apt
+Maven - repository
+
+Nexus | Artictory
+
+
+Central Repostory < -- Local repos (commands)
+
+----------------- > Local rep
+
+
+RPM - 
+
+How to use RPM?
+Installation
+rpm –ihv <package name>
+
+Upgrade
+rpm –Uhv <package name>
+
+Freshen
+rpm –Fhv <package names…>
+
+Erase
+rpm –e <package name>
+
+rpm -qi 
+
+=======================
+
+yum central repos -
+
+Local repos 
+
+
+yum install git (installing from the local repos)
+yum update (updated file from central repos)
+yum remove git
+yum list
+
+apt-get install git
+apt-get update
+apt-get remove git
+
+
+How to build RPM package?
+================================
+rpmbuild
+
+SOURCES - Src code (.java)
+RPMS
+SRPMS
+SPEC -  xCode.spec
+BUILD ( binary file (class file)
+
+
+xCode.spec
+===============================
+
+Package name
+Description
+author
+Copyright
+version
+
+SOURCE
+
+BUILD
+
+
+
+rpmbuild –ba  –  build binary and source rpms
+rpmbuild –bb  –  build binary rpm
+rpmbuild –bs  –  build source rpm
+
+
+rpm
+
+
+
+WAR - 
+
+
+DEBIAN - 
+
+dpkg -i package_file.deb
+dpkg -r package_name.deb
+dpkg -p package_name
+
+apt-get install git
+apt-get update
+apt-get remove git
+
+
+
+
+
+
+yum - /etc/yum.conf
+apt = /etc/apt/sources.list
+
+	/etc/init.d/yum
+
+How to setup up?
+
+Private Repostory - 
+
+Nexus | Artifactory | Archiva
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,17 @@
+Sonatype Nexus
+jenkins
+Maven
+DevOps
+Nagios
+SVN
+MONITORING IN LINUX
+Chef
+Puppet
+Git
+Artifactory
+---------------------
+Docker
+Kubernets
+Jenkins
+Ansible
+AWS

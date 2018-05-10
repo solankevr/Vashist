@@ -1,0 +1,15 @@
+In NODE
+=====================
+cd .chef
+mkdir trusted_certs
+
+FROM CHEF SERVER
+=====================
+Copy file from SERVER TO NODE
+===========================================
+scp /var/opt/opscode/nginx/ca/172.28.3.139.crt root@172.28.3.127:/root/Surendra/chef-repo/.chef/trusted_certs/
+
+ANOTHER WAY
+==========================
+unset https_proxy
+knife ssl fetch http://IP-ADDRESS

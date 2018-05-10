@@ -1,0 +1,49 @@
+DATA BAG
+DATA BAG ITEM
+DATA BAG ITEM ELEMENTS
+
+knife data bag create cts_data_bag
+knife data bag create cts_data_bag cts_data_bag_item
+
+
+knife download data_bags
+knife data bag from file BAG_NAME ITEM_NAME.json
+knife data bag from file cts_data_bag cts_data_bag_item
+
+What Json Contents:
+{  
+   'id': 'cts_data_bag_item',
+   'name': "rajesh kumar"
+}
+
+knife search cts_data_bag  ("*:*")
+knife search cts_data_bag "(*)"
+knife search cts_data_bag "(NOT id:admin_users)"
+
+# => variable 'boy' is set to the cts_data_bag data bag item
+boy = search(:cts_data_bag, "id:cts_data_bag_item").first
+
+boy["name1"]
+# => "ops"
+charlie["shell"]
+# => "/bin/zsh"
+
+ANOTHER EXAMPLE
+=============================
+boy = search(:cts_data_bag, "id:cts_data_bag_item").first
+package "httpd"
+
+service "httpd" do
+        action :start
+end
+
+file '/var/www/html/index.html'  do
+        content "This is php version - #{node["version"]} -- #{boy["name1"]}"
+end
+~
+
+
+
+
+
+

@@ -1,0 +1,33 @@
+What is git?
+Git is source mgmt tool.
+
+Why GIT?
+
+How to install git?
+CENTOS| RHEL
+> sudo yum install git
+
+UBANTU
+> sudo apt-get install git
+
+Windows - 
+
+How t verify?
+> git -v
+
+How to start working with git?
+1. Create a repo
+> git init
+
+2. adding a files
+> git add filename
+
+3. Set the user.name & user.email
+> git config user.name "Rajesh"
+> git config user.email "rajesh@scmgalaxy.com"
+
+4. commit a file
+> git commit -m"This is my first commit"
+
+
+

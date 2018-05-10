@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Prerequisites for TeamCity Training</title>
+
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+	<!-- Favicon -->
+    <link rel="shortcut icon" type="image/icon" href="../../assets/images/favicon.ico"/>
+    <!-- Font Awesome -->
+    <link href="../../assets/css/font-awesome.css" rel="stylesheet">
+        
+    <!-- Slick slider -->
+    <link rel="stylesheet" type="text/css" href="../../assets/css/slick.css"/> 
+    <!-- Fancybox slider -->
+    <link rel="stylesheet" href="../../assets/css/jquery.fancybox.css" type="text/css" media="screen" /> 
+    <!-- Animate css -->
+    <link rel="stylesheet" type="text/css" href="../../assets/css/animate.css"/>  
+    
+     <!-- Theme color -->
+    <link id="switcher" href="../../assets/css/theme-color/default-theme.css" rel="stylesheet">
+	<!-- Main Style -->
+    <link href="../../style2.css" rel="stylesheet">
+<script type="text/javascript">
+$(document).ready(function(){
+    removeSection = function(e) {
+    	$(e).parents(".section").remove();
+        $('[data-spy="scroll"]').each(function(){
+            var $spy = $(this).scrollspy("refresh");
+        });
+    }
+    $(".scroll-area").scrollspy({target: "#myNavbar"});
+    $("#myNavbar").on("activate.bs.scrollspy", function () {
+        var currentItem = $(".nav li.active > a").text();
+        $("#info").empty().html("Currently you are viewing - " + currentItem);
+    })
+});
+</script>
+<style type="text/css">
+.scroll-area {
+	height: 500px;
+	position: relative;
+	overflow: auto;
+}
+</style>	
+</head>
+<body>
+
+	<!-- SCROLL TOP BUTTON -->
+		<a class="scrollToTop" href="#"><i class="fa fa-angle-up"></i></a>
+	<!-- END SCROLL TOP BUTTON -->
+
+	<!-- Start header -->
+		<header id="header">
+    <!-- header top search -->
+    
+    <!-- header bottom -->
+    <div class="header-bottom">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-6 col-sm-6 col-xs-6">
+            <div class="header-contact">
+              <ul>
+                <li>
+                  <div class="phone">
+                    <a href="http://www.scmgalaxy.com/events/register/index.html" target="_blank"><span class="glyphicon glyphicon-hand-right"></span> 
+                    Register Online Course</a>
+                 </div>
+                </li>
+                <li>
+                  <div class="mail">
+                    <a href="http://www.scmgalaxy.com/events/workshops/index.html" target="_blank"><span class="glyphicon glyphicon-hand-right"></span>
+                    Register Classroom Course</a>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-md-6 col-sm-6 col-xs-6">
+            <div class="footer-right">
+				<a href="https://www.facebook.com/scmgalaxy/" target="_blank"><i class="fa fa-facebook"></i></a>
+				<a href="https://twitter.com/scmgalaxy" target="_blank"><i class="fa fa-twitter"></i></a>
+				<a href="https://scmgalaxy.wordpress.com/" target="_blank"><i class="fa fa-wordpress"></i></a>
+				<a href="http://scmgalaxy.blogspot.in/" target="_blank"><i class="fa fa-chrome"></i></a>
+				<a href="http://www.slideshare.net/scmgalaxy" target="_blank"><i class="fa fa-slideshare"></i></a>
+				<a href="https://www.pinterest.com/scmgalaxy/" target="_blank"><i class="fa fa-pinterest"></i></a>
+				<a href="https://del.icio.us/scmgalaxy" target="_blank"><i class="fa fa-delicious"></i></a>
+				<a href="https://github.com/scmgalaxy" target="_blank"><i class="fa fa-github"></i></a>
+				<a href="https://plus.google.com/113308486952865913652" target="_blank"><i class="fa fa-google-plus"></i></a>
+				<a href="https://www.youtube.com/scmgalaxy"  onclick="window.open('https://www.youtube.com/scmgalaxy', 'newwindow', 'width=500, height=450'); return false;"><i class="fa fa-youtube"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+  <!-- End header -->
+    <!-- BEGIN MENU -->
+  <section id="menu-area">      
+    <nav class="navbar navbar-default" role="navigation">  
+      <div class="container">
+        <div class="navbar-header">
+          <!-- FOR MOBILE VIEW COLLAPSED BUTTON -->
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <!-- LOGO -->              
+        <!-- TEXT BASED LOGO 
+          <a class="navbar-brand" href="http://www.scmgalaxy.com/">scmGalaxy</a>   -->           
+          <!-- IMG BASED LOGO  -->
+           <a class="navbar-brand" href="http://www.scmgalaxy.com/"><img src="../../assets/images/logo.png" alt="logo"></a>                   
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul id="top-menu" class="nav navbar-nav navbar-right main-nav">
+            <li><a href="http://www.scmgalaxy.com/">Home</a></li>          
+            <li><a href="http://www.scmgalaxy.com/tutorials" target="_blank">Tutorials</a></li>
+			<li><a href="http://www.scmgalaxy.com/events" target="_blank">Events</a></li>
+            <li><a href="http://www.scmgalaxy.com/forum.html" target="_blank">Forum</a></li>
+			<li><a href="http://www.scmgalaxy.com/testimonials.html" target="_blank">Testimonials</a></li>
+			<li class="active"><a href="http://www.scmgalaxy.com/courses" target="_blank">Courses</a></li>
+            <li><a href="http://www.scmgalaxy.com/contact">Contact</a></li>
+          </ul>                     
+        </div><!--/.nav-collapse -->
+      </div>     
+    </nav>
+  </section>
+  <!-- END MENU -->
+	
+		<!-- Start single page header -->
+			  <section id="single-page-header">
+				<div class="overlay">
+				  <div class="container">
+					<div class="row">
+					  <div class="col-md-6 col-sm-6 col-xs-12">
+						<div class="single-page-header-left">
+						  <h2>Prerequisites for TeamCity</h2>
+						</div>
+					  </div>
+					  <div class="col-md-6 col-sm-6 col-xs-12">
+						<div class="single-page-header-right">
+						  <ol class="breadcrumb">
+							<li><a href="http://www.scmgalaxy.com/">Home</a></li>
+							<li>Our courses</li>
+							<li class="active">Prerequisites for TeamCity</li>
+						  </ol>
+						</div>
+					  </div>
+					</div>
+				  </div>
+				</div>
+			  </section>
+		<!-- End single page header -->
+<section id="portfolio">
+<div class="container">
+	<br/>
+    <nav id="myNavbar" class="navbar navbar-default" role="navigation"> 
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbarCollapse"> 
+                <span class="sr-only">Toggle navigation</span> 
+                <span class="icon-bar"></span> 
+                <span class="icon-bar"></span> 
+                <span class="icon-bar"></span> 
+            </button>
+            <a class="navbar-brand" href="#">Prerequisite</a>
+        </div>
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="nav navbar-nav">
+                <li class="active"><a href="#section-1">Hardware</a></li>
+                <li><a href="#section-2">Software</a></li>
+				<li><a href="#section-3">Others</a></li>
+				<li><a href="#section-4">Help for Lab Setup Team</a></li>
+            </ul>
+        </div>
+    </nav>
+    <div class="scroll-area" data-spy="scroll" data-offset="0">
+    	<div class="section">
+            <h3 id="section-1">Hardware - Prerequisites</h3>
+            <p>
+ 		<h4> CENTOS 7: Number of Machine - 2 </h4>
+		<h4> Windows 7: Number of Machine - 1 </h4>
+        <dd class="well well-sm">Every machine should have 3 VM's with Centos 7 version. </dd>
+        <dd class="well well-sm">Each VM should be able to connect with Internet and Internal corporate proxy should be set accordingly.</dd>
+		<dd class="well well-sm">Every VM Machine must have minimum 2GB Ram</dd>
+        <dd class="well well-sm">Every Base Machine (Windows Machine) should have Putty, Oracle VirtualBox and WinScp Installed</dd>
+		<dd class="well well-sm">Every Base Machine (Windows Machine) should have at least 8GB RAM</dd>
+		<dd class="well well-sm">Every VM should have fully qualified hostname which should be pinged each other VMs and Host Machine.</dd>
+		<dd class="well well-sm">Every VM should have bridge network preferred</dd>
+		<dd class="well well-sm">Every VM should have static IP setup resolving to Bridge connected</dd>
+		<dd class="well well-sm">Each Machine should have “sudo yum update” run in full cycle.</dd>
+		<dd class="well well-sm">Corporate Proxy server:port should be available to use by participants in case of download limitation and firewall.</dd>
+
+    </p>
+         </div>
+
+        <hr>
+        
+		<div class="section">
+            <h3 id="section-2">Software - Prerequisite</h3>
+            <p> 
+		<b>Following tools should be installed </b>		
+        
+        <dd class="well well-sm">CentOS VM - http://isoredirect.centos.org/centos/7/isos/x86_64/CentOS-7-x86_64-Everything-1511.iso</dd>
+        <dd class="well well-sm">Putty - http://www.putty.org/</dd>
+		<dd class="well well-sm">WinSCP - https://winscp.net/eng/download.php</dd>
+		<b>Following tools should be Copied to Shared Drive </b>
+		<dd class="well well-sm">Team City Professional Distribution - Version: 10.0.2 - Window- https://download.jetbrains.com/teamcity/TeamCity-10.0.2.exe</dd>
+		<dd class="well well-sm">Team City Professional Distribution - Version: 10.0.2 - Window- https://download.jetbrains.com/teamcity/TeamCity-10.0.2-installer.zip</dd>
+		<dd class="well well-sm">Team City Professional Distribution - Version: 10.0.2 - Linux- https://download.jetbrains.com/teamcity/TeamCity-10.0.2.tar.gz</dd>
+		<b>Following Commands should be run in Centos 7</b>
+		<p>Docker in Centos, Please run follwing commands.</p>
+<pre><code>	
+$ sudo yum update
+$ sudo tee /etc/yum.repos.d/docker.repo <<-'EOF'
+[dockerrepo]
+name=Docker Repository
+baseurl=https://yum.dockerproject.org/repo/main/centos/7/
+enabled=1
+gpgcheck=1
+gpgkey=https://yum.dockerproject.org/gpg
+EOF
+$ sudo yum install docker-engine
+$ sudo systemctl enable docker.service
+$ sudo systemctl start docker
+$ docker pull jetbrains/teamcity-server
+</code></pre>
+       </p>
+        </div>
+        <hr>
+		
+        <div class="section">
+            <h3 id="section-3">Others   Prerequisite</h3>
+            <p><dt></dt>
+        <dd class="well">Internet Speed - Each Box should have at least 8MBPS internet speed.</dd>
+    </p>
+        </div>
+        <hr> 
+		
+		        <div class="section">
+            <h3 id="section-4">Help for Lab Setup Team</h3>
+			  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>Topics</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td><a href="http://www.scmgalaxy.com/index.php?option=com_k2&view=item&id=1017" target="_blank">Configuring Web Proxy on CentOS</a></td></tr>
+	  <tr><td><a href="http://www.scmgalaxy.com/index.php?option=com_k2&view=item&id=1008" target="_blank">Setting the proxy configuratin in Linux and Windows</a></td></tr>
+	  <tr><td><a href="https://www.youtube.com/watch?v=Pcl417NR2xc" target="_blank">Installing Centos7 in Oracle VM VirtualBox</a></td></tr>
+	</tbody>
+  </table>
+        </div>
+        <hr> 
+        
+        </div>
+    </div>
+</div></p>
+
+        </div>
+    </div>
+    <hr>
+    <h4 id="info" class="text-info">Currently you are viewing - Section 1</h4>
+</div>
+</section>
+	<!-- Start footer -->
+	  <footer id="footer">
+		<div class="container">
+		  <div class="row">
+			<div class="col-md-4 col-sm-6">
+			  <div class="footer-left">
+			   <p>Designed by <a href="http://www.scmgalaxy.com/">scmGalaxy.com</a></p>
+			  </div>
+			</div>
+			<div class="col-md-8 col-sm-6">
+			  <div class="footer-right">
+				<a href="http://www.scmgalaxy.com/" target="_blank">Home</a>
+				<a href="http://www.scmgalaxy.com/tutorials" target="_blank">Tutorials</i></a>
+				<a href="http://www.scmgalaxy.com/events" target="_blank">Events</a>
+				<a href="http://www.scmgalaxy.com/forum.html" target="_blank">Forum</a>
+				<a href="http://www.scmgalaxy.com/testimonials.html" target="_blank">Testimonials</a>
+				<a href="http://www.scmgalaxy.com/courses" target="_blank">Courses</a>
+				<a href="http://www.scmgalaxy.com/contact" target="_blank">Contact</a>
+			  </div>
+			</div>
+		  </div>
+		</div>
+	  </footer>
+	<!-- End footer -->
+</body>
+</html>                                		

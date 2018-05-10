@@ -1,0 +1,75 @@
+Why Package Mgmt?
+
+System level based packaging
+Application baced
+---Nexus
+
+Windows - zip, Tar, exe, msi ( installAnywhere, InstallShield, Wise, VS)
+Mac - dmg - 
+Linux-
+	RHEL - rpm (rpmbuild)
+	Ubantu - DEB (deb)
+
+install + remove + updregade + Encapsulation
+
+
+Dependency mgtm During Install
+Centralized Place for all the package
+Consitency for all package
+
+Repostory Concept -----
+NUget
+Apple stror
+yum
+apt-get
+
+Central ---> local repos
+git1.6
+git1.7
+
+
+Mobile - Google play
+
+
+yum install git
+yum remove package
+yum update
+
+apt-get install package
+apt-get remove package
+
+dpkh -i packageame.deb
+dpkg -r package.deb
+
+rpm -i file.rpm
+rpm -e file.rpm
+
+How to create RPM?
+rpmbuild
+
+SOURCE - Src code
+RPM
+SRPM
+BUILD - Binary Code
+SPEC - file.spec
+
+
+Assignment ----
+Setup nexus server and upload few application using Maven
+Create one dummy rpm file "myXSoft.rpm"
+Create one Central yum based repository
+Upload myXSoft.rpm in your yum repository 
+Install using "yum install myXSoft"
+
+
+
+
+
+
+
+
+
+
+
+
+

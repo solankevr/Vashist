@@ -1,0 +1,136 @@
+How to install Docker Engine?
+https://goo.gl/5j56WJ
+
+How to run Jenkins App? - ONE
+
+> docker run -d -p 8080:8080 -p 50000:50000 jenkins
+
+What is Docker Engine?
+What is Images?
+What is Repo?
+What is Container?
+
+> docker info
+==============================
+BASIC WORK FLOW
+==============================
+How to download the images?
+> docker pull jenkins
+
+How to run images which will become a container?
+> docker run -d -p 8080:8080 -p 50000:50000 jenkins
+
+-d 			Deattached mode
+-p 8080:8080 		external:internal
+-p 50000:50000 		external:internal
+jenkins			Name of the images
+
+How to list of running containers?
+> docker ps
+
+How to get inside a running container?
+> docker exec -it <<cont-id>>>
+> docker exec -it 51b20c6d5326 /bin/bash
+
+How to come out of the container without existing?
+> ctrl + p + q
+
+How to see the list of images?
+> docker images
+============================================
+
+How to use OS as a app(as a container?)
+> docker pull ubuntu
+> docker run -it ubuntu /bin/bash
+
+How to stop and start the container?
+> docker stop <<cont-id>>
+> docker start <<cont-id>>
+
+How to clean up the container?
+> docker rm <<cont-id>>
+
+How to know the running process inside the container?
+> docker top <<cont-id>>
+
+How to see the logs of the container?
+> docker logs <<cont-id>>
+
+How to know the container?? How to describe the property of container?
+> docker inspect <<cont-id>
+
+
+How to copy files from Host to Container?
+>  docker cp [OPTIONS] SRC_PATH|- CONTAINER:DEST_PATH
+>  docker cp rajesh.txt d52dd0fedc17:/tmp
+
+How to copy files from Container to host?
+> docker cp [OPTIONS] CONTAINER:SRC_PATH DEST_PATH|-
+> docker cp d52dd0fedc17:/tmp/rajesh1.txt .
+
+
+How to kill the containers?
+> docker kill <<cont-id>>
+
+How to name the containes?
+> docker run --name sap1 -it ubuntu /bin/bash
+
+How to rename the containers?
+> docker rename 34d89158e3fe sap2
+
+How to map the host mounts with containers?
+> docker run -p 8080:8080 -p 50000:50000 -v /your/home:/var/jenkins_home jenkins
+> docker run -p 8084:8080 -p 50004:50000 -v /opt/jenkins:/var/jenkins_home jenkins
+
+How to delete the images?
+> docker rmi <<image-id>>
+
+LAB  - 1 - 30 Mins
+========================
+https://goo.gl/Nd6vZe
+
+How to create a image frm Existing containers?
+> docker commit -m "Added git" -a "Rajesh Kumar" b6be4fd1c602 scmgalaxy/ubgit:v1
+
+
+How can i share this images with my friends?
+================================================
+save        Save one or more images to a tar archive (streamed to STDOUT by default)
+> docker save -o ubgit.tar 6d98fd8ad570
+
+load        Load an image from a tar archive or STDIN
+> docker load -i ubgit.tar
+
+How to tag images?
+> docker tag 6d98fd8ad570 rr
+> docker tag 6d98fd8ad570 scmgalaxy/rrrr:v1
+
+How to see the history of the images?
+> docker history <<image-id>>
+
+Push  & Pull
+---------------------------------------
+> docker login
+> docker push scmgalaxy/rrrr:v1
+
+How to create a image using Dockerfile?
+
+------------------------------------------------
+mkdir sapient
+cd sapient
+touch Dockerfile
+
+FROM ubuntu:14.04
+MAINTAINER Rajesh Kumar <rajesh@scmgalaxy.com>
+RUN apt-get update && apt-get install -y git
+RUN mkdir /tmp/sapient.txt
+
+docker build -t scmgalxy/sapient:v1 .
+
+--------------------------------------------------
+
+
+
+
+
+

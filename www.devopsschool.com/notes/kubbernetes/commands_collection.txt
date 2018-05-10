@@ -1,0 +1,215 @@
+> minikube --help
+> minikube start --kubernetes-version="v1.9.0" --vm-driver="virtualbox" --alsologtostderr
+> minikube status
+> minikube get-k8s-versions
+> minikube version
+> minikube ip 
+> minikube dashboard
+> minikube dashboard --url=true
+
+> minikube ssh
+
+[DIRECTORY]
+ Using kubeconfig:  C:\Users\Rajesh/.kube/config
+
+> kubectl cluster-info
+PS C:\WINDOWS\system32> kubectl cluster-info
+Kubernetes master is running at https://192.168.99.100:8443
+
+> kubectl version
+> kubectl get nodes
+> kubectl config
+> kubectl config current-context
+> kubectl config get-clusters
+> kubectl config get-contexts
+> kubectl config use-context minikube
+
+> kubectl get
+> kubectl get pods
+> kubectl get deployments
+> kubectl get nodes
+> kubectl get replicasets
+> kubectl get replicationcontrollers
+> kubectl get services
+
+IN DOCKER
+docker run
+
+IN Kube
+kubectl run
+
+
+> kubectl run hello-nginx --image=nginx --port=80
+
+Deployement(hello-nginx) -->ReplicaSets(hello-nginx) --> Pods(hello-nginx-556b7bf96-mlv8d) -> hello-nginx
+
+> kubectl describe nodes <nodename>
+> kubectl describe deployments <deployments-name> 
+> kubectl describe pod <podname>
+> kubectl describe replicasets <replicasets-name>
+> kubectl describe replicationcontrollers <replicationcontrollers-name>
+
+
+> kubectl describe nodes minikube
+> kubectl describe deployments hello-nginx
+> kubectl describe replicasets hello-nginx-556b7bf96
+> kubectl describe pod hello-nginx-556b7bf96-mlv8d
+
+> kubectl describe replicationcontrollers <replicationcontrollers-name>
+> kubectl describe services <services-names>
+
+> kubectl expose deployment hello-nginx --type=NodePort
+
+service "hello-nginx" exposed
+> kubectl describe services hello-nginx
+http://192.168.99.100:31289/
+
+
+What is --type
+--type='': Type for this service: ClusterIP, NodePort, LoadBalancer, or ExternalName. Default is 'ClusterIP'.
+
+> minikube service --url=true hello-nginx
+> minikube service hello-nginx
+
+> kubectl logs -h
+> kubectl logs <<pod-name>
+> kubectl logs deployment/nginx -c nginx-1 # Return snapshot logs from container nginx-1 of a deployment named nginx
+>kubectl logs hello-nginx-556b7bf96-m42fq
+
+
+> kubectl scale --replicas=3 deployment/hello-nginx
+> kubectl scale --replicas=4 rs/hello-nginx-556b7bf96  ## Clarification
+kubectl scale --replicas=1 rc/<<nameofrc>> ## Clarification
+
+> kubectl get pods
+> kubectl delete pod <<nameofpod>>
+> kubectl delete pod hello-nginx-556b7bf96-mlv8d
+
+
+
+
+=================WORKING WITH FILES==================
+======================YAML==============================
+Create a pod using yaml file
+> kubectl create -f pod.yml
+
+Creare a replication controller using yaml file
+> kubectl create -f 1.pod-rc.yaml
+> kubectl create -f rc.yaml
+
+Create a deployment using yaml
+> kubectl create -f deployment.yml
+> kubectl create -f helloworld.yml
+> kubectl scale --replicas=4 deployment/helloworld-deployment
+
+Create a service yaml
+> kubectl create -f service.yml
+
+
+kubectl scale --replicas=4 -f rc.yml
+
+
+kubectl delete rc/<<nameofrc>>
+kubectl create -f filename.yml
+kubectl get deployments
+kubectl get rs
+kubectl get pods
+kubectl get pods --show-labels
+kubectl rollout status deployent/<<depname>>
+kubectl expose deployment <<nameofdep>> --type=NodePort
+kubectl get service
+kubectl describe <<servicename>>
+kubectl set image deployment/<<Depname>> k8-demo=wardviaene/k8s-demo:2
+kubectl rollout status deployent/<<depname>>
+kubectl rollout history deployent/<<depname>>  
+kubectl rollout undo deployent/<<depname>>
+kubectl edit deployment/<<nameofdep>> 
+kubectl expose deployment <<nameofdep>>
+kubectl rollout undo deployent/<<depname>> --to-revision=3
+
+kubectl create -f helloworld.yml
+kubectl create -f helloworld-nodeport-service.yml
+
+==================================================================
+Get information about all running pods
+> kubectl get pod
+
+Describe one pod
+> kubectl describe pod <pod>
+
+Expose the port of a pod (creates a new service)
+> kubectl expose pod <pod> --port=444 --name=frontend
+
+Port forward the exposed pod port to your local machine
+>  kubectl port-forward <pod> 8080
+
+Attach to the pod
+> kubectl attach <podname> -i
+
+Execute a command on the pod
+> kubectl exec <pod> -- command
+
+Add a new label to a pod
+> kubectl label pods <pod> mylabel=awesome
+
+Run a shell in a pod - very useful for debugging
+> kubectl run -i --tty busybox --image=busybox --restart=Never -- sh
+
+Get information on current deployments
+> kubectl get deployments
+
+Get information about the replica sets
+> kubectl get rs
+
+get pods, and also show labels attached to those pods
+> kubectl get pods --show-labels
+
+Get deployment status
+> kubectl rollout status deployment/helloworld-deployment
+
+Run k8s-demo with the image label version 2
+> kubectl set image deployment/helloworld-deployment
+> k8s-demo=k8s-demo:2
+
+Edit the deployment object
+> kubectl edit deployment/helloworld-deployment
+
+Get the status of the rollout
+> kubectl rollout status deployment/helloworld-deployment
+
+Get the rollout history
+> kubectl rollout history deployment/helloworld-deployment
+
+Rollback to previous version
+> kubectl rollout undo deployment/helloworld-deployment
+
+Rollback to any version version
+> kubectl rollout undo deployment/helloworld-deployment --to-revision=n
+
+
+
+
+=========================================================================
+kops create cluster --name=kubernetes.newtech.academy --state=s3://kops-state-b429b --zones=eu-west-1a --node-count=2 --node-size=t2.micro --master-size=t2.micro --dns-zone=kubernetes.newtech.academy
+
+kops update cluster kubernetes.newtech.academy --yes --state=s3://kops-state-b429b
+
+kops delete cluster --name kubernetes.newtech.academy --state=s3://kops-state-b429b
+
+kops delete cluster --name kubernetes.newtech.academy --state=s3://kops-state-b429b --yes
+
+
+==================================================
+AWS COMMANDS
+=================================================
+aws ec2 create-volume --size 10 --region us-east-1 --availability-zone us-east-1a --volume-type gp2
+
+
+=============================Kubernetes on AWS with kops===========================
+export CLUSTER_NAME="example.cluster.k8s.local"
+export KUBERNETES_VERSION="https://storage.googleapis.com/kubernetes-release/release/v1.9.0/"
+export AWS_DEFAULT_REGION=${AWS_DEFAULT_REGION:-us-east-1}
+export AWS_AVAILABILITY_ZONES="$(aws ec2 describe-availability-zones --query 'AvailabilityZones[].ZoneName' --output text | awk -v OFS="," '$1=$1')"
+export S3_BUCKET=${S3_BUCKET:-kops-state-store-$(cat /dev/random | LC_ALL=C tr -dc "[:alpha:]" | tr '[:upper:]' '[:lower:]' | head -c 32)}
+export KOPS_STATE_STORE=s3://$S3_BUCKET
+

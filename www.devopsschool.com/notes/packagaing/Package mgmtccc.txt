@@ -1,0 +1,55 @@
+Package Mgtm Concept 
+
+System Based -----------------------------
+Windows
+	- MSI(WiseStudio, installanywhere, installshild, wix, VS) , EXE(WiseStudio, installanywhere, installshild, wix, VS ), ZIP, TAR
+Linux
+	- CENTOS/RHEL
+		- RPM (rpmbuild)
+	- UBANTU
+		- DEB ()
+	- DEB
+		- DEB
+Mac
+	- DMG
+
+Download - from 10 Diff location - 10 diff location location
+	1. Avoid Complexity
+	2. Dependency
+
+Concept - Respostory ---- 10000 packages...
+=================================================
+
+Windows
+	- nuget(nuget)
+Linux
+	- CENTOS/RHEL
+		- yum
+			--- yum install git | ant | maven | java
+			--- yum remove git
+			--- yum update git
+	- UBANTU
+		- apt
+			--- apt-get install git 
+			---- apt-get remove git
+			---- apt-get update git
+	- DEB
+		- 
+Mac
+	- DMG
+
+NEXUS |
+
+
+Application Packaging of Java - JAR, EAR | WAR
+
+
+--------------------------------------------
+Mobile ------
+Google Play - Repository - .apk
+Apple Store - 
+Intel Store
+
+Nagios - 
+CICD -
+Shell Scripting ---

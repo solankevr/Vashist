@@ -1,0 +1,246 @@
+IP - 13.127.107.93
+
+1. Docker Engine
+2. Docker images
+3. Container
+4. Docker Repo
+
+How to install Docker Engine?
+http://www.devopsschool.com/tutorial/docker/docker-install-and-configuration.html
+
+
+What is the first commnads?
+> docker info
+
+WHAT IS YOUR APP
+=================================================
+ngnix - jenkins - sonarqube 
+
+Where is public repo?
+https://hub.docker.com/
+
+Private - Artifactory | Nexus
+
+How to download images?
+> docker pull jenkins
+
+How to check the list of images?
+> docker images
+
+How to run images to get containers?
+> docker run 
+> docker run -p 8080:8080 -p 50000:50000 jenkins
+> docker run -d -p 8080:8080 -p 50000:50000 jenkins
+> docker run -d -p 8090:8080 -p 50001:50000 jenkins
+
+-p == PORT SPECIFCIATION
+8080:8080 === EXTERNAL:INTERNAL
+where 
+8080 - WEB PORT
+5000 - Agent Port
+jenkins= images
+
+
+How to see the running conttainer?
+> docker ps
+
+How to know the list of all containers?
+> docker ps -a
+
+
+How to go inside a container?
+> docker exec
+> docker exec -it 16f2addfaeeb /bin/bash
+
+> docker attach
+
+
+EVERY CONTAINERS NEEDS AT LEAST OF ONE RUNNING PROCESS
+=======================================================
+
+How to come out of the container without existing?
+ctrl + P +Q 
+
+
+===================NETWORKING===================================
+172.17.0.2
+172.17.0.3
+
+root     10492 10486  0 06:34 ?        00:00:01 docker-containerd -l unix:///var/run/docker/libcontainerd/docker-containerd.sock --metrics-interval=0 --start-timeout 2m --state-dir /var/run/docker/libcontainerd/containerd --shim docker-containerd-shim --runtime docker-runc
+
+
+SERVERS
+==============================
+1 13.127.180.71
+2 35.154.234.41
+3 13.126.254.86
+4 13.127.145.31
+5 13.127.223.214
+6 13.127.203.203
+7 35.154.102.0
+8 13.127.213.59
+9 35.154.52.70
+10 13.126.5.6
+11 13.126.142.94
+12 13.127.197.143
+13 35.154.250.188
+14 35.154.72.27
+15 13.126.99.68
+=================================================
+  attach      Attach local standard input, output, and error streams to a running container
+  exec        Run a command in a running container
+  info        Display system-wide information
+  ps          List containers
+  pull        Pull an image or a repository from a registry
+  images      List images
+  cp          Copy files/folders between a container and the local filesystem
+  logs        Fetch the logs of a container
+  top         Display the running processes of a container
+  stop        Stop one or more running containers
+  start       Start one or more stopped containers
+  stats       Display a live stream of container(s) resource usage statistics
+  rename      Rename a container
+  rm          Remove one or more containers
+  rmi         Remove one or more images
+  restart     Restart one or more containers
+  run         Run a command in a new container
+
+
+How to working with Containers?
+======================================
+
+How to stop the contaier?
+> docker stop cont-id
+
+How to start?
+> docker start cont-id
+
+How to delete the container?
+> docker rm cont-id
+
+How to delete an images?
+> docker rmi image-id
+
+How to see the process of running container?
+> docker top cont-id
+
+How to see the logg/App log of the container?
+> docker logs cont-id
+
+How to see the Charactetics of the container/ Images
+> docker inspect cont-id
+> docker inspect image-id
+
+How to copy a file into side a containers?
+> docker cp nokiax.txt a7b39a9fffe4:/opt
+> docker cp a7b39a9fffe4:/opt/nokiax.txt .
+
+> docker help
+
+How to execute a scripting with gettting inside a container?
+docker exec a7b39a9fffe4 bin/bash -c "/opt/dep.sh"
+docker exec a7b39a9fffe4 ls
+
+How to set a container name?
+docker run --name nokia -it ubuntu /bin/bash
+
+How to change container name?
+docker rename 2a82f5ff31c8 nokia2
+
+Workng with Docker Volums
+Woring with Docker Networking?
+
+How to get the CPU/Ram uti of the containers?
+>docker stats
+
+
+Mounts in Docker container?
+docker run -d -p 8090:8080 -p 50001:50000 -v /opt/jj:/var/jenkins_home jenkins
+
+
+LAB - http://www.devopsschool.com/tutorial/docker/labs/docker-lab-6.html
+
+
+
+  export      Export a container's filesystem as a tar archive
+  history     Show the history of an image
+  import      Import the contents from a tarball to create a filesystem image
+  inspect     Return low-level information on Docker objects
+  kill        Kill one or more running containers
+  load        Load an image from a tar archive or STDIN
+  login       Log in to a Docker registry
+  logout      Log out from a Docker registry
+  pause       Pause all processes within one or more containers
+  port        List port mappings or a specific mapping for the container
+  push        Push an image or a repository to a registry
+  save        Save one or more images to a tar archive (streamed to STDOUT by default)
+  search      Search the Docker Hub for images
+  tag         Create a tag TARGET_IMAGE that refers to SOURCE_IMAGE
+  unpause     Unpause all processes within one or more containers
+  update      Update configuration of one or more containers
+  version     Show the Docker version information
+  wait        Block until one or more containers stop, then print their exit codes
+  build       Build an image from a Dockerfile
+  commit      Create a new image from a container's changes
+  create      Create a new container
+  diff        Inspect changes to files or directories on a container's filesystem
+  events      Get real time events from the server
+
+===============================================
+How to create images?
+
+	Using Containers?
+	docker commit -m"This is my test image" -a "Rajesh Kumar" 2a82f5ff31c8 ub-git-apache2
+
+	Using Dockerfile?
+
+FROM ubuntu:latest
+MAINTAINER rajesh@scmGalaxy.com
+RUN apt-get update && apt-get install git -y
+RUN touch /opt/dockerfile.txt
+
+docker build -t doc .
+
+
+How to share images with others?
+	1. Local tar
+		package
+		> docker save -o doc.tar doc 
+		scp|ftp
+		load
+		> docker load -i doc.tar
+	
+	2. public Repo
+		https://hub.docker.com
+
+> docker tag imagename id/newname
+	
+	3. private repo
+		artifactory - repo based on artifactory
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,46 @@
+Setting up the PHP based App
+===============================================
+
+Installing XAMPP
+------------------------------------------
+> cd /opt/
+> mkdir software
+> cd software/
+> yum install wget
+> wget https://www.apachefriends.org/xampp-files/5.6.30/xampp-linux-x64-5.6.30-1-installer.run
+> chmod 755 xampp-linux-x64-5.6.30-1-installer.run
+> ./xampp-linux-x64-5.6.30-1-installer.run
+> /opt/lampp/lampp stop
+> /opt/lampp/lampp restart
+
+Installing WORDPRESS
+------------------------------------------
+cd /opt/software/
+wget https://wordpress.org/latest.zip
+yum install unzip
+unzip latest.zip
+cp -rf wordpress /opt/lampp/htdocs/
+/opt/lampp/htdocs/
+chmod -R 777 lt
+
+WORDPRESS - http://13.127.76.237/lt
+
+How to create a mysql database?
+-----------------------------------------------
+	http://13.127.76.237/dashboard/
+> cd /opt/lampp/bin
+> ./mysql -u root -p 
+> show databases;
+> create database lt;
+
+hostname - localhost
+database - lt
+user name - root
+password - Pass1234
+
+How to reset mysql root password?
+./mysqladmin -u root -p'' password Pass1234
+
+SITE 
+USER admin
+PASS - 1B4eq7gVZ$PHIXl4(E

@@ -1,0 +1,84 @@
+MiniKube
+===============
+mac
+> brew install kubectl
+> kubectl version --client
+> brew cask install minikube
+> brew install docker-machine-driver-xyhve
+> sudo chown ......
+> sudo chmod .....
+> minikube start --vm-driver=xhyve
+> kubectl config current-context
+> kubectl get nodes
+> minikube stop
+> minikube delete
+> minikube start --vm-driver=xhyve --kubernetes-version="v1.6.0" 
+> kubectl get nodes
+
+
+windows
+download - kubectl.exe
+download - minikube installler.exe
+
+ps> minikube version
+ps> minikube start --vm-driver=hyperv --kubernetes-version="v1.6.0"
+
+ps> kubectl get nodes
+
+ps> minikube
+ps> minikube dashboard
+
+
+
+
+
+GKE
+===============
+1. Create a Project
+2. Compute --> Container Engine
+			--> Container Clusters
+			 
+
+> glcoud container clusters list
+
+Click on the "Connect to the cluster"
+> run the commands
+> kubectl get nodes
+
+
+Connect to ENDPOINT IP ADDRESS IN BROWSERS
+http://XXX.XX.XX.X/ui
+
+
+
+AWS with KOPS(kubernetes in Ops
+=================
+
+
+
+Manual Install with kubeadm
+==================
+ 
+> kubeadm init
+> kubectl get nodes
+> kubectl get nodes --all-namespaces
+> kubectl apply xxxxxxx(weave-kube)
+
+
+
+
+=====================================
+pods
+
+====
+> kubectl create -f pod.yml
+> kubectl gets pods
+> kubectl describe 
+> kubectl gets pods --all
+> 
+> kubectl delete pods hello-pods
+> 
+
+
+
+

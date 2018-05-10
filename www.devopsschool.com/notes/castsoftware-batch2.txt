@@ -1,0 +1,109 @@
+BIG PICTURE
+=============================
+GOAL - SAVING THE SOFT DEV COST
+	IMPROVING THE QUALITY OF THE SOFt
+	REDUCING THE RELEASE CYCLE
+
+=========================
+DEVOPS
+
+Manish - MGR - CASTX
+================================
+ARCHITECT -- 10 MODULES
+DEV - 10 - 
+	SOURCE CODE REPO ----- SVN
+				WHAT 
+				WHERE
+				WHEN
+				WHO
+	CODE REVIEW - PMD, CHEKSTSYLE, PMD, SONARQUB
+				
+
+	UT --JUNIT - NUNIT-
+
+	SOURCE CODE TO BINARY ---> ANT, MAVEN GRADLE, MSBUILD
+				CREATE A DIR
+				SET THE COMPILER
+				SET THE ENV
+				DEPDENCIES -
+					EXTERNAL
+					INTERNAL - 
+		=========================================
+				20 times in a day
+
+		PACKAGING 
+			SYSTEM
+			APPLICATION
+
+		REPO FOR PACKAGE ---ARTIFACTORY, NEXUS, ARCHIVA, NUGET
+
+		DEPLOYEMET - 100 VM
+				50 WINDOWS
+				50 LINUX
+			
+				25 IIS
+				25 JBOSS
+				25 Wl
+				25 WS
+				
+				25 MYSQL
+				25 MS
+		
+		===================================
+		5 mins(AWS, VMWARE, DOCKER) --> CHEF, PUPPET, ANSIB
+
+QA
+IT
+BR
+DB
+OPS
+============================================
+600 PACK == 100 MB = 60000 - 60GB
+
+60GB + 60GB +60GB +60GB=== 7.2TB (SVN DB)
+50MB-----------------------> 75MB
+===================================
+What is Git?
+	Versioning Tool
+	FREE
+	OPEN SOURCE
+	COMPT with ALL THE PLATFORM
+	DISTRIBUTED MGMT SYSTEM==============
+
+How to install to git?	
+	WINDOWS - git-scm.com -- EXE
+	LINUX	 - 
+		RHEL - yum install git
+		UB - apt-get install git
+
+==================================================
+How to verify?
+>git -v
+
+How to create repo?
+> git init
+
+How to add a file in git repo?
+> git add filename
+
+=ONE TIME
+> git config user.name "Rajesh Kumar"
+> git config user.email "rajesh@scmgalaxy.com"
+
+How to commit a file?
+> git commit -m"adding first file"
+
+How to see the commits?
+> git log
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,25 @@
+How to Take a Backup and Restore Gerrit
+Gerrit Access Management
+Gerrit Replication
+Gerrit Configuration 
+Project Configuration
+
+Changes
+	squashing changes
+	Amending Changes
+	Abandoning changes
+
+Populaar Gerrit Plugins
+
+Installing git-review (to propose patches for code review)
+
+Master slave configuration in Gerrit
+
+Git Plumbing and Porcelain
+
+Git Refspec
+
+Gerrit line commands
+
+Git Submodules
+

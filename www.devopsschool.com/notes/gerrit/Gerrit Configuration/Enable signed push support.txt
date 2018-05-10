@@ -1,0 +1,9 @@
+Enable signed push support     [y/N]?
+
+This options Defaults to false. This ensure When a client pushes with git push --signed, this ensures that the push certificate is valid and signed with a valid public key stored in the refs/meta/gpg-keys branch of All-Users.
+If true, server-side signed push validation is enabled.
+
+Config in gerrit.config - receive.enableSignedPush
+
+
+

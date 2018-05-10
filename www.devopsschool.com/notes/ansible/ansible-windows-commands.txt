@@ -1,0 +1,48 @@
+CONTROL SERVER
+
+> easy_install pip
+> sudo pip install markupsafe
+> sudo pip install xmltodict
+> sudo pip install pywinrm
+> sudo pip install ansible
+> ansible --version
+
+# for RHEL/CentOS/etc:
+$ sudo yum install gcc krb5-devel krb5-workstation
+$ pip install pywinrm[kerberos]
+
+
+sudo yum install -y python-pip
+sudo yum install gcc krb5-devel krb5-workstation
+easy_install pip
+pip install --upgrade pip
+pip install markupsafe
+sudo pip install xmltodict
+sudo pip install pywinrm
+pip install pywinrm[kerberos]
+
+
+> ansible web -i inventory -m win_ping 
+
+
+> ansible web -i inventory -m setup
+> ansible web -i inventory -m raw -a "dir"
+> ansible web -i inventory -m win_service -a "name=spooler"
+> ansible web -i inventory -m win_service -a "name=spooler state=stopped"
+> ansible web -i inventory -m win_service -a "name=spooler"
+> ansible web -i inventory -m win_feature -a "name=Telnet-Client state=present"
+
+Useful
+http://darrylcauldwell.com/how-to-setup-an-ansible-test-lab-for-windows-managed-nodes-custom-windows-modules/
+https://www.virtualtothecore.com/en/configuring-windows-machines-for-ansible/
+
+
+kinit administrator@13.126.192.43
+
+
+FINAL URL
+http://docs.ansible.com/ansible/latest/intro_windows.html#installing-on-the-control-machine
+https://www.jeffgeerling.com/blog/2017/using-ansible-through-windows-10s-subsystem-linux
+http://darrylcauldwell.com/how-to-setup-an-ansible-test-lab-for-windows-managed-nodes-custom-windows-modules/'
+http://nokitel.im/index.php/2016/11/09/how-to-manage-windows-server-2016-with-ansible/
+https://github.com/ansible/ansible/blob/devel/examples/scripts/ConfigureRemotingForAnsible.ps1

@@ -1,0 +1,240 @@
+===========M4-02  Installing Minikube on Mac
+brew install kubectl
+kubectl version --client
+brew cask install minikube
+brew install docker-machine-driver-xhyve
+sudo chown root:wheel $(brew --prefix)/opt/docker-machine-driver-xhyve/bin/docker-machine-driver-xhyve
+sudo chmod u+s $(brew --prefix)/opt/docker-machine-driver-xhyve/bin/docker-machine-driver-xhyve
+minikube start --vm-driver=xhyve
+kubectl config current-context
+kubectl get nodes
+minikube stop
+minikube delete
+minikube start --vm-driver=xhyve --kubernetes-version="v1.6.0"
+kubectl get nodes
+
+===================================================================================
+===========M4-02  Installing Minikube on Windows 10
+===================================================================================
+Step 1- Install MiniKube
+# Get the kubectl.exe binary from this URL and copy it into your %PATH%
+MiniKube
+https://storage.googleapis.com/kubernetes-release/release/v1.6.0/bin/windows/amd64/kubectl.exe
+Updates - https://github.com/kubernetes/minikube
+
+Step 1- Install Kubectl
+NEW - https://storage.googleapis.com/kubernetes-release/release/v1.8.0/bin/windows/amd64/kubectl.exe
+
+# Get the Minikube installer from GitHub
+https://github.com/kubernetes/minikube/releases
+
+New - https://storage.googleapis.com/minikube/releases/latest/minikube-windows-amd64.exe
+Run the installer
+
+===========VERIFY=============
+kubectl version
+kubectl help
+minikube version
+minikube --help
+
+NOTICE - %HOMEPATH%\.minikube
+
+minikube get-k8s-versions
+
+minikube start --help
+
+minikube start --vm-driver=hyperv --kubernetes-version="v1.6.0"
+
+minikube start --alsologtostderr
+minikube start --kubernetes-version="v1.8.0" --vm-driver="virtualbox" --alsologtostderr
+minikube.exe start --kubernetes-version="v1.8.0" --vm-driver="virtualbox" --alsologtostderr
+minikube.exe start --kubernetes-version="v1.8.0" --vm-driver=hyperv --alsologtostderr
+
+minikube delete
+
+minikube status
+kubectl cluster-info
+kubectl version
+minikube.exe ip
+kubectl get nodes
+
+minikube
+minikube dashboard 	
+minikube dashboard --url=true
+kubectl get nodes
+
+kubectl config use-context minikube
+
+kubectl.exe run hello-nginx --image=nginx --port=80
+kubectl.exe get pods
+minikube dhasboard
+kubectl.exe describe pod hello-nginx-2471083592-4vfz8
+kubectl.exe expose deployment hello-nginx --type=NodePort service "hello-nginx" exposed
+kubectl.exe get services
+minikube.exe service --url=true hello-nginx
+minikube.exe service hello-nginx
+kubectl logs hello-nginx-2471083592-4vfz8
+
+kubectl scale --replicas=3 deployment/hello-nginx
+.\kubectl.exe get deployment
+
+===================================================================================
+===========M4-04  K8s on AWS using kops
+===================================================================================
+
+Step 1: Install kubectl 
+
+# Install latest release of kubectl on Linux
+curl -LO https://storage.googleapis.com/kubernetes-release/release/$(curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt)/bin/linux/amd64/kubectl
+curl -LO https://storage.googleapis.com/kubernetes-release/release/v1.9.0/bin/linux/amd64/kubectl
+chmod +x ./kubectl
+sudo mv ./kubectl /usr/local/bin/kubectl
+export PATH=$PATH:/usr/local/bin/
+kubectl
+
+Step 2: Install kops
+
+#Install "kops" on Linux
+yum install wget
+curl -LO https://github.com/kubernetes/kops/releases/download/$(curl -s https://api.github.com/repos/kubernetes/kops/releases/latest | grep tag_name | cut -d '"' -f 4)/kops-linux-amd64
+chmod +x kops-linux-amd64
+sudo mv kops-linux-amd64 /usr/local/bin/kops
+
+kops upgrade
+Reference - https://github.com/kubernetes/kops
+
+Step 3: Configure AWS Route 53
+
+#DNS Changes
+	Create a Hosted Zone in Route53 k8s.domain.com
+	Get a NS
+	Go to Godaady DNS Server
+	Enter the NS records
+
+yum install bind-utils
+dig NS rajesh.rajeshkumar.xyz
+
+Step 4: Configure AWS user access and Assign access 
+aws
+#create a aws IAM user and download access key
+aws configure
+#Give Administrator Accesss 
+OR
+AmazonEC2FullAccess  
+AmazonRoute53FullAccess  
+AmazonS3FullAccess  
+IAMFullAccess  
+AmazonVPCFullAccess
+
+Step 5: Configure AWS cli
+
+# Install and configure the AWS CLI on Linux  
+sudo apt-get install awscli
+OR
+sudo apt-get install python-pip
+sudo pip install awscli
+OR
+sudo yum -y update
+sudo yum -y install python-pip
+sudo pip install awscli
+OR
+curl "https://bootstrap.pypa.io/get-pip.py" -o "get-pip.py"
+python get-pip.py
+sudo pip install awscli
+
+aws configure
+aws ec2 describe-regions
+aws ec2 describe-availability-zones --region ap-south-1
+region - ap-south-1
+
+
+
+Step 6: Craete a S3 bucket
+# Create and then list a new S3 bucket
+aws s3 mb s3://cluster-1.raj.rajeshkumar.xyz
+aws s3 ls | grep raj
+
+ 
+export KOPS_STATE_STORE=s3://cluster-1.raj.rajeshkumar.xyz    
+cp ~/.ssh/authorized_keys ~/.ssh/id_rsa.pub
+
+kops create cluster \ 
+ --cloud=aws --zones=ap-south-1 \
+ --dns-zone=raj.rajeshkumar.xyz \
+ --name cluster-1.raj.rajeshkumar.xyz  --yes
+
+kops create cluster --cloud=aws --zones="ap-south-1a" --dns-zone=raj.rajeshkumar.xyz --name cluster-1.raj.rajeshkumar.xyz 
+kops create cluster --cloud=aws --zones="ap-south-1a" --dns-zone=raj.rajeshkumar.xyz --name cluster-1.raj.rajeshkumar.xyz --yes 
+kops create cluster --kubernetes-version="1.8.1" --cloud=aws --zones="ap-south-1a" --dns-zone=raj.rajeshkumar.xyz --name cluster-1.raj.rajeshkumar.xyz --yes 
+
+
+kops validate cluster cluster-1.raj.rajeshkumar.xyz
+kops edit cluster cluster-1.raj.rajeshkumar.xyz
+kops update cluster --yes cluster-1.raj.rajeshkumar.xyz
+
+ * list clusters with: kops get cluster
+ * edit this cluster with: kops edit cluster cluster-1.raj.rajeshkumar.xyz
+ * edit your node instance group: kops edit ig --name=cluster-1.raj.rajeshkumar.xyz nodes
+ * edit your master instance group: kops edit ig --name=cluster-1.raj.rajeshkumar.xyz master-ap-south-1a
+
+ * validate cluster: kops validate cluster
+ * list nodes: kubectl get nodes --show-labels
+ * ssh to the master: ssh -i ~/.ssh/id_rsa admin@api.cluster-1.raj.rajeshkumar.xyz
+The admin user is specific to Debian. If not using Debian please use the appropriate user based on your OS.
+ * read about installing addons: https://github.com/kubernetes/kops/blob/master/docs/addons.md
+
+kubectl get nodes
+
+kubectl run hello-nginx --image=nginx --port=80
+kubectl get pods
+kubectl describe pod hello-nginx-1507731416-lv46r
+kubectl expose deployment hello-nginx --type=NodePort service "hello-nginx" exposed
+kubectl get services
+kubectl logs hello-nginx-2471083592-4vfz8
+
+kubectl apply -f https://raw.githubusercontent.com/kubernetes/dashboard/master/src/deploy/recommended/kubernetes-dashboard.yaml
+kubectl apply -f https://raw.githubusercontent.com/kubernetes/dashboard/master/src/deploy/recommended/kubernetes-dashboard.yaml
+kubectl apply -f https://rawgit.com/kubernetes/dashboard/master/src/deploy/recommended/kubernetes-dashboard.yaml
+kubectl proxy --port=8080 &
+https://stackoverflow.com/questions/47904001/kubernetes-error-deploying-dashboard-ui
+
+kubectl cluster-info
+which only shows the endpoints.
+
+kubectl get nodes; kubectl describe node <node>;
+kubectl version
+kops delete cluster --name=cluster-1.raj.rajeshkumar.xyz --yes
+
+===================================================================================
+===========M4-05  Manual install
+===================================================================================
+apt-get update && apt-get install -y apt-transport-https
+curl -s https://packages.cloud.google.com/apt/doc/apt-key.gpg | apt-key add -
+cat <<EOF >/etc/apt/sources.list.d/kubernetes.list
+deb http://apt.kubernetes.io/ kubernetes-xenial main
+EOF
+apt-get update
+
+apt-get install -y docker.io kubeadm kubectl kubelet kubernetes-cni
+
+kubeadm init
+
+sudo cp /etc/kubernetes/admin.conf $HOME/
+sudo chown $(id -u):$(id -g) $HOME/
+export KUBECONFIG=$HOME/admin.conf
+
+kubectl get nodes
+
+kubectl get pods --all-namespaces
+
+kubectl apply --filename https://git.io/weave-kube-1.6
+
+kubectl get nodes
+
+kubectl get pods --all-namespaces
+
+kubectl get nodes
+
+
+
+https://rominirani.com/tutorial-getting-started-with-kubernetes-on-your-windows-laptop-with-minikube-3269b54a226

@@ -1,0 +1,109 @@
+CHEF
+====================
+What is Chef?
+Configuration mgmt tool.
+
+What is cnfig mgmt?
+SERVERS CONFIG MGMT
+
+What is there in the server which can be managed by the CHEF?
+file
+certificate
+environment
+package
+direcory
+services
+bash
+batch
+yum
+apt
+
+users
+groups
+
+HDD
+RAM
+CPU
+OS
+
+process/polcies
+
+Why do we need Chef?
+
+FEA1 - CROSS PLATFORM
+PERL
+PYTHON
+DIFFICULT TO LEARN
+DIFFICULT TO SHARE
+DIFFICULT TO EXTEND
+DIFFICULT TO TEST
+DIFFICULT TO DEBUG
+
+BASH
+POWERSHELL
+NOT CROSSS PLATFROM
+
+CHEF IS
+EASY TO LEARN
+EASY TO SHARE
+EASY TO EXTEND
+EASY TO TEST
+EASY TO DEBUG
+&&
+CROSS PLATFORM
+FEA 2-
+CONSISTENCY
+VISIBITL
+====================================================
+CHEF in DEV ENV/PROD ENV
+
+CHEF in IT ENV
+
+DEV ENV
+============================
+100 SERVERS - CITRIX.zip
+
+50 SERVERS iN LINUX
+50 SERVERS in WINDWS
+
+25 MYSQL
+25 MSSQL
+25 ORCLE
+25 POST
+
+25 TOMCAT
+25 WEBS
+25 WEBL
+25 JBOSS
+
+100 DIFF CONFIG
+==============================5 MINS======
+
+SOL - CHEF
+
+=======================================
+OTHER TOOLS - PUPPET, ANSIBLE, SALT, SCCM,
+
+ROLES IN CHEF?
+CHEF PROGRMMER - TODAY
+CHEF ADMIN - TOMO
+=========================================================
+HUNGRY
+=======================
+EAT -->. FOOD --> KITCHEN --> CHEF
+
+CHEF ---> RECIPE --MUL RECIPE --> COOKBOOK --> COOK--< KITENCH - > READY
+INGREDIENT
+HOW
+
+RECIPE --> RESOURCES + HOw
+INGREDIENTS === ATTRITBUTES/PROPERTY == ACTION
+RESOURCES
+
+file C|D|M
+directory C|D|M
+package I|R|M
+services S|S|R|E|D
+
+INSTALL JDK
+CHEFDK

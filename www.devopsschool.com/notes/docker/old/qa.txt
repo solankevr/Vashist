@@ -1,0 +1,56 @@
+How to expose a port after running the container?
+How to increase the container maps if its reached to limit.
+
+How to increse default container size..
+
+
+> setenforce 0
+
+
+Swarmp Vs Kube
+Password Encryptions
+
+Nexus with Docker
+
+CMD ["-D", "FOREGROUND"]
+
+CMD vs Entry Point
+
+Docker Stake
+
+https://rominirani.com/docker-tutorial-series-part-8-linking-containers-
+69a4e5bf50fbs
+
+
+Each time one container is created one PS is added in Host machine
+Each time one container is created with Bridge Mode, one Veth is created in Host Machine
+
+
+Docker Stop Vs Docker Kill?
+======================================
+docker stop: Stop a running container (send SIGTERM, and then SIGKILL after grace period) [...] The main process inside the container will receive SIGTERM, and after a grace period, SIGKILL. 
+
+docker kill: Kill a running container (send SIGKILL, or specified signal) [...] The main process inside the container will be sent SIGKILL, or any signal specified with option --signal. 
+
+So stop attempts to trigger a graceful shutdown by sending the standard POSIX signal SIGTERM, whereas killjust kills the process by default (but also allows to send any other signal):
+
+Another way,
+docker kill will stop the main entrypoint process/program abruptly
+whereas
+docker stop will try to stop it gracefully (will ask politely :P)
+
+
+Docker Pause Vs Docker Unpause 
+=========================================
+Pause all processes within one or more containers. The docker pause command suspends all processes in the specified containers. On Linux, this uses the cgroups freezer. Traditionally, when suspending a process the SIGSTOP signal is used, which is observable by the process being suspended. With the cgroups freezer the process is unaware, and unable to capture, that it is being suspended, and subsequently resumed. On Windows, only Hyper-V containers can be paused.
+Refe
+http://kimh.github.io/blog/experiment-to-suspend-and-resume-docker-container-with-criu-2/
+
+Unpause all processes within one or more containers
+
+1. How to change the the boot2docker.iso file with our own ISO files?
+2. How to set Kitemetic with another VMS?
+
+
+How to Copy files from one Container to Another Container?
+Kubernetes with AWS

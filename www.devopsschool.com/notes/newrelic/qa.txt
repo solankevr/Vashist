@@ -1,0 +1,125 @@
+Questions 1
+======================================================
+What should you do if you dont see any data reporting to your account?
+Select ALL of following that apply:
+
+Wait 5 min(if you have just installed the agent)
+Restart the application server(especially if you have just installed the agent)
+Check the log files
+Contact support Immediately
+Reinstall the agent and set the log level to "debug"
+
+Questions 2
+======================================================
+What is the minimum agent configuration required to add a new app to your account (or set up a new APM account)?
+Select ALL of following that apply:
+
+1. License key
+2. App name
+3. Environment Variables
+4. Admin/account owner details
+
+Answer
+1. License key
+2. App name
+
+Questions 3
+======================================================
+Depending on the agent, you may be able to customize default agent behaviour settings in which of the locations listed below;
+Select ALL of following that apply:
+
+1. Configuration file
+2. Environment variables
+3. New Relic APM user interface(server-side configuration)
+4. Other agent-specific configurations, for example, Java system properties, Python per-request configuration, etc.
+5. All of the above
+
+Answer -
+5. All of the above
+
+Questions 4
+======================================================
+What does the transactions sort option "Most time consuming" mean in terms of transaction performance?
+Select ONE of the following:
+
+1. it displays transactions by the slowest and the most frequently called
+2. it displays transactions with the most performance problems
+3. it displays the slowest transactions
+
+Answer
+1. it displays transactions by the slowest and the most frequently called
+
+Questions 5
+======================================================
+Apdex tracks three response counts:
+Satisfied: The response time is less than or equal to T.
+Tolerating: The response time is greater than T and less than or equal to 4T. In this example, 4 x 1.2 = 4.8 seconds as the maximum tolerable response time.
+Frustrated: The response time is greater than 4T.
+
+Is it right statements?
+1. YES
+2. NO
+
+Answer
+1. YES
+
+Questions 6
+======================================================
+Is it right defintion of Instrumentations?
+The collection of data from an application or host. When New Relic instruments a framework, it detects the methods and calls used by that framework, and intelligently groups them together.
+
+Is it right statements?
+1. YES
+2. NO
+
+Answer
+1. YES
+
+Questions 7
+======================================================
+What is function of New Relic Browser?
+
+1. New Relic Browser measures the app performance load time in browsers?
+2. New Relic Browser measures the page load timing in browsers?
+3. New Relic Browser measures the server load timing in browsers?
+4. None
+
+Answer
+2. New Relic Browser measures the page load timing in browsers?
+
+Questions 8
+======================================================
+Which is not supported Agent for New Relic APM
+1. Go
+2. Java
+3. .NET 
+4. Perl
+
+4. Perl
+
+Questions 9
+======================================================
+Is it right defintions?
+New Relic Infrastructure provides flexible, dynamic server monitoring. Infrastructure empowers modern operations teams to make intelligent decisions about complex systems, from a physical datacenter to thousands of Amazon Elastic Compute Cloud (Amazon EC2) or Microsoft Azure instances.
+
+Is it right statements?
+1. YES
+2. NO
+
+Answer
+1. YES
+
+Questions 10
+======================================================
+With Which New Relic Product you can display the data you collect in customized dashboards that make it easier to analyze users' actions on your site, transactions, and more. 
+
+1. New Relic Insights
+2. New Relic APM
+3. New Relic Mobile
+4. New Relic Insights
+
+Answer
+1. New Relic Insights
+
+
+

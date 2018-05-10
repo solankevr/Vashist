@@ -1,0 +1,14 @@
+chef-client --local-mode --runlist 'recipe[learn_chef_httpd]'
+chef-client --local-mode --runlist 'recipe[learn_chef_httpd::service]'
+
+OR
+
+include_recipe 'learn_chef_httpd::service'
+
+OR
+
+include_recipe "recipe1"
+
+Dependency
+==================================
+depends 'apache2'

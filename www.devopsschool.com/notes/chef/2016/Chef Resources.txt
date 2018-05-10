@@ -1,0 +1,9 @@
+Issues 1 : ssl fetch issues
+
+unset https_proxy
+knife ssl fetch https://172.28.3.133
+export https_proxy=https://172.28.1.12:9991/
+
+OR
+
+scp /var/opt/opscode/nginx/ca/172.28.3.139.crt root@172.28.3.127:/root/Surendra/chef-repo/.chef/trusted_certs/

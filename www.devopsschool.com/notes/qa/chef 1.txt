@@ -1,0 +1,159 @@
+Why do we make a new cookbook dependent upon one or more different cookbooks?
+1. So that we don't breach copyright
+2. So that we can make use of Berkshelf
+3. So we can avoid having to duplicate code
+4. So that we can manage a node running Linux
+5. So that we can upload the cookbook to Chef Server
+Ans :-  3. So we can avoid having to duplicate code
+
+Why should we always encrypt credentials which are stored in data bags?
+1. We cannot create un-encrypted values on Chef Server.
+2. So that we do not expose sensitive passwords in plaintext
+3. Some cookbooks, like apt, require encrypted credentials.
+4. We don't need to encrypt credentials, Chef does this automatically.
+5. Berkshelf will not upload cookbooks containing unencrypted data bag values.
+Ans :-  2. So that we do not expose sensitive passwords in plaintext
+
+Why are hard-coded values in a Chef recipe or template a bad idea?
+1. Some platforms (like Windows) don't support hard-coded values.
+2. They increase processing time.
+3. From version 12 onwards, Chef does not support hard-coded values.
+4. They make the code inflexible and not reusable.
+5. They are a good idea as they reduce processing time.
+Ans :-  4. They make the code inflexible and not reusable. 
+
+When using the ChefDK to generate a new recipe, do you need to specify the .RB file extension?
+1. Yes, but only if you're running Windows.
+2. No, Visual Studio Code does this automatically.
+3. Yes, otherwise you can't edit the file.
+4. No, all files in a Chef repository automatically use the .RB file extension.
+5. No, CHEF GENERATE does this automatically.
+Ans :-  5. No, CHEF GENERATE does this automatically.
+
+What is Chocolatey?
+1. It is an open-source package provider for Windows.
+2. It is a community utility provided with the ChefDK.
+3. It is a platform for running virtual machines.
+4. It is a PowerShell module.
+5. It is the code name for the latest build of Windows 10.
+Ans :- 1. It is an open-source package provider for Windows.
+
+Which Test Kitchen provisioner should we use when the target platform is Windows? 
+1. Vagrant
+2. Gem
+3. Chef Zero Scheduled Task
+4. Chef Zero
+5. --local-mode
+Ans :-  3. Chef Zero Scheduled Task
+
+What should you do if "kitchen converge" encounters an error?
+1. Use a different Test Kitchen provisioner
+2. Use "kitchen destroy"
+3. Remediate the error and run "kitchen converge" again
+4. Nothing - errors are expected
+5. Upload the cookbook into production
+Ans :-  3. Remediate the error and run "kitchen converge" again
+
+How do you specify different attributes so that your cookbook will work with Vagrant/Test Kitchen?
+1. Use override attributes in the vagrantfile
+2. Create [default][kitchen] attributes in the cookbook's default.rb attributes file
+3. Use override attributes in the cookbook's .kitchen.yml file
+4. Chef Zero will automatically modify any attributes needed.
+Ans :-  3. Use override attributes in the cookbook's .kitchen.yml file
+
+How do you use a Chef resource which is defined in a different cookbook?
+1. Use the include_cookbook Chef resource in your own cookbook
+2. Create a dependency on the external cookbook in your cookbook's metadata.rb file
+3. You should always re-create Chef functionality from scratch in each cookbook.
+4. Use GEM INSTALL to download the cookbook to the ChefDK
+Ans :-  2. Create a dependency on the external cookbook in your cookbook's metadata.rb file
+
+Why do we need to install the WinRM plugin for Vagrant?
+1. We don't - Vagrant does not support WinRM.
+2. To connect to a Vagrant box running Windows using WinRM
+3. Because Vagrant talks to VirtualBox using WinRM
+4. To connect to a Vagrant box running Ubuntu using WinRM
+5. So that Vagrant can populate the PATH variable
+Ans :-  2. To connect to a Vagrant box running Windows using WinRM
+
+When creating a new Chef role using "knife role from file", in what format should the source file be?
+1. Ruby
+2. JSON
+3. Erlang
+4. XML
+5. TXT
+Ans :-   2. JSON
+
+
+1.
+2.
+3.
+4.
+Ans :- 
+
+
+1.
+2.
+3.
+4.
+Ans :- 
+
+
+
+1.
+2.
+3.
+4.
+Ans :- 
+
+
+1.
+2.
+3.
+4.
+Ans :- 
+
+
+1.
+2.
+3.
+4.
+Ans :- 
+
+
+1.
+2.
+3.
+4.
+Ans :- 
+
+1.
+2.
+3.
+4.
+Ans :- 
+
+
+1.
+2.
+3.
+4.
+Ans :- 
+
+1.
+2.
+3.
+4.
+Ans :- 
+
+1.
+2.
+3.
+4.
+Ans :- 
+
+1.
+2.
+3.
+4.
+Ans :- 

@@ -1,0 +1,356 @@
+Why Docker
+Why not Kubernetes
+======================================
+What is Docker
+How it works?
+What is Container?
+========================================
+How to use?
+What is the next after the Docker?
+=============================
+Docker Eco System
+	docker
+	docker-engine
+	docker community
+	
+	docker enterprise - HOSTED - CLOUD - Paid
+		https://www.docker.com/enterprise-edition
+How to use the docker?
+1. Docker Engine?				= DONE
+2. APP (Packaged images)
+3. Registry/Repo - The place from where you download the images
+	PUB - 	https://hub.docker.com/ - FREE
+		https://store.docker.com/ - PAID
+	PVT  
+		NEXUS OSS
+		ARTIFCATORY PRO
+4 Container - 
+		Running state of the image, its become a container
+		From One Image - You can infinite container....
+
+
+
+
+How to Install docker-engine?
+http://www.devopsschool.com/tutorial/docker/docker-install-and-configuration.html
+
+Before docker engine start?
+[root@ip-172-31-17-188 ec2-user]# ifconfig
+eth0: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 9001
+        inet 172.31.17.188  netmask 255.255.240.0  broadcast 172.31.31.255
+        inet6 fe80::47:2fff:fe81:3a9a  prefixlen 64  scopeid 0x20<link>
+        ether 02:47:2f:81:3a:9a  txqueuelen 1000  (Ethernet)
+        RX packets 54921  bytes 81262163 (77.4 MiB)
+        RX errors 0  dropped 0  overruns 0  frame 0
+        TX packets 16645  bytes 1213186 (1.1 MiB)
+        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+
+lo: flags=73<UP,LOOPBACK,RUNNING>  mtu 65536
+        inet 127.0.0.1  netmask 255.0.0.0
+        inet6 ::1  prefixlen 128  scopeid 0x10<host>
+        loop  txqueuelen 1000  (Local Loopback)
+        RX packets 0  bytes 0 (0.0 B)
+        RX errors 0  dropped 0  overruns 0  frame 0
+        TX packets 0  bytes 0 (0.0 B)
+        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+
+After docker engine start?
+docker0: flags=4099<UP,BROADCAST,MULTICAST>  mtu 1500
+        inet 172.17.0.1  netmask 255.255.0.0  broadcast 0.0.0.0
+        ether 02:42:fa:3a:f2:37  txqueuelen 0  (Ethernet)
+        RX packets 0  bytes 0 (0.0 B)
+        RX errors 0  dropped 0  overruns 0  frame 0
+        TX packets 0  bytes 0 (0.0 B)
+        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+
+eth0: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 9001
+        inet 172.31.17.188  netmask 255.255.240.0  broadcast 172.31.31.255
+        inet6 fe80::47:2fff:fe81:3a9a  prefixlen 64  scopeid 0x20<link>
+        ether 02:47:2f:81:3a:9a  txqueuelen 1000  (Ethernet)
+        RX packets 54935  bytes 81263051 (77.4 MiB)
+        RX errors 0  dropped 0  overruns 0  frame 0
+        TX packets 16656  bytes 1215352 (1.1 MiB)
+        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+
+lo: flags=73<UP,LOOPBACK,RUNNING>  mtu 65536
+        inet 127.0.0.1  netmask 255.0.0.0
+        inet6 ::1  prefixlen 128  scopeid 0x10<host>
+        loop  txqueuelen 1000  (Local Loopback)
+        RX packets 0  bytes 0 (0.0 B)
+        RX errors 0  dropped 0  overruns 0  frame 0
+        TX packets 0  bytes 0 (0.0 B)
+        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+
+Comma	nds
+=========================================
+> docker info
+> docker help
+
+How to download images?
+> docker pull jenkins
+
+How to see the number of the images?
+> docker images
+
+NOW LETS GET IPCONFIG | PS 
+=======================================
+eth0:
+lo:
+docker0:
+
+[root@ip-172-31-17-188 ec2-user]# ps -eaf | grep docker
+root      9788     1  3 03:37 ?        00:00:32 /usr/bin/dockerd
+root      9793  9788  0 03:37 ?        00:00:00 docker-containerd -l unix:///var              /run/docker/libcontainerd/docker-containerd.sock --metrics-interval=0 --start-ti              meout 2m --state-dir /var/run/docker/libcontainerd/containerd --shim docker-cont              ainerd-shim --runtime docker-runc
+root     10118  9925  0 03:52 pts/1    00:00:00 grep --color=auto docker
+
+How to get a list of running container?
+> docker ps
+
+How to get a list of all contaner?
+> docker ps -a
+
+How to create a container?
+> docker run
+> docker run -p 8080:8080 -p 50000:50000 jenkins  # LOOSE THE CONSOLE
+> docker run -d -p 8080:8080 -p 50000:50000 jenkins
+> docker run -d -p 8081:8080 -p 50001:50000 jenkins
+> docker run --name scmgalaxy -d -p 8082:8080 -p 50002:50000 jenkins
+docker run -  Will do following
+		- Check if image is there in local. If nt download
+-p 8080:8080 - WEB for jenkins
+	exrernal:internal
+-p 50001:50000 - For nodes
+	exrernal:internal
+
+How to get inside the container?
+> docker exec -it cont-id /bin/bash
+
+How to come out of the container without existing the container?
+> ctl + p + q
+
+AFTER
+====================
+[root@ip-172-31-17-188 ec2-user]# ps -eaf | grep docker
+root      9788     1  1 03:37 ?        00:00:33 /usr/bin/dockerd
+root      9793  9788  0 03:37 ?        00:00:01 docker-containerd -l unix:///var/run/docker/libcontainerd/docker-containerd.sock --metrics-interval=0 --start-timeout 2m --state-dir /var/run/docker/libcontainerd/containerd --shim docker-containerd-shim --runtime docker-runc
+root     10229  9788  0 04:00 ?        00:00:00 /usr/bin/docker-proxy -proto tcp -host-ip 0.0.0.0 -host-port 50000 -container-ip 172.17.0.2 -container-port 50000
+root     10240  9788  0 04:00 ?        00:00:00 /usr/bin/docker-proxy -proto tcp -host-ip 0.0.0.0 -host-port 8080 -container-ip 172.17.0.2 -container-port 8080
+root     10245  9793  0 04:00 ?        00:00:00 docker-containerd-shim 1643367e9e7fb4706bdd9820f706dc5b8768209496a3463df19a79d3698c321f /var/run/docker/libcontainerd/1643367e9e7fb4706bdd9820f706dc5b8768209496a3463df19a79d3698c321f docker-runc
+root     10434  9788  0 04:02 ?        00:00:00 /usr/bin/docker-proxy -proto tcp -host-ip 0.0.0.0 -host-port 50001 -container-ip 172.17.0.3 -container-port 50000
+root     10446  9788  0 04:02 ?        00:00:00 /usr/bin/docker-proxy -proto tcp -host-ip 0.0.0.0 -host-port 8081 -container-ip 172.17.0.3 -container-port 8080
+root     10451  9793  0 04:02 ?        00:00:00 docker-containerd-shim 5ddb0451041ff26a2d5520ff472c811fa9625b52874a8b66b56b14c822a0890a /var/run/docker/libcontainerd/5ddb0451041ff26a2d5520ff472c811fa9625b52874a8b66b56b14c822a0890a docker-runc
+root     18649  9793  0 04:12 ?        00:00:00 docker-containerd-shim 5ddb0451041ff26a2d5520ff472c811fa9625b52874a8b66b56b14c822a0890a /var/run/docker/libcontainerd/5ddb0451041ff26a2d5520ff472c811fa9625b52874a8b66b56b14c822a0890a docker-runc
+root     18688 18607  0 04:14 pts/3    00:00:00 grep --color=auto docker
+
+[root@ip-172-31-17-188 ec2-user]# ifconfig
+docker0: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500
+        inet 172.17.0.1  netmask 255.255.0.0  broadcast 0.0.0.0
+        inet6 fe80::42:faff:fe3a:f237  prefixlen 64  scopeid 0x20<link>
+        ether 02:42:fa:3a:f2:37  txqueuelen 0  (Ethernet)
+        RX packets 3296  bytes 1811810 (1.7 MiB)
+        RX errors 0  dropped 0  overruns 0  frame 0
+        TX packets 3889  bytes 6610994 (6.3 MiB)
+        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+
+eth0: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 9001
+        inet 172.31.17.188  netmask 255.255.240.0  broadcast 172.31.31.255
+        inet6 fe80::47:2fff:fe81:3a9a  prefixlen 64  scopeid 0x20<link>
+        ether 02:47:2f:81:3a:9a  txqueuelen 1000  (Ethernet)
+        RX packets 309645  bytes 458282359 (437.0 MiB)
+        RX errors 0  dropped 0  overruns 0  frame 0
+        TX packets 119362  bytes 9856027 (9.3 MiB)
+        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+
+lo: flags=73<UP,LOOPBACK,RUNNING>  mtu 65536
+        inet 127.0.0.1  netmask 255.0.0.0
+        inet6 ::1  prefixlen 128  scopeid 0x10<host>
+        loop  txqueuelen 1000  (Local Loopback)
+        RX packets 0  bytes 0 (0.0 B)
+        RX errors 0  dropped 0  overruns 0  frame 0
+        TX packets 0  bytes 0 (0.0 B)
+        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+
+veth153579d: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500
+        inet6 fe80::fc9b:87ff:fe17:d080  prefixlen 64  scopeid 0x20<link>
+        ether fe:9b:87:17:d0:80  txqueuelen 0  (Ethernet)
+        RX packets 1780  bytes 954575 (932.2 KiB)
+        RX errors 0  dropped 0  overruns 0  frame 0
+        TX packets 2107  bytes 3455393 (3.2 MiB)
+        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+
+vethb02a12c: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500
+        inet6 fe80::8094:e0ff:fe52:b25  prefixlen 64  scopeid 0x20<link>
+        ether 82:94:e0:52:0b:25  txqueuelen 0  (Ethernet)
+        RX packets 1516  bytes 903379 (882.2 KiB)
+        RX errors 0  dropped 0  overruns 0  frame 0
+        TX packets 1809  bytes 3157699 (3.0 MiB)
+        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+
+=========================================================================
+Managing the containers
+=============================== 
+  exec        Run a command in a running container
+  images      List images
+  info        Display system-wide information
+  inspect     Return low-level information on Docker objects
+> docker inspect cont-id | image-id | network-id
+
+  logs        Fetch the logs of a container
+> docker logs cont-id
+
+  ps          List containers
+  pull        Pull an image or a repository from a registry
+  rename      Rename a container
+> docker rename 5ddb0451041f scmgalaxy2
+  rm          Remove one or more containers
+> docker rm cont-id
+  rmi         Remove one or more images
+> docker rmi image-id
+  run         Run a command in a new container
+  start       Start one or more stopped containers
+> docker start cont-id
+  stats       Display a live stream of container(s) resource usage statistics
+> docker stats
+  stop        Stop one or more running containers
+> docker stop cont-id
+  top         Display the running processes of a container
+> docker top cont-id
+  cp          Copy files/folders between a container and the local filesystem
+> docker cp rajesh.txt 484e05818366:/opt
+> docker cp 484e05818366:/opt/rajesh.txt 
+
+  restart     Restart one or more containers
+
+
+ROLE OF THE CONTAINER
+==========================================
+CONTAINERS MUST HAVE AT LEAST ONE PROCESS RUNNING....
+	IN ABSENSE, CONTAINERS
+
+
+EXEC VS ATTACH
+============================
+EXEC  -- Will run commands inside a container with new session....
+[root@ip-172-31-17-188 ec2-user]# docker top 484e05818366
+UID                 PID                 PPID                C                   STIME               TTY                 TIME                CMD
+root                20290               20275               0                   04:37               pts/4               00:00:00            /bin/bash
+
+attach will get attached to the existing session.....
+
+DOCKER CONCEPT OF IMAGES == GIT of STAGING====SHA Algo
+
+What is Images?
+	Combination of Read only layers....
+	Images is Consist of multile layers...
+			First Layer container the Base OS
+			Sub-sequent layers contains the files system changes....
+			
+	If you run the images - it create a RW layer on top of it and thats your containers.
+
+How to create Images?
+	1. Using Existing containers
+	> docker commit -m"This is git-ub" -a "Rajesh" 484e05818366 ub-git
+
+	2. Using Docker files
+	filename - Dockerfile
+
+What is Dockerfile?
+	Has list of INSTRUCTIONS....
+
+	
+FROM ubuntu:14.04
+MAINTAINER Rajesh Kumar <rajesh@scmgalaxy.com>
+RUN apt-get update && apt-get install -y git
+RUN mkdir /tmp/bmc.txt
+
+docker build -t scmgalxy/ub-git2:v2 .
+
+
+============================
+How to share the images?
+	Local Way
+	> docker save -o scmgalxyub-git2.tar scmgalxy/ub-git2:v2
+	> docker load -i scmgalxyub-git2.tar
+
+	Hub.doker way
+	> docker login
+	> docker push repo-id
+
+	nexus|Artifactoy
+
+
+
+Managing  the images
+============================
+  attach      Attach local standard input, output, and error streams to a running container
+  build       Build an image from a Dockerfile
+  commit      Create a new image from a container's changes
+  create      Create a new container
+  diff        Inspect changes to files or directories on a container's filesystem
+  events      Get real time events from the server
+  export      Export a container's filesystem as a tar archive
+  history     Show the history of an image
+  import      Import the contents from a tarball to create a filesystem image
+  kill        Kill one or more running containers
+  load        Load an image from a tar archive or STDIN
+  login       Log in to a Docker registry
+  logout      Log out from a Docker registry
+  pause       Pause all processes within one or more containers
+  port        List port mappings or a specific mapping for the container
+  push        Push an image or a repository to a registry
+  save        Save one or more images to a tar archive (streamed to STDOUT by default)
+  search      Search the Docker Hub for images
+  tag         Create a tag TARGET_IMAGE that refers to SOURCE_IMAGE
+  unpause     Unpause all processes within one or more containers
+  update      Update configuration of one or more containers
+  version     Show the Docker version information
+  wait        Block until one or more containers stop, then print their exit cod
+
+=====================================
+
+QUESTIONS - ANSWER
+==========================================
+USE CASES
+	- Deployment	
+	- App Dem
+
+SAVE COST
+SAVING TIME
+
+How to scale up from 100 cont to 1000/m...
+How to manage million of containers....
+health
+==============================
+DATA CENTERS
+
+Docker Swaram
+Kubernetes
+
+=============================
+DEV 
+------STAKE
+1. WEB - 1 APP 1 Db - 1 CAHC 1 LOG  === PRODX
+======================================
+
+PS - 1 DAY
+V - 1 Hours
+C - 1 SEC
+
+--------------
+Docker Compose...
+	-docker-compose.yaml
+		service
+			web
+			app
+			db
+		vol
+		port
+		net
+
+/var/lib/docker/containers/ayers/df/dsa/das/da/sd/as
+
+-v	
+
+
+
+Swarm

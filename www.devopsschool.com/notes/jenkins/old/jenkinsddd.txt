@@ -1,0 +1,49 @@
+Git - Src
+Ant + Maven - Src code to Binary
+Packaging
+
+
+Build + Test + Packaging + Deploy +
+
+STATUS
+LOGs
+Number of Builds done 
+
+Jenkins -- CI tools - Workflow mgtm tools - Build Framework
+
+OS-----
+
+1/ CrurseControl
+2/ Continum
+3/ Hudson
+4. Jenkins
+
+Commercials
+
+AnthillPro - 
+Teamcity
+Ubuild
+BuildForge
+Bamboo
+
+How can we install Jenkins? - DONE
+How to start / stop - DONE
+how to set up a ant job? - DONE
+how to set up a maven job? -DONE
+
+
+Src code - DONE
+Build script - ant - DONE
+Compiler - java - DONE
+
+git client  - DONE
+ant  - DONE
+jdk -DONE
+
+Project - Hello1
+
+
+
+
+
+

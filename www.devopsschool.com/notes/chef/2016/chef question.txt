@@ -1,0 +1,6 @@
+What if i change the file in node
+how to include another recipe in cookbook apart from default
+
+Chef Log with Chef-apply | Chef-client | Knife
+
+http://www.liquidweb.com/kb/how-to-install-apache-on-centos-7/

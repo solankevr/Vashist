@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Prerequisites Training for AWS</title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+    removeSection = function(e) {
+    	$(e).parents(".section").remove();
+        $('[data-spy="scroll"]').each(function(){
+            var $spy = $(this).scrollspy("refresh");
+        });
+    }
+    $(".scroll-area").scrollspy({target: "#myNavbar"});
+    $("#myNavbar").on("activate.bs.scrollspy", function () {
+        var currentItem = $(".nav li.active > a").text();
+        $("#info").empty().html("Currently you are viewing - " + currentItem);
+    })
+});
+</script>
+<style type="text/css">
+.scroll-area {
+	height: 500px;
+	position: relative;
+	overflow: auto;
+}
+</style>	
+</head>
+<body>
+<div class="container">
+    <h2>Prerequisites for Training for AWS</h2> 
+    <nav id="myNavbar" class="navbar navbar-default" role="navigation"> 
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbarCollapse"> 
+                <span class="sr-only">Toggle navigation</span> 
+                <span class="icon-bar"></span> 
+                <span class="icon-bar"></span> 
+                <span class="icon-bar"></span> 
+            </button>
+            <a class="navbar-brand" href="#">Prerequisite</a>
+        </div>
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="nav navbar-nav">
+                <li class="active"><a href="#section-1">Hardware</a></li>
+                <li><a href="#section-2">Software</a></li>
+				<li><a href="#section-3">Others</a></li>
+				<li><a href="#section-4">Help for Lab Setup Team</a></li>
+            </ul>
+        </div>
+    </nav>
+    <div class="scroll-area" data-spy="scroll" data-offset="0">
+    	<div class="section">
+            <h3 id="section-1">Hardware - Prerequisites</h3>
+            <p>
+ 		<h4> CENTOS 7: Number of Machine - 1 </h4>
+		<h4> Windows 7: Number of Machine - 1 </h4>
+        <dd class="well well-sm">Every machine should have 2 VM's with Centos 7 version. </dd>
+        <dd class="well well-sm">Each VM should be able to connect with Internet and Internal corporate proxy should be set accordingly.</dd>
+		<dd class="well well-sm">Every VM Machine must have minimum 2GB Ram</dd>
+        <dd class="well well-sm">Every Base Machine (Windows Machine) should have Putty, Oracle VirtualBox and WinScp Installed</dd>
+		<dd class="well well-sm">Every Base Machine (Windows Machine) should have at least 8GB RAM</dd>
+		<dd class="well well-sm">Every VM should have fully qualified hostname which should be pinged each other VMs and Host Machine.</dd>
+		<dd class="well well-sm">Every VM should have bridge network preferred</dd>
+		<dd class="well well-sm">Every VM should have static IP setup resolving to Bridge connected</dd>
+		<dd class="well well-sm">Each Machine should have “sudo yum update” run in full cycle.</dd>
+		<dd class="well well-sm">Corporate Proxy server:port should be available to use by participants in case of download limitation and firewall.</dd>
+
+    </p>
+         </div>
+
+        <hr>
+        
+		<div class="section">
+            <h3 id="section-2">Software - Prerequisite</h3>
+            <p> 
+		<b>Following tools should be installed </b>		
+        
+        <dd class="well well-sm">CentOS VM - http://isoredirect.centos.org/centos/7/isos/x86_64/CentOS-7-x86_64-Everything-1511.iso</dd>
+        <dd class="well well-sm">Putty - http://www.putty.org/</dd>
+		<dd class="well well-sm">WinSCP - https://winscp.net/eng/download.php</dd>
+		<b>Following tools should be Copied to Shared Drive </b>
+		<dd class="well well-sm"> Git</dd>
+		<dd class="well well-sm"> Maven</dd>
+		<dd class="well well-sm"> Jenkins</dd>
+		<dd class="well well-sm"> Ant</dd>
+		<dd class="well well-sm"> Gradle</dd>
+		<dd class="well well-sm"> JDK 1.8 - Windows</dd>
+		<dd class="well well-sm"> JDK 1.8 - Linux</dd>
+		
+	    </div>
+        <hr>
+		
+        <div class="section">
+            <h3 id="section-3">Others   Prerequisite</h3>
+            <p><dt></dt>
+        <dd class="well">Internet Speed - Each Box should have at least 8MBPS internet speed.</dd>
+    </p>
+        </div>
+        <hr> 
+		
+		        <div class="section">
+            <h3 id="section-4">Help for Lab Setup Team</h3>
+			  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>Topics</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td><a href="http://www.scmgalaxy.com/index.php?option=com_k2&view=item&id=1017" target="_blank">Configuring Web Proxy on CentOS</a></td></tr>
+	  <tr><td><a href="http://www.scmgalaxy.com/index.php?option=com_k2&view=item&id=1008" target="_blank">Setting the proxy configuratin in Linux and Windows</a></td></tr>
+	  <tr><td><a href="https://www.youtube.com/watch?v=Pcl417NR2xc" target="_blank">Installing Centos7 in Oracle VM VirtualBox</a></td></tr>
+	</tbody>
+  </table>
+        </div>
+        <hr> 
+        
+        </div>
+    </div>
+</div></p>
+
+        </div>
+    </div>
+    <hr>
+    <h4 id="info" class="text-info">Currently you are viewing - Section 1</h4>
+</div>
+</body>
+</html>                                		

@@ -1,0 +1,116 @@
+Chef - Conifguration Mgmt tool -
+
+Store The src code - Git
+Automate the Build task - Maven
+Packaging - Jar
+Where can we store package - Nexus?
+
+Deployment - ????
+
+100s Machine 
+OSx
+Dev + QA + PRE prod + Integration + PROD
+DBx
+ConfigX
+Dependent Installation Package
+
+Shell | Perl | Python
+
+1 Machine - Report
+Can you fetch installed software
+
+Configuration Mgtm tools - Puppet, Chef, Ansible, Salt etc
+
+
+What is chef?
+
+How to install chef? - DONE
+
+chefDK - Everything
+
+How to install? - DONE
+dep -i packagename
+rpm -i package
+
+How to verify? - DONE
+
+How to write chef?
+Recipe - Single Script 
+
+Requirement - 
+Write a recipe which can create a file with some content. - DONE
+Write a reciepe which can install http | verify |  restart the services.
+
+chef-apply - run a single recipe
+cookbook in chef server - knife
+cookbook without chef server - chef-solo
+
+
+service "apache1" do
+  action :start
+end
+
+
+
+Recipe - Collection of Resources
+Resources - file
+	Action - Create, Delete, Update, 
+	Default - Create
+
+List of Resources you have in a server?
+file
+services
+package
+users
+directory
+process
+
+
+
+Terimnology - 
+
+
+file '/var/www/html/index.html' do
+  content '<html>
+  <body>
+    <h1>hello world</h1>
+  </body>
+</html>'
+end
+
+
+
+10 AM :11 AM - DevOps
+11AM - 12:30 - Git
+12:30 - 2PM  - Git Adavcne			(Optional)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

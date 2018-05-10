@@ -1,0 +1,81 @@
+ERROR in CENTOS 7
+============================================
+
+[root@chef-server ubuntu-precise]# VBoxManage --version
+WARNING: The vboxdrv kernel module is not loaded. Either there is no module
+         available for the current kernel (3.10.0-327.28.2.el7.x86_64) or it fai    led to
+         load. Please recompile the kernel module and install it by
+
+           sudo /sbin/vboxconfig
+
+         You will not be able to start VMs until this problem is fixed.
+5.1.2r108956
+
+
+ERROR FROM VENKAT
+-===================================
+Timed out while waiting for the machine to boot. This means that
+Vagrant was unable to communicate with the guest machine within
+the configured ("config.vm.boot_timeout" value) time period.
+
+If you look above, you should be able to see the error(s) that
+Vagrant had when attempting to connect to the machine. These errors
+are usually good hints as to what may be wrong.
+
+If you're using a custom box, make sure that networking is properly
+working and you're able to connect to the machine. It is a common
+problem that networking isn't setup properly in these boxes.
+Verify that authentication configurations are also setup properly,
+as well.
+
+If the box appears to be booting properly, you may want to increase
+the timeout ("config.vm.boot_timeout") value.
+
+
+WARNING During vagrant up
+=======================================
+    default: SSH auth method: private key
+    default: Warning: Remote connection disconnect. Retrying...
+
+
+ERROR - During Vagrant up
+=====================================
+ default: SSH auth method: private key
+    default: Error: Connection timeout. Retrying...
+    default: Error: Connection timeout. Retrying...
+    default: Error: Connection timeout. Retrying...
+
+
+Sol - 
+The problem was that ssh server was not installed and enabled on guest machine. –
+
+
+Sol 2
+What I did was: I enabled the GUI of Virtual box to see that it was waiting for input on startup to select whether I wanted to boot directly to ubuntu or safemode etc.
+
+To turn on the GUI you have to put this in your vagrant config Vagrantfile:
+
+config.vm.provider :virtualbox do |vb|
+  vb.gui = true
+end
+
+
+EROOOR - TIMEDOUT
+===========================================
+Timed out while waiting for the machine to boot. This means that
+Vagrant was unable to communicate with the guest machine within
+the configured ("config.vm.boot_timeout" value) time period.
+
+If you look above, you should be able to see the error(s) that
+Vagrant had when attempting to connect to the machine. These errors
+are usually good hints as to what may be wrong.
+
+If you're using a custom box, make sure that networking is properly
+working and you're able to connect to the machine. It is a common
+problem that networking isn't setup properly in these boxes.
+Verify that authentication configurations are also setup properly,
+as well.
+
+If the box appears to be booting properly, you may want to increase
+the timeout ("config.vm.boot_timeout") value.
+

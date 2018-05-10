@@ -1,0 +1,67 @@
+https://storage.googleapis.com/kubernetes-release/release/v1.8.0/bin/windows/amd64/kubectl.exe
+https://storage.googleapis.com/minikube/releases/latest/minikube-windows-amd64.exe
+
+.\kubectl.exe version
+.\kubectl.exe help
+minikube version
+minikube --help
+
+NOTICE - %HOMEPATH%\.minikube
+
+minikube get-k8s-versions
+
+
+minikube start --kubernetes-version="v1.8.0" --vm-driver="virtualbox" --alsologtostderr
+.\minikube status
+.\kubectl.exe cluster-info
+.\kubectl.exe version
+minikube.exe ip
+.\kubectl.exe get nodes
+
+kubectl config use-context minikube
+
+minikube
+minikube dashboard 	
+minikube dashboard --url=true
+kubectl get nodes
+
+HOW TO DEPLOY PODS
+
+kubectl create -f pod.yml
+dashboard
+==========================CONTENT OF YAML============
+apiVersion: v1
+kind: ReplicationController
+metadata:
+  labels:
+    app: helloworld
+    version: v2
+  name: helloworld-v2
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: helloworld
+        version: v2
+    spec:
+      containers:
+        - image: kelseyhightower/helloworld:v2 
+          name: helloworld
+          ports:
+            - containerPort: 8080
+              name: http
+
+kubectl.exe run hello-nginx --image=nginx --port=80
+kubectl.exe get pods
+minikube dhasboard
+kubectl.exe describe pod hello-nginx-2471083592-4vfz8
+kubectl.exe expose deployment hello-nginx --type=NodePort service "hello-nginx" exposed
+kubectl.exe get services
+minikube.exe service --url=true hello-nginx
+minikube.exe service hello-nginx
+kubectl logs hello-nginx-2471083592-4vfz8
+minikube delete
+
+kubectl scale --replicas=3 deployment/hello-nginx
+.\kubectl.exe get deployment

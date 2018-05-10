@@ -1,0 +1,90 @@
+What is Vagrant?
+VM Management tool.
+	1. Create a VM
+	2. Delete a VM
+	3. Configure a VM
+	4. Clone a VMs
+	5. Running a Vms
+	6. Sharing a VMs
+EASILY
+
+Why do we need a VM?
+	- Maximise the utlization of the hardware
+
+Why we need a Vagrant?
+Save a time to facilitate the infrastructure.
+	
+Use Case - 
+50 Dev in your team.
+
+Create Dev Env
+========================
+WAY 1 - Wiki + OS + N number of tools + n number of config + etc = 3 Days  
+WAy 2 - Ready Dev environment - Within an hour ---> DEV
+
+Some of the others tool.
+Vmware worksphere
+vmware vpsphere
+virtualbox
+
+Pre- 
+How to install VirtualBox?
+
+How to install Vagrant? CENTOS + RHEL
+> wget https://releases.hashicorp.com/vagrant/1.9.1/vagrant_1.9.1_x86_64.rpm
+> rpm -ivh
+
+How to start using Vagrant?
+1. We need a VM
+		Create a VM or
+		Use the existing VM
+
+DO NOT THE VM IN THE VAGRANT
+WE CALL BOX IN VAGRANT
+
+2. How to download a box?
+Vagrant Box Repo - http://www.vagrantbox.es/
+> vagrant box add ubuntu-precise http://cloud-images.ubuntu.com/precise/current/precise-server-cloudimg-vagrant-i386-disk1.box
+
+3. How to see the list of Boxes?
+> vagrant box list
+
+4. Location of box is USER_HOME/.vagrant.d
+
+5. How to initialize the box?
+> vagrant init {title}
+> vagrant init ubuntu-precise
+
+6. How to run the vagrant box?
+> vagrant up
+
+7. How to login into the the Boxes?
+> vagrant ssh (Linux)
+> vagrant rdp / powershell (Windows)
+
+8. How to exit the vagrant box?
+> exit
+
+9 . How to check if Vaganrant box is running
+> vagrant status
+> vagrant resume/up
+> vagrant halt
+> vagrant destroy
+
+
+BACKUP
+yum install kernel-devel-3.10.0-327.10.1.el7.x86_64
+sudo /sbin/vboxconfig
+
+
+
+export KERN_DIR=/usr/src/kernels/3.10.0-514.6.1.el7.x86_64
+
+
+
+
+
+
+
+
+

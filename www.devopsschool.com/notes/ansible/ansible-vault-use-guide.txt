@@ -1,0 +1,25 @@
+> ansible-vault create blah.yml
+
+---
+some_yaml: value
+
+> cat blah.yml
+
+> ansible-vault edit blah.yml
+
+> ansible-vault decrypt blah.yml
+
+> ansible-vault encrypt blah.yml
+
+> ansible-vault encrypt groups_vars/all
+
+> ansible-vault encrypt groups_vars/all
+
+USE
+Run the plybook with --ask-vault-pass
+
+
+
+
+
+

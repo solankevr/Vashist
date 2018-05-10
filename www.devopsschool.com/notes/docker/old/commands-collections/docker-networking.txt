@@ -1,0 +1,73 @@
+==========================
+FROM ubuntu
+RUN apt-get update && apt-get install -y iputils-ping traceroute net-tools iproute2
+
+ENTRYPOINT ["/bin/bash"]
+
+> docker build -t image-net .
+
+==============================
+
+> docker run -it --name=net1 image-net
+> ip link show
+> docker run -it --name=net2 image-net
+> ip link show
+> docker attach net1
+> ip a
+> ping 8.8.8.8
+> traceroute 8.8.8.8
+> docker inspect net2
+# Check Network setting .....
+	bridge
+	ip address
+	port mappings
+> docker ps
+> ls -l /var/lib/docker/containers # Containers Meta Data
+> ls -l /var/lib/docker/containers/cont-id
+	# hosts
+	# resolv.conf
+
+==========================================
+> docker network ls
+> docker run -itd --name=container1 busybox
+> docker run -itd --name=container2 busybox
+> docker network inspect bridge
+
+none
+The none network adds a container to a container-specific network stack. That container lacks a network interface.
+
+This mode will not configure any IP for the container and doesn’t have any access to the external network as well as for other containers. It does have the loopback address and can be used for running batch jobs.
+
+# docker run -it --network=none ubuntu:14.04 /bin/bash
+# docker run -it --network=none ubuntu /bin/bash
+root@66308c6686be:/# ifconfig
+
+# docker inspect 66308c6686be | grep -i ipaddr
+
+
+host
+The host network adds a container on the host’s network stack. As far as the network is concerned, there is no isolation between the host machine and the container. For instance, if you run a container that runs a web server on port 80 using host networking, the web server is available on port 80 of the host machine.
+
+# docker run -it --net=host ubuntu:14.04 /bin/bash
+# docker run -it --net=host ubuntu /bin/bash
+
+root@labadmin-VirtualBox:/# hostname
+
+# ip addr | grep -A 2 eth0
+
+
+User-defined networks
+=========================================
+> docker network create --driver bridge other-network
+> docker inspect other-network
+> docker run --network=<NETWORK>
+> docker run --net=other-network --name=ub1 ubuntu
+
+ROUGH
+===================================
+BARE mACHINNE
+	eth0:
+	lo
+
+After the Docker Enginer Start
+	docker0

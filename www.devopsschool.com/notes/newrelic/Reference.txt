@@ -1,0 +1,14 @@
+https://code.tutsplus.com/articles/getting-started-with-new-relic-in-30-minutes--net-34876
+https://code.tutsplus.com/series/performance-monitoring-with-new-relic--cms-600
+https://code.tutsplus.com/tutorials/get-started-with-monitoring-your-web-application-using-new-relic-alerts--cms-24187
+https://code.tutsplus.com/tutorials/front-end-monitoring-with-new-relic-browser--cms-22424
+
+http://www.scmgalaxy.com/courses/daywise/newrelic-2days.html
+
+QA
+“whether it will cover infrastructure and plugins (Database) part also”
+
+
+PHP WITH WORDPREE
+https://code.tutsplus.com/tutorials/using-new-relic-to-monitor-wordpress-performance--cms-22002
+https://www.digitalocean.com/community/tutorials/how-to-install-wordpress-with-lamp-on-ubuntu-16-04

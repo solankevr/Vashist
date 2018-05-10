@@ -1,0 +1,10 @@
+---
+- hosts: webserver
+  remote_user: root
+  vars_prompt:
+  - name: username
+    prompt:  What is your name?  What is your fav color?
+
+  tasks:
+    - include: common.yml
+...

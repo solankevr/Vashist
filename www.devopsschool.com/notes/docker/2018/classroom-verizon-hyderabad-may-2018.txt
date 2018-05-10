@@ -1,0 +1,450 @@
+MAIN RESOURCES - http://www.devopsschool.com/tutorial/docker/
+
+DevOps
+CICD
+Containers
+Servers
+=================
+Project - VerizonX - Module 10
+Manager - MgrX
+
+Architect	1	JIRA
+Dev		10	
+	Code Integration  - GIT
+	SCA 		- SonarQube
+	Build		- Maven
+	Packaging 	-
+			APP
+			SYS
+	Repo 
+			Artifactory
+	Deployment 	QA -- Staging -Integration
+	1 Package --> 300 Boxes
+			200 LINUX
+				100 RHEL
+				100 UB
+			50 WIN
+			50 MAC
+
+			TOMCAT
+			JBOSS
+			WL
+			WS
+			IIS
+
+			MYSQL
+			MS	
+			OR
+			POS
+
+			100 DIFF CONIF
+	===============================================
+			5 mins
+		ANSWER - ANSIBLE
+		
+			5 SEC
+
+		ANSWER - Docker
+	AT - 
+	Code C - 
+	
+	RELEASE
+===============================================
+	
+JENKINS
+======================================================
+			
+
+DOCKER 
+=============
+
+	
+QA		5
+IT		1
+BR		1
+DB		1
+NET		1
+Security	1
+Lead 		2
+====================================
+SDLC Problems
+
+
+What is a Docker?
+	FREE
+	OS
+	
+Release
+	Docker Community
+	Docker Enterprise
+
+PLATFORM - DOCKER ENGINE
+=====================================================
+DOCKER ENGINE - A PLATFORM
+DOCKER IMAGES - APP (Jenkins)
+DOCKER REPO - 
+		Public Repo
+			hub.docker.com
+			store.docker.com
+			github.com
+		Privare Repo
+			Atifactory
+		
+DOCKER CONTAINER - RUNNING STATE OF THE DOCKER IMAGE IS CALLED CONTAINER
+============================================================
+
+How to install Docker Engine?
+http://www.devopsschool.com/tutorial/docker/docker-install-commuityedition-oldmethod.html
+
+What is first commmand docker?
+> docker info
+> docker help
+
+How to check the number of images?
+> docker images
+
+How to download Images from Docker hub?
+> docker pull jenkins
+
+How to seee number of containers running?
+> docker ps
+
+How to run the images?
+> docker run jenkins
+> docker run -d jenkins
+> docker run jenkins
+> docker run -p 8080:8080 -p 50000:50000 jenkins
+-p 8080:8080 	=  exernal:internal
+-p 50000:50000	=  exernal:internal
+
+> docker run -d -p 8080:8080 -p 50000:50000 jenkins
+> docker run -d -p 8090:8080 -p 50001:50000 jenkins
+> docker run -d -p 8085:8080 -p 50002:50000 jenkins
+
+How can i go inside a containers?
+EXEC		- YOU RUN A TOOL/SCRIPT inside a containers
+		bash	-it
+		> docker exec -it 5854c6eeda40 /bin/bash
+		more
+ATTACH
+
+How to come out of the containers?
+	CTRL + P + Q	- 
+	exit
+
+How to stop the containers?
+> docker stop cont-id
+
+How to list the all containers
+	RUNNING  | EXITED | CREATED
+
+How to start the containers?
+> docker start cont-id
+
+How to knw the running processing inside a containers?
+> docker top cont-id
+
+===================================================================
+A CONTAINER MUST HAVE A AT LEAST OF ONE PROCESSS IN RUNNNG STATE TO KEEP ALIVE CONTAINERS
+==================================================================
+
+DIFF BETWEEN EXEC & ATTACH
+
+EXEX - UTLITY OR SCRIPT + IT CREATES NEW TERMINAL
+
+> docker exec -it 30f6ddd0a0b2 /bin/bash
+> docker attach 30f6ddd0a0b2
+> docker run ubuntu /bin/ls
+
+How to see the logs of the running containers?
+> docker logs cont-id
+
+How to remove the containers?
+> docker rm cont-id
+
+How to delete images?
+> docker rmi image-name
+
+
+exec        Run a command in a running container
+images      List images
+info        Display system-wide information
+logs        Fetch the logs of a container
+ps          List containers
+pull        Pull an image or a repository from a registry
+rm          Remove one or more containers
+rmi         Remove one or more images
+start       Start one or more stopped containers
+run         Run a command in a new container
+stop        Stop one or more running containers
+top         Display the running processes of a container
+
+inspect     Return low-level information on Docker objects
+
+cp          Copy files/folders between a container and the local filesystem
+	docker cp verizon.txt 5d1efbbd1978:/opt
+	docker cp 5d1efbbd1978:/opt/verizon.txt
+
+Volume Mapping
+docker run -d -p 8080:8080 -p 50000:50000 -v /opt/jenkins:/var/jenkins_home jenkins
+
+stats       Display a live stream of container(s) resource usage statistics
+attach
+
+
+HOW THE CONTAINERS PROCESSING IS BEING MANAGED?
+[root@ip-172-31-19-204 ec2-user]# ps -eaf | grep docker
+root      9796     1  0 06:04 ?        00:00:53 /usr/bin/dockerd
+root      9802  9796  0 06:04 ?        00:00:09 docker-containerd -l unix:///var/run/docker/libcontainerd/docker-containerd.sock --metrics-interval=0 --start-timeout 2m --state-dir /var/run/docker/libcontainerd/containerd --shim docker-containerd-shim --runtime docker-runc
+root     22628 22525  0 09:55 pts/3    00:00:00 grep --color=auto docker
+ 134  docker ps -a
+  135  clear ps -a
+  136  ps -eaf | grep docker
+  137  docker ps -a
+  138  docker run -itd ubunut /bin/bash
+  139  docker run -itd ubuntu /bin/bash
+  140  clear
+  141  docker ps -a
+  142  ps -eaf | grep docker
+  143  docker run -itd ubuntu /bin/bash
+  144  ps -eaf | grep docker
+  145  history
+
+
+DOCKER NETWORKING
+	BRIDGE - 
+	HOST
+	NULL
+> docker network ls
+
+b734db59bb53	172.17.0.3
+457182865d6d	172.17.0.2
+
+ 167  docker help run
+  168  docker run -itd --network=verizon ubuntu /bin/bash
+  169  docker [s
+  170  docker ps
+  171  docker inspect c0755228b453
+
+
+LAB OF THE NETWORKING - http://www.devopsschool.com/notes/docker/commands-collections/docker-networking.txt
+
+EXCERCISE-
+http://www.devopsschool.com/tutorial/docker/labs/docker-lab-6.html
+
+============================================
+DAY2
+===============================================================
+How to create a Images?
+
+	1. Exiting Containers - MANUAL PROCESS
+	2. Dockerfile		- Automated process
+
+13.127.145.91
+
+> docker run -itd ubuntu /bin/bash
+> docker attach cont-id
+> apt-get update
+> docker commit -m"This is my first image" b7f56d97d9ed verizon-ub-update
+
+How can you see the images layers?
+> docker history verizon-ub-update
+
+> docker run -it verizon-ub-update /bin/bash
+    1  apt-get update
+    2  apt-get install apache2
+    3  which apache2
+    4  service enable apache2
+    5  service apache2 enable
+    6  service apache2 start
+    7  ps -eaf | grep apa
+    8  curl
+    9  apt-get install curl
+   10  ifconfig
+   11  apt-get install -y iputils-ping traceroute net-tools iproute2
+   12  ifconfig
+   13  curl http://172.17.0.3
+   14  history
+> docker commit -m"This is my second image" 6316894fa72f verizon-ub-up-net-apa
+
+
+How to share the images?
+	1. Using the tar ball
+		> docker save -o verizon-ub-up-net-apa.tar verizon-ub-up-net-apa
+		> docker load -i verizon-ub-up-net-apa.tar
+	2. Using the public repo
+			hub.docker.com
+			> Get a free account + 1 PVT + Unimited Pub
+			> Create a repo on hub.docker.com
+			> docker login 
+			> 
+			store.docker.com
+	3. Using the private repo
+			Artifactory
+			Archiva
+			nexus
+
+===============================
+How to create a image using dockerfile?
+
+FROM 		BASE IMAGE
+JENKNS
+	openjdk:8-jdk
+		buildpack-deps:stretch-scm
+			buildpack-deps:stretch-curl
+				debian:stretch
+					scratch
+
+RUN 
+
+ARG
+
+ENV
+
+VOLUME
+
+COPY
+
+EXPOSE
+
+USER
+
+WRITE A SAMPLE
+========================
+FROM ubuntu
+MAINTAINER Rajesh Kumar << rajesh@scmgalaxy.com>>
+RUN apt-get update && apt-get install git -y && apt-get install apache2 -y
+
+> docker build -t scmgalaxy/ub-git-apache .
+
+EXPOSE 80
+CMD /usr/sbin/apache2ctl -D FOREGROUND
+
+CMD echo "Hello world" 
+ENTRYPOINT ["/bin/echo", "Hello"]
+
+
+Execution Mode
+	SHELL MODE -> bash --> env -> ls
+	EXEC MODE -> executable parameters
+		    perl file.pl
+		    python fileae.py
+
+ENTRYPOINT - 
+	Makes your container executable
+ENTRYPOINT ["/bin/tini", "--", "/usr/local/bin/jenkins.sh"]
+		executable parm1 param2
+
+=================ENTRYPOINT======================
+FROM ubuntu
+MAINTAINER Rajesh Kumar << rajesh@scmgalaxy.com>>
+RUN apt-get update && apt-get install git -y && apt-get install apache2 -y
+ENTRYPOINT ["/bin/echo", "Hello"]
+=====================================================
+ENTRYPOINT NEEDS A EXEC & DEFAUL SHELL
+CMD - EXECUTE WITH DEFAULT SHELL
+
+
+=================CMD======================
+FROM ubuntu
+MAINTAINER Rajesh Kumar << rajesh@scmgalaxy.com>>
+RUN apt-get update && apt-get install git -y && apt-get install apache2 -y
+CMD echo "Hello world" 
+=====================================================
+
+
+ docker run -it scmgalaxy/entry-cmd ls
+# hello ls
+
+#ls
+
+printing /bin/bash ls
+
+================================================
+FROM ubuntu
+MAINTAINER Rajesh Kumar << rajesh@scmgalaxy.com>>
+RUN apt-get update && apt-get install git -y && apt-get install apache2 -y
+CMD /usr/sbin/apache2ctl -D FOREGROUND
+
+
+
+
+ENTRYPOINT VS CMD
+CMD sets default command and/or parameters, which can be overwritten from command line when docker container runs.
+
+ENTRYPOINT configures a container that will run as an executable.
+
+CMD
+
+
+
+commit      Create a new image from a container's changes
+history     Show the history of an image
+load        Load an image from a tar archive or STDI
+login       Log in to a Docker registry
+logout      Log out from a Docker registry 
+rename      Rename a container
+tag         Create a tag TARGET_IMAGE that refers to SOURCE_IMAGE
+save        Save one or more images to a tar archive (streamed to STDOUT by default)
+push        Push an image or a repository to a registry
+
+
+Commands:
+  attach      Attach local standard input, output, and error streams to a running container
+  build       Build an image from a Dockerfile
+
+  create      Create a new container
+  diff        Inspect changes to files or directories on a container's filesystem
+  events      Get real time events from the server
+  export      Export a container's filesystem as a tar archive
+
+  import      Import the contents from a tarball to create a filesystem image
+  kill        Kill one or more running containers
+
+  pause       Pause all processes within one or more containers
+  port        List port mappings or a specific mapping for the container
+
+
+  restart     Restart one or more containers
+
+  search      Search the Docker Hub for images
+
+  unpause     Unpause all processes within one or more containers
+  update      Update configuration of one or more containers
+  version     Show the Docker version information
+  wait        Block until one or more containers stop, then print their exit codes
+
+
+
+==================================================================
+What Next?
+Docker Compose - 
+Docker Machine -
+Docker Kitematic - GUI 
+Docker for Windows
+----------------------
+Docker for Enterprise
+
+Docker Swarm
+Kubernetes
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

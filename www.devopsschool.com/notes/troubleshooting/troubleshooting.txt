@@ -1,0 +1,50 @@
+Command to know the proxy
+> netsh.exe winhttp show proxy
+
+Linux - 
+$ export http_proxy=http://foo:bar@server-ip:port/
+$ export http_proxy=http://foo:bar@127.0.0.1:3128/
+$ export http_proxy=http://USERNAME:PASSWORD@proxy-server.mycorp.com:3128/
+
+cd /etc/yum.repos.d/
+wget http://repos.fedorapeople.org/repos/jkaluza/httpd24/epel-httpd24.repo
+
+Command to know the proxy
+> netsh.exe winhttp show proxy
+
+Set these commands in Linux
+use_proxy=yes
+http_proxy=air-proxy-4-wcg.corp.capgemini.com:80
+https_proxy=XX.XX.XX.XX:8080
+& 
+Run Wget
+
+http_proxy=http://USERNAME:PASSWORD@air-proxy-4-wcg.corp.capgemini.com:80
+https_proxy=http://USERNAME:PASSWORD@air-proxy-4-wcg.corp.capgemini.com:80
+
+wget -e use_proxy=yes -e http_proxy=127.0.0.1:8080 URL
+
+EXPORT 
+ype in command line :
+
+> export http_proxy=http://proxy_host:proxy_port
+
+> export http_proxy=http://username:password@proxy_host:proxy_port
+and then run
+> wget fileurl
+$ wget fileurl
+
+
+http://www.tecmint.com/ifconfig-command-examples/
+vg-proxy-in-wget
+
+
+http://stackoverflow.com/questions/11211705/setting-proxy-in-wget
+
+http://stackoverflow.com/questions/22368515/how-to-see-the-proxy-settings-on-windows
+
+http://unix.stackexchange.com/questions/234055/export-a-selection-of-environment-variables-with-correct-escaping
+
+http://www.cyberciti.biz/faq/unix-linux-export-variable-http_proxy-with-special-characters/
+
+http://www.cyberciti.biz/faq/linux-unix-set-proxy-environment-variable/

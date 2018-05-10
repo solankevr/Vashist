@@ -1,0 +1,17 @@
+Second Day
+	Environment
+	Classes
+	Inheritance
+	Modules
+	Parameters
+	Custom Resources
+	
+	templates
+	
+	Hiera
+
+	Server & Puppet Enterprise
+	
+	Mcollective
+
+	

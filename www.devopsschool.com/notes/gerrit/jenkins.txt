@@ -1,0 +1,8 @@
+sudo su -s /bin/bash jenkins
+ssh-keygen
+
+/var/lib/jenkins/.ssh/id_rsa
+
+Your identification has been saved in /var/lib/jenkins/.ssh/id_rsa.
+Your public key has been saved in /var/lib/jenkins/.ssh/id_rsa.pub.
+

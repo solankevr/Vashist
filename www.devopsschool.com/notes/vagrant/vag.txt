@@ -1,0 +1,43 @@
+How to Install Oracle VirtualBox 5.1 on CentOS/RHEL 7?
+
+Step 1 - Update your yum repository
+> yum update
+
+Step 2 - All .rpm packages are signed. The Oracle public key for rpm can be downloaded here. You can add this key (not necessary for yum users, see below!) with
+
+> sudo rpm --import oracle_vbox.asc
+
+or combine downloading and registering:
+
+> wget -q https://www.virtualbox.org/download/oracle_vbox.asc -O- | rpm --import -
+
+Step 3 - Download Oracle virtualBox
+wget http://download.virtualbox.org/virtualbox/5.1.14/VirtualBox-5.1-5.1.14_112924_el7-1.x86_64.rpm
+
+or
+
+# cd /etc/yum.repos.d/
+> wget http://download.virtualbox.org/virtualbox/rpm/el/virtualbox.repo
+
+Step 4 - CentOS/RHEL 64 Bit (x86_64): Users also need to add EPEL yum repository using one of the following commands.
+> rpm -Uvh http://epel.mirror.net.in/epel/7/x86_64/e/epel-release-7-9.noarch.rpm
+
+Step 5 – Install Required Packages
+> yum install gcc make patch  dkms qt libgomp
+> yum install kernel-headers kernel-devel fontforge binutils glibc-headers glibc-devel
+
+Step 6 – Setup Environment Variable
+VirtualBox installation required kernel source code to install required modules, So we need to configure environment variable KERN_DIR to which VirtualBox get kernel source code. In my case latest kernel source is available in 2.6.32-504.3.3.el6.x86_64 directory under /usr/src/kernels/ . Make sure you are using correct source path.
+
+> export KERN_DIR=/usr/src/kernels/2.6.32-504.3.3.el6.x86_64
+
+Step 1 - Update your yum repository again
+> yum update
+
+Step 4 – Install Oracle VirtualBox and Setup
+Use the following command to install VirtualBox 5.1 using yum command line tool. It will install the latest version of VirtualBox 5.1.x on your system.
+
+> yum install VirtualBox-5.1
+
+After installation, we need to rebuild kernel modules using the following command.
+> service vboxdrv setup

@@ -1,0 +1,276 @@
+Docker Engine	- a sofware for  container technology
+Docker Images   - App in Not running State
+Docker Container - Running State of Image
+Docker Repo - A Place where you store the image
+		Pub --- Hub.docker.com
+		Pvt --- Artifactory
+
+
+ONE IMAGE ----- YOu can RUN Unlimited Container
+
+What is Docker - DONE
+How Docker Works - DONE
+
+How to Install Docker?  -- DONE
+http://www.devopsschool.com/tutorial/docker/docker-install-and-configuration.html
+
+MY IP - 13.126.39.191
+
+First Command
+> docker info
+> docker help 
+> docker -v
+
+Image  - Jenkins
+From where to Get images?
+https://hub.docker.com/_/jenkins/
+
+How to download Images?
+> docker pull jenkins
+
+How to check the #of Images?
+> docker images
+
+How to see # of containers rnning?
+> docker ps
+
+How to run the image to get the containers?
+> docker run 
+> docker help run
+> docker run -p 8080:8080 -p 50000:50000 jenkins
+
+Server Port - 8080
+Agent - 50000
+-p 8080:8080  external:internal
+
+docker run -p 8080:8080 -p 50000:50000 jenkins
+docker run -d -p 8090:8080 -p 50001:50000 jenkins
+docker run --name j3 -d -p 8091:8080 -p 50002:50000 jenkins
+
+How to see the all cont including running?
+> docker ps -a	
+
+
+1 13.127.109.214
+2 13.127.198.59
+3 13.127.213.2
+4 13.127.160.12
+5 13.127.180.98
+6 13.127.52.95
+7 13.127.94.236
+8 13.126.187.89
+9 13.127.191.186
+10 13.127.208.219
+11 13.127.119.203
+12 13.127.235.171
+13 13.126.225.70
+14 13.127.233.11
+15 13.127.14.189
+16 13.127.225.169
+
+How to get inside the containers?
+> docker exec -it cont-id /bin/bash 
+
+How to get out of the container without killing it?
+> CTRL + P + Q
+
+Work with container?
+How to see the process running inside the container?
+> docker top cont-id
+
+How to see the logs of container process?
+> docker logs process id
+
+How to see all the info about each containers?
+> docker inspect cont-id	
+
+How can you dele the container?
+> docker rm cont-id
+
+How to stp the container?
+> docker stop cont-id
+
+How to start the cont?
+> docker start cont-id
+
+Using ubuntu as app?
+
+> docker run -it image-name /bin/bash
+
+
+Commands:
+  attach      DONE
+  cp	      DONE
+exec        DONE
+run 		DONE
+image 		DONE
+info		DONE
+inspect		DONE
+		images
+		container
+		network
+kill 		done
+logs
+ps
+pull
+top
+stop
+start
+rm
+top
+run
+history    
+commit
+version   
+
+How to create a images?
+2 method
+
+1. Create from existing container?
+
+2. Dockfile 
+
+FROM ubuntu:latest
+MAINTAINER rajesh@scmGalaxy.com
+RUN apt-get update && apt-get install git -y
+RUN touch /opt/dockerfile.txt
+
+
+
+How to share the images?
+1. Package Tarball
+
+export      Export a container's filesystem as a tar archive
+import      Import the contents from a tarball to create a filesystem image
+
+load        Load an image from a tar archive or STDIN
+save        Save one or more images to a tar archive (streamed to STDOUT by default)
+tag
+2 Through repo
+
+docker login
+
+docker push 
+
+docker logout
+
+
+
+
+
+
+
+ build       Build an image from a Dockerfile
+
+   create      Create a new container
+  diff        Inspect changes to files or directories on a container's filesystem
+  events      Get real time events from the server
+ 
+  pause       Pause all processes within one or more containers
+  port        List port mappings or a specific mapping for the container
+
+  rename      Rename a container
+  restart     Restart one or more containers
+ rmi         Remove one or more images
+
+  search      Search the Docker Hub for images
+  stats       Display a live stream of container(s) resource usage statistics
+
+  unpause     Unpause all processes within one or more containers
+  update      Update configuration of one or more containers
+
+  wait        Block until one or more containers stop, then print their exit codes
+=====================================================================================================================================
+
+DOCKER IS NOT CONSTANT
+1. Docker Toolbox		DONE
+2. Docker for Winowws		DONE
+3. Docker Machine		DONE
+4. Kitemetic			DONE
+5. Docker Compose
+
+6. Swaram
+7. Kuberenetes
+
+How to Install Docker-Compose
+
+How to Install Docker Compose?
+> sudo curl -L https://github.com/docker/compose/releases/download/1.17.0/docker-compose-`uname -s`-`uname -m` -o /usr/local/bin/docker-compose
+
+> sudo chmod +x /usr/local/bin/docker-compose
+
+> export PATH=$PATH:/usr/local/bin/
+
+> docker-compose --version
+
+
+> docker-compose build
+>  docker images
+> docker-compose up 
+> docker-compose down
+=================================
+> docker-compose up -d
+================================
+> docker-compose ps
+> docker-compose log
+
+FILE - docker-compose.yaml
+
+==========================
+Program 1
+-----------------------------------------------
+version: '2'
+services:
+  wordpress:
+    image: wordpress:4.5
+    links:
+      - db
+    ports:
+      - 8080:80
+    environment:
+      WORDPRESS_DB_HOST: db:3306
+      WORDPRESS_DB_PASSWORD: example
+    restart: always
+
+  db:
+    image: mariadb
+    environment:
+      MYSQL_ROOT_PASSWORD: example
+
+
+Question Time????
+=====================================================
+mcollective - DevOpsSchool.com
+Hiera  - DevOpsSchool.com
+
+Production - 100
+	50 - module1
+	50 - Module2
+site.pp
+
+
+
+
+About me?
+Rajesh Kumar
+DevOps@RajeshKumar.xyz
++91 8105843520
+http://rajeshkumar.xyz/cv/
+
+Feedback for Nokia Team
+http://tcheck.co/2HKmv5
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

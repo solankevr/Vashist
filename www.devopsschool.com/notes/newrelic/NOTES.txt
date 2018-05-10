@@ -1,0 +1,41 @@
+New Relic is a SaaS application performance management (APM) tool that combines Real User Monitoring (RUM) with
+deep, component-level visibility into web applications. 
+
+New Relic gives developers real-time visibility onto user experiences and application performance. With a single tool, application teams can:
+	Measure front-end performance including browser response, page load times, and Apdex
+	Monitor app performance at the component level and spot potential bottlenecks 
+	Determine if performance issues are in the front end, the app, or the network
+	New Relic monitoring is part of the CloudBees Ecosystem, so you can turn it on for any of your
+applications with a few clicks.
+
+
+----------------------------
+New Relic is the leading software as a service provider of application performance management tools. More than 6,000 companies use RPM™, to manage more than 90,000 Java, .net, php, Ruby, or JRuby applications.
+RPM enables developers and operations teams to monitor, troubleshoot and optimize their web applications.
+=============
+Web cast
+https://learn.newrelic.com/webcasts
+Courses
+https://learn.newrelic.com/courses
+========================
+
+BROWSER
+MOBILE
+SYNTHETICS
+APM
+INFRASTRUCTURE
+PLUGIS
+INSIGHT
+
+Terminology
+=====================
+Response Time
+Through Put
+CPU Usage
+Apdex
+
+------------------------
+APPLICATION LIST VIEW
+TIME PICKER
+ALL JVMS
+WEB TRANSACTINS

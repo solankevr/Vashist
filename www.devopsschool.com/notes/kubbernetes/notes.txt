@@ -1,0 +1,68 @@
+MiniQube in Windows Using VirtualBox
+=====================================
+
+Rule - 1
+To disable Hyper-V, go to Turn Windows features on or off and you will see a dialog with list of Windows features as shown below. Navigate to the Hyper-V section and disable it completely.
+
+Rule - 2
+Windows 10 Laptop. VT-x/AMD-v virtualization must be enabled in BIOS.
+
+
+Rule - 3
+Docker Toolbox v1.12.0. The toolbox sets up VirtualBox and I have gone with that.
+		Docker Client for Windows
+		Docker Machine for Windows
+		Docker Compose
+		Virtual Box
+		Kitemetic
+		git for windows
+
+Rule - 4
+		kubectl 
+
+Rule - 5
+		Minikube
+
+Rule - 6 	kubectl and Minikube path in PATH
+
+
+> minikube --help
+> minikube get-k8s-versions
+> minikube.exe start --help
+
+> minikube.exe start --kubernetes-version="v1.4.0" --vm-driver="virtualbox"
+
+
+> minikube start --vm-driver=virtualbox --kubernetes-version="v1.6.0"
+> minikube.exe start --vm-driver="virtualbox"
+
+
+# --show-libmachine-logs --alsologtostderr
+
+> kubectl get nodes
+> kubectl get pods --all-namespaces
+> kubectl run hello-minikube --
+> kubectl get pods
+
+> kubectl expose deployment hello-minikube --type=NodePort service "hello-minikube" exposed
+OR
+kubectl run hello-minikube --image=gcr.io/google_containers/echoserver:1.4 --port=8080
+
+> kubectl get nodes
+> kubectl get services
+> minikube service hello-minikube --url
+> curl $(minikube service hello-minikube --url)
+
+minikube version
+minikube start --vm-driver=hyperv --kubernetes-version="v1.6.0"
+
+kubectl get nodes
+
+minikube
+minikube dhasboard
+
+
+scmgalaxy.training@gmail.com
+scmgalaxy$123
+
+https://goo.gl/K5WXmr

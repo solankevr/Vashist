@@ -1,0 +1,7 @@
+- hosts: all
+  remote_user: root
+  roles:
+    - geerlingguy.git
+  sudo: yes
+  gather_facts: yes
+

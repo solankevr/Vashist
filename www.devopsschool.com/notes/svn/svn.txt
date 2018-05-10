@@ -1,0 +1,33 @@
+How SVN works? - DONE
+How to install client in windows/Linux - DONE
+How to use?
+	Add file - DONE
+	Delete files
+	Renamed Files
+	Modifyes
+	Branch
+	Merging
+	Tag
+	update
+	log
+	
+svn co
+svn info
+svn log
+svn status
+svn add
+svn commit 
+	
+SVN worlflow
+SVN branching / merging
+SVN Daily commands
+
+
+SVN admin - Backup / Resotre / Verify
+
+SVN - Mulitome CLIENT + ONE SERVER
+
+adding files - 
+Deleting - 
+Diff
+

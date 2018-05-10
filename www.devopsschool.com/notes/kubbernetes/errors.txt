@@ -1,0 +1,13 @@
+PS C:\blr> kubectl cluster-info
+Kubernetes master is running at https://192.168.99.100:8443
+error: group map[:0xc08230fce0 apps:0xc08230fd50 authentication.k8s.io:0xc08230fdc0 authorization.k8s.io:0xc0
+tch:0xc0823ca150 extensions:0xc0823ca310 federation:0xc08230f810 autoscaling:0xc08230ff80 certificates.k8s.io
+c0 componentconfig:0xc0823ca230 policy:0xc0823ca380 rbac.authorization.k8s.io:0xc0823ca3f0 storage.k8s.io:0xc
+is already registered
+PS C:\blr>
+
+
+
+
+
+

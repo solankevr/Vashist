@@ -1,0 +1,212 @@
+Docker 
+==========================
+What is Docker?
+	Container Tool
+
+What is Container?
+
+30 YEARS BEFORE
+=============================
+IF I WANT TO SETUP A SERVER (ProD - No Prod)....
+
+What is the Approach you follow - 20 Years --- PHYSICAL SERVER ERA
+------------------------------------
+10 SERVER
+		10 CPU | 
+		10 RAM  | 3GB RAM --> 5 GB
+		10 HDD
+		10 OS
+		-----------
+		1 Month
+
+		UTI % --- 15 %
+		WASTE --- 85%
+
+		USE OF SERVER WAS LESS ---> 
+
+What is the Approach you follow - 15 Years -----> Virtualization
+		Explosion of Internet + related Service
+1000 SERVERS
+		1000 CPU | 
+		1000 RAM  | 3GB RAM --> 5 GB
+		1000 HDD
+		1000 OS
+		-----------
+		1 Month
+
+		BUT THE PRB - INTERNET n RELEATED R FREE
+
+		LESS COSTLY
+		SETUP A SERVER QUICKER
+
+vmware
+virtualbox
+xen
+
+aws
+	1000 SERVERS
+		10 PHYSICAL SERVER ---> 1000 VMS
+
+
+What is the Approach you follow - Now
+
+	1GB GMAIL - 15 GB
+	Unlimit Yotuube
+	Unlimit Phots
+	We dont want to pay any services but we want use everything free of cost+Unlimited
+
+
+Company Main Objective is ----RUNNING APP, IN less cost n in No time.....
+
+================================================
+Container Based Technology ----- Docker , Rocket
+
+
+How Docker makes each Container(App) works on the same OS(Base OS0) n still behave isolate?
+
+USER SPACE  
+	WINDOWS
+	LINUX - 10 USER - 10 USER SPACE -- EACH R ISOLATED
+					COMMON - EACH ONE OF THE 
+							USER SPACE C:\Users\Rajesh
+							COMMON SPACe ---C/D
+
+Container ---
+					Each of Processes| Drive | App| Services | Permission
+					is derived from Copy of the Base OS
+					Each are isoltaed?
+
+How it is Possible?
+		Docker Engine
+				Kernal Namespace  --- Netowrk, Drives, Process
+				Kernal Capabilities -- Permission
+				Kernal Cgroups	  ---- CPU n RAM Allocation to each container
+
+Why we call it container?
+
+Shipyard of 1900 ----					 --- 100 Commerce
+			Cargos shapes n Size are diff
+
+
+							100000000000000000 Commerce
+
+Shipping the cargo...
+
+China ---> RawM(Africa) --> Product --> Worlds --- STILL IT IS CHEAPER
+Transport === Shippment===Trade has become very very less costly
+				
+esolution -----Container---
+			Same Standard process to ship the cargo
+
+
+IT ------> Shippment of APPS (10, 15)
+
+Shippment of APPS (100000, 1500000)
+			Less Costly
+			Faster
+==============================================
+SAVIING COST + TIME
+===================================================
+
+How can i start using Docker technoloy...
+
+Docker Engine --- a tool which can help you to manage container	-- DONE
+Docker Image --- Static Version of the APP.				---DONE
+Docker Repo --- You get a images from Public(hub) or pvt repo(nexus)   --DONE
+Docker Container --- Running state of the image is called Container
+
+			USING ONE IMAGE. --- You can run 1000s container....
+
+Install - http://www.devopsschool.com/tutorial/docker/docker-install-and-configuration.html
+
+> docker info
+> docker help
+
+
+https://hub.docker.com/
+
+jenkins
+nexus
+
+> docker images
+> docker ps
+> docker run
+# How to run images to get containers...._ Instructions you get only from Image Developer....
+> docker run -p 8080:8080 -p 50000:50000 jenkins
+
+-p ---Port Mapping
+8080:8080 external:internal
+jenkins - Image name
+
+> docker help run
+
+jenkins--> MASteR(8080) - Slave(master-50000)
+
+> docker run -d -p 8080:8080 -p 50000:50000 jenkins
+> docker run -d -p 8080:8080 -p 50000:50000 jenkins
+> docker run -d -p 8080:8080 -p 50000:50000 jenkins:alpine
+
+> docker run -d -p 8090:8080 -p 50001:50000 jenkins
+
+> docker exec -it 42ce01e49686 /bin/bash
+
+How to come out of the Container
+> CTLR + P + Q
+
+How to stop the container?
+> docker stop cont_id
+> docker ps -a
+How to start the container?
+> docker start cont_id
+
+How to remove the container
+> docker rm cont_id
+
+How to remove the images?
+> docker rmi image-id
+
+How to see the pprocess inside the container
+> docker top cont_id
+
+How to see log of the container
+> docker logs cont_id
+
+How to debug /info of the container
+			images
+> docker inspect cont_id
+> docker inspect image_id
+
+Networking
+> docker network ls
+7636d443d590        bridge              bridge              local
+55b641d786c8        host                host                local
+d223eb27a360        none                null                local
+
+bridge -CIDR Range ---> Container Gets a IP Address
+
+host   			--- Host IP address will be the container IP addrees	                       
+none    			NO IP Addres to cont====Cont is isolated in the world            
+
+How to Create images?
+		1- Createing a imgages from Container
+		docker commit -a "Rajesh" -m"This is for demo" 7338290fe975 ub-git
+
+		2. Creating a Images from Dockerfile
+
+WHY EXIT Happen?
+		ONE CONTAINER - AT LEAST ONE RUNNING PROCESS MUST BE THERE TO HOLD THE CONTAINER
+
+
+Docker for windws
+		Docker toolbox (Linux VM [DE + Im + C)
+		Docker for Windows --> Hyper(Windows VM)- DE --> Container 2016 onwards...
+
+How to share image with others?
+		Pub repo --->    
+		pri repo -- NEXUS
+		tarball 
+
+How my containers will be accessed by others?
+======================================================================
+
+

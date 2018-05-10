@@ -1,0 +1,26 @@
+1. Setting up PHP based Apps - NA
+
+2. Setting up MySql
+	NEw Relic Plugins - Example mySql
+3. Generate Data	- DONE
+New Relic Browsers	- NA
+New Relic Infra		DONE
+4. PPT
+	APM Error Analytics	DONE
+	APM Deployment		DONE
+	Apdex			DONE
+	Transactions	DONE
+Reports
+	SLA			DONE
+	Availlability		DONE
+	Scalability Analysis	DONE	
+	Web Trans		DONE
+	Database
+Alerts
+	
+New Relic Role Based Access Control
+
+New Relic Insight
+
+	
+Adding Custom Data with the APM Agent

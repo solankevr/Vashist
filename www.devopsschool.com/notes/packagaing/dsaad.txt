@@ -1,0 +1,50 @@
+Package mgmt
+---------------------------
+Linux
+	CENTOS - rpm 	zip, tar, war, jar,
+	UNABTU  deb  	zip, tar, war, jar,
+	DEBIAN -- deb 	zip, tar, war, jar,
+Windows
+	exe, msi, zip, tar, war, jar,
+	instalanywhere, ishield, wise, V2015, wix, winzip, witar 
+Mac
+	dmg
+
+Package Archive
+NEXUS
+ARTI
+ARCH
+NUGET
+
+SYSTEM PUBLIC
+repo.apache.org
+yum reposittory
+apt repostiry 
+Nuget Gallery
+
+apt-get install | remove | update package
+yum install | remote
+
+Mobile APP
+PlayStore
+apple
+
+node.js
+---------npm --1000 of package
+npm intall
+Ruby
+--------------
+rvm insta
+
+
+Trubleshooting
+====================================
+System
+	Fist 5 mins (disk, ram, cpu, memory)
+	rest of the time
+Application
+	Fist 5 mins (log file, db issues, app serer, web server, bugs)
+	rest of the time
+Dependent Services
+	Fist 5 mins (ldap, db, cahch, network)
+	rest of the time

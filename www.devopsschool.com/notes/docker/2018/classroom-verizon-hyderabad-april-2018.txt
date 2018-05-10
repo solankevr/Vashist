@@ -1,0 +1,635 @@
+Project - VerizonX
+Mgr - MgrX
+====================
+10 feature --> 10 Modules ---> API
+====================
+Microservices
+====================
+
+TEAM
+==============
+Architect - 1
+Dev		- 10
+QA		- 5
+BR		- 1
+DB		- 1
+IT		- 1
+NET		- 1
+LEAD		- 2
+PS		- 2
+===============================
+
+Requirement | Planning  --> JIRA
+Code Collab  -  10 Dev - 10 Mod --> Git
+Static Code Ana - SonarQube
+Build mgmt		--------> Ant, Maven, MSbuild
+		Create a dir
+		copy the src file
+		Dep
+			Internal
+			Ext
+		Compile
+	----------------------
+		30 times in a day
+
+UNIT TESTING - junit
+
+Packaging    -- Jar
+		Application
+		System
+
+Repository mgmt
+		Artifctory
+
+Deployment	
+		100 SERVERS 
+		50 LINUX 50 WINDOWS
+		25 T 2 W 25 WS 25 IIS
+		25 MYSQL 25 O 25 MSQ
+		100 DIFF CONFIG
+		========================
+		WEEK DAY
+		=============
+		10 MINS
+
+	SOLUTION -> PUPPET / Ansible  / Chef / Salt
+		10 SEC
+	SOLUTUON -> DOCKER
+
+AT		- X		
+
+Code Coverage  - JAcoco
+
+RELEASE -----> PRODUCTION
+========================================
+JENKINS
+
+DEV ---> QA  --> PRE PROD --> PROD
+Docker
+
+DEVOPS CONCEPT - 
+http://www.devopsschool.com/video/devops/DevOps-Essentials.html
+
+CICD - 
+http://www.devopsschool.com/video/devops/cicd-pipeline-using-jenkins.html
+===================================================================
+Docker Engine
+http://www.devopsschool.com/tutorial/docker/docker-install-and-configuration.html
+
+Images 
+From Registry
+	PUB - hub.docker.com
+	PVT - 
+Container
+
+======================
+> docker
+> docker version
+> docker info
+> docker help
+> docker help <commnad>
+
+APPS -->tomcat | java | wL | ws | 
+OS  --> JDK --> JENKINS
+=================================
+How to know list of Images?
+> docker images
+
+How to pull the images?
+>  docker pull jenkins
+
+How to run the images?
+> docker run
+> docker run -p 8080:8080 -p 50000:50000 jenkins
+
+docker run # To create a container from Image
+-p 8080:8080 # -p external:internal
+jenkins - image
+
+How to see running container?
+> docker ps
+
+How to run container in a Detached mode?
+> docker run -d -p 8080:8080 -p 50000:50000 jenkins
+
+How to see the all the containers including running?
+> docker ps -a
+
+How to get inside a container?
+> docker exec -it 25c97f88b15f /bin/bash
+
+How to exit container without killing the container?
+> CTRL + P + Q
+
+MORE Containers?
+> docker run -d -p 8081:8080 -p 50001:50000 jenkins
+> docker run -d -p 8082:8080 -p 50002:50000 jenkins
+
+How to name a Containers?
+> docker run -d --name verizon1 -p 8083:8080 -p 50003:50000 jenkins
+
+How to rename the containers?
+> docker rename <cont-id> verizon1
+> docker rename 2fe9b457e3f4 verizon2
+
+How to stop the containers?
+> docker stop cont-id
+
+How to start the containers?
+> docker start cont-id
+
+How to delete the containers?
+> docker rm cont-id
+
+How to see the logs of the runnning containers?
+> docker logs cont-id
+
+How to delete images?
+> docker rmi image-id
+
+How many layerrs is present in the images?
+> docker history image-id
+
+
+EACH CONTAINER REQUIRED AT LEAST OF ONE PROCESS TO BE USED TO HOLD CONTAINER
+
+How to knwo the list of process running inside the container?
+> docker top cont-id
+
+How to hold a container with at least of one process?
+> docker run -it image /bin/bash
+
+What is Diff between exec and attach?
+================================================
+http://www.devopsschool.com/tutorial/docker/faq/difference-between-docker-attach-and-docker-exec.html
+
+EXEC commmand can run any SCRIPT| ANY COMMAND support by your image.
+
+How to copy files/dir from host to container?
+> docker cp veri1.tt be30f224fd90:/opt
+> docker exec eca99cf274a8 ls /opt
+
+How to copy files/dir from container to host?
+> docker cp eca99cf274a8:/opt/veri1.tt .
+
+
+How to map the volume Externally?
+> docker run -d --name verizon1 -p 8083:8080 -p 50003:50000 -v /opt/jenkins:/var/jenkins_home jenkins
+
+
+
+'Commands:
+  attach      Attach local standard input, output, and error streams to a running container
+cp          Copy files/folders between a container and the local filesystem
+  exec        Run a command in a running container
+   history     Show the history of an image
+  images      List images
+  info        Display system-wide information
+   logs        Fetch the logs of a container
+  ps          List containers
+  pull        Pull an image or a repository from a registry
+  rename      Rename a container
+  restart     Restart one or more containers
+  rm          Remove one or more containers
+  rmi         Remove one or more images
+  run         Run a command in a new container
+  start       Start one or more stopped containers
+  top         Display the running processes of a container
+  stop        Stop one or more running containers
+  version     Show the Docker version information
+	
+====================
+https://goo.gl/CjHdXb
+====================
+
+
+How to create a images?
+==========================================
+2 Method 
+	1. using exiting containers
+	2. Using Dockerfile
+
+1. using exiting containers
+=======================================================
+commit      Create a new image from a container's changes
+> docker commit -m"this is my git-ubupdate" -a "Rajesh kumar" e25ef4e084d2 ub-git-update
+> docker history image-name
+> docker inspect cont-id
+/var/lib/docker
+
+LAB - =================
+1. Download RHEL7/centos image
+2. update		> apt-get update | yum update
+3. install httpd	> apt-get install apache2 | yum install httpd
+4. start server		> service apache2 start | /sbin/apachectl -D FOREGROUND &
+5. create a file /var/www/html/index.html
+
+<h1> Welcome to Verizon </h1>
+
+6. create a image
+7. run a container using created image. 
+8. verify 
+	> curl http://xx.xx.xx.xx
+
+===============================================
+How can we share the images?
+	1. Package images -> SCp - FTP
+	2. REPO
+		PUB	- hub.docker.com
+		PRIVATE - store.docker.com | artifcatory | nexus | ECS | docker registry
+
+save        Save one or more images to a tar archive (streamed to STDOUT by default)
+> docker save -o ub-git-update.tar ub-git-update
+load        Load an image from a tar archive or STDIN
+> docker load -i ub-git-update.tar
+
+export      Export a container's filesystem as a tar archive
+> docker export -o rr.tar 54b9ca10d737
+import      Import the contents from a tarball to create a filesystem image
+> docker import rr.tar 
+
+
+How to tag a filesystem/layers to images?
+> docker tag e384e70b7e32 ub1
+
+login       Log in to a Docker registry
+logout      Log out from a Docker registry
+tag         Create a tag TARGET_IMAGE that refers to SOURCE_IMAGE
+push        Push an image or a repository to a registry
+search      Search the Docker Hub for images
+
+ 139  docker  push scmgalaxy/ub-git-update
+  144  docker images
+  145  docker tag scmgalaxy/ub-git-update scmgalaxy/ub-git-update:2.0
+  146  docker images
+  147  docker  push scmgalaxy/ub-git-update:2.0
+
+
+How to craete images using Dockerfile?
+FROM ubuntu
+MAINTAINER Rajesh Kumar "devops@rajeshkumar.xyz"
+ENV MY_NAME RAJESH
+RUN apt-get update -y
+RUN apt-get install git -y
+
+>  docker build -t ub234 .
+
+============================================
+LAB
+Create a images using ubuntu
+
+Install from apache2
+
+Install jdk 8
+wget -c --header "Cookie: oraclelicense=accept-securebackup-cookie" http://download.oracle.com/otn-pub/java/jdk/8u131-b11/d54c1d3a095b4ff2b6607d096fa80163/jdk-8u131-linux-x64.tar.gz
+
+SET JAVA_HOME
+
+Install tomcat
+
+SET WORKING DIR /opt/verizon
+
+CREATE A user called  "verizon"
+
+Set the user "verizon"
+
+Copy a file of verizon.txt to /opt/verizon
+
+Reference
+
+http://www.devopsschool.com/tutorial/docker/labs/create-docker-image3.html
+
+CMD VS ENTRYPOINT
+====================================
+Shell form
+------------------------------------
+<instruction> <command>
+
+RUN apt-get install python3  	#SHELL
+CMD echo "Hello world"  	#SHELL
+ENTRYPOINT echo "Hello world"	#SHELL 
+
+ENV name John Dow  
+ENTRYPOINT echo "Hello, $name" 
+
+docker run -it <image>
+OUTPUT - Hello, John Dow
+
+Exec form
+-------------------------------------
+<instruction> ["executable", "param1", "param2", ...]
+
+RUN ["apt-get", "install", "python3"]  		# EXEC FORM
+CMD ["/bin/echo", "Hello world"]  		# EXEC FORM
+ENTRYPOINT ["/bin/echo", "Hello world"]  	# EXEC FORM
+
+ENV name John Dow  				#SHELL FORM
+ENTRYPOINT ["/bin/echo", "Hello, $name"]  	# EXEC FORM
+
+docker run -it <image>
+OUTPUT - Hello, $name
+
+
+ENV name John Dow 				#SHELL 
+ENTRYPOINT ["/bin/bash", "-c", "echo Hello, $name"] 	#EXEC
+
+docker run -it <image>
+OUTPUT - 
+
+
+
+CMD
+CMD instruction allows you to set a default command, which will be executed only when you run container without specifying a command. 
+
+CMD has three forms:
+
+CMD ["executable","param1","param2"] (exec form, preferred)
+CMD ["param1","param2"] (sets additional default parameters for ENTRYPOINT in exec form)
+CMD command param1 param2 (shell form)
+
+CMD echo "Hello world" 
+docker run -it <image>
+
+ENTRYPOINT instruction allows you to configure a container that will run as an executable. It looks similar to CMD, because it also allows you to specify a command with parameters. The difference is ENTRYPOINT command and parameters are not ignored when Docker container runs with command line parameters.
+
+ENTRYPOINT has two forms:
+
+ENTRYPOINT ["executable", "param1", "param2"] (exec form, preferred)
+ENTRYPOINT command param1 param2 (shell form)
+===================================
+
+FROM debian:wheezy
+ENTRYPOINT ["/bin/ping"]		# EXEC
+CMD ["localhost"]			# SHELL
+
+$ docker run -it test
+OUTPUT - /bin/ping localhost
+
+
+$ docker run -it test google.com
+OUTPUT - /bin/ping google.com
+
+
+
+
+
+
+
+Qs -
+import tar to multiple containers
+
+
+
+
+build       Build an image from a Dockerfile
+
+   create      Create a new container
+  diff        Inspect changes to files or directories on a container's filesystem
+  events      Get real time events from the server
+
+  inspect     Return low-level information on Docker objects
+  kill        Kill one or more running containers
+
+
+
+  pause       Pause all processes within one or more containers
+  port        List port mappings or a specific mapping for the container
+
+
+  stats       Display a live stream of container(s) resource usage statistics
+
+  unpause     Unpause all processes within one or more containers
+  update      Update configuration of one or more containers
+  wait        Block until one or more containers stop, then print their exit codes
+
+
+How to copy a file from one container t another one?
+
+=========================================================================
+DAY 3
+==========================
+Docker Networking
+Docker Compose		- VERY 
+Docker using Artifactory
+Docker for Windows
+Docker Machine
+
+----------------------------------
+===================================================================
+===================================================================
+Before Installing DockerEngine
+----------------------------------
+eth0: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 9001
+        inet 172.31.23.252  netmask 255.255.240.0  broadcast 172.31.31.255
+        inet6 fe80::61:f2ff:fedb:1bc8  prefixlen 64  scopeid 0x20<link>
+        ether 02:61:f2:db:1b:c8  txqueuelen 1000  (Ethernet)
+        RX packets 317  bytes 33579 (32.7 KiB)
+        RX errors 0  dropped 0  overruns 0  frame 0
+        TX packets 319  bytes 39050 (38.1 KiB)
+        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+
+lo: flags=73<UP,LOOPBACK,RUNNING>  mtu 65536
+        inet 127.0.0.1  netmask 255.0.0.0
+        inet6 ::1  prefixlen 128  scopeid 0x10<host>
+        loop  txqueuelen 1  (Local Loopback)
+        RX packets 0  bytes 0 (0.0 B)
+        RX errors 0  dropped 0  overruns 0  frame 0
+        TX packets 0  bytes 0 (0.0 B)
+        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+
+---------------------------------------
+Afer Installing DockerEngine
+--------------------------------------
+Same output as above
+
+---------------------------------------
+Afer Stratting the DockerEngine
+--------------------------------------
+
+docker0: flags=4099<UP,BROADCAST,MULTICAST>  mtu 1500
+        inet 172.17.0.1  netmask 255.255.0.0  broadcast 0.0.0.0
+        ether 02:42:61:50:9b:38  txqueuelen 0  (Ethernet)
+        RX packets 0  bytes 0 (0.0 B)
+        RX errors 0  dropped 0  overruns 0  frame 0
+        TX packets 0  bytes 0 (0.0 B)
+        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+
+eth0: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 9001
+        inet 172.31.23.252  netmask 255.255.240.0  broadcast 172.31.31.255
+        inet6 fe80::61:f2ff:fedb:1bc8  prefixlen 64  scopeid 0x20<link>
+        ether 02:61:f2:db:1b:c8  txqueuelen 1000  (Ethernet)
+        RX packets 54830  bytes 81091852 (77.3 MiB)
+        RX errors 0  dropped 0  overruns 0  frame 0
+        TX packets 16145  bytes 1207864 (1.1 MiB)
+        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+
+lo: flags=73<UP,LOOPBACK,RUNNING>  mtu 65536
+        inet 127.0.0.1  netmask 255.0.0.0
+        inet6 ::1  prefixlen 128  scopeid 0x10<host>
+        loop  txqueuelen 1  (Local Loopback)
+        RX packets 0  bytes 0 (0.0 B)
+        RX errors 0  dropped 0  overruns 0  frame 0
+        TX packets 0  bytes 0 (0.0 B)
+        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+---------------------------------------------
+How to check the list of network?
+> docker network ls
+
+How to describe the network brdige?
+> docker inspect 8bf2e2945be5
+
+ONE SCNARIO?
+> docker pull ubuntu
+> docker run -it ubuntu /bin/bash
+> CTP + P + Q
+
+Did you get this? - A virtual ethernet to conntect container to your docker0
+------------------------
+veth6550a7a: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500
+        inet6 fe80::6033:bbff:fea0:839f  prefixlen 64  scopeid 0x20<link>
+        ether 62:33:bb:a0:83:9f  txqueuelen 0  (Ethernet)
+        RX packets 0  bytes 0 (0.0 B)
+        RX errors 0  dropped 0  overruns 0  frame 0
+        TX packets 16  bytes 1296 (1.2 KiB)
+        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+
+How to create a your own Bridge in Docker?
+> =========================================
+> docker network create --driver bridge verizon1
+> docker network ls
+
+> docker run -it --network=verizon1 ubuntu /bin/bash 
+> CTP + P + Q
+
+PINGING FROM HOST
+==============================
+ping to docker0 container?
+[root@ip-172-31-23-252 ~]# ping 172.18.0.2
+PING 172.18.0.2 (172.18.0.2) 56(84) bytes of data.
+64 bytes from 172.18.0.2: icmp_seq=1 ttl=64 time=0.061 ms
+64 bytes from 172.18.0.2: icmp_seq=2 ttl=64 time=0.051 ms
+64 bytes from 172.18.0.2: icmp_seq=3 ttl=64 time=0.050 ms
+
+ping to verizon container?
+--- 172.18.0.2 ping statistics ---
+3 packets transmitted, 3 received, 0% packet loss, time 1999ms
+rtt min/avg/max/mdev = 0.050/0.054/0.061/0.005 ms
+[root@ip-172-31-23-252 ~]# ping 172.17.0.2
+PING 172.17.0.2 (172.17.0.2) 56(84) bytes of data.
+64 bytes from 172.17.0.2: icmp_seq=1 ttl=64 time=0.045 ms
+64 bytes from 172.17.0.2: icmp_seq=2 ttl=64 time=0.046 ms
+64 bytes from 172.17.0.2: icmp_seq=3 ttl=64 time=0.052 ms
+
+Can you ping each other from container being in diff bridge?
+inside the containers?
+> apt-get update && apt-get install -y iputils-ping traceroute net-tools iproute2
+root@ee0f0fd7b6e2:/# ping 172.17.0.2
+PING 172.17.0.2 (172.17.0.2) 56(84) bytes of data.
+^C
+--- 172.17.0.2 ping statistics ---
+10 packets transmitted, 0 received, 100% packet loss, time 9000ms
+
+
+> docker network create --driver bridge verizon2
+> docker inspect other-network
+> docker run --network=<NETWORK>
+> docker run --net=other-network --name=ub1 ubuntu
+
+----------------Scanario with null---------------------------
+docker run -it --network=none ubuntu /bin/bash 
+
+----------------Scanario with host---------------------------
+docker run -it --network=host ubuntu /bin/bash 
+172.31.23.252
+
+=====================================================
+-------------------DOCKER COMPOSE---------------------
+How to Install Docker Compose?
+> sudo curl -L https://github.com/docker/compose/releases/download/1.17.0/docker-compose-`uname -s`-`uname -m` -o /usr/local/bin/docker-compose
+
+> sudo curl -L https://github.com/docker/compose/releases/download/1.20.1/docker-compose-$(uname -s)-$(uname -m) -o /usr/local/bin/docker-compose
+
+> sudo chmod +x /usr/local/bin/docker-compose
+
+> export PATH=$PATH:/usr/local/bin/
+
+> docker-compose --version
+
+WHAT IS YOUR APPLCATION STAKE?
+
+PROGRAM - http://www.devopsschool.com/notes/docker/old/sapient/1/
+
+> docker-compose build
+>  docker images
+> docker-compose up 
+> docker-compose down
+> docker-compose up -d
+> docker-compose ps
+> docker-compose log
+
+===================================
+Docker using Artifactory 
+
+http://13.127.50.22:8081
+admin
+password
+
+1. Create a repo
+2. admin/password
+
+docker login -u admin -p password 13.127.50.22:8081
+docker pull / push 13.127.50.22:8081/<REPOSITORY_KEY>/<IMAGE>:<TAG>
+docker push 13.127.50.22:8081/rajesh:latest
+13.127.50.22:8081/rajesh/rajesh
+
+export DOCKER_OPTS=--insecure-registry
+
+13.127.50.22
+ec2-user
+
+
+
+
+
+=====================================
+DOCKER FOR WINDOWS
+Install - https://www.docker.com/docker-windows
+
+R 1
+Docker for Windows requires Microsoft Hyper-V to run. The Docker for Windows installer will enable Hyper-V for you, if needed, and restart your machine. After Hyper-V is enabled, VirtualBox will no longer work
+
+R2 
+Virtualization must be enabled. Typically, virtualization is enabled by default. (Note that this is different from having Hyper-V enabled.)
+
+R3
+Containers features should be enable
+
+
+INSTALL
+============
+
+How to install Docker Engine in Windws 2016
+----------------------------------------------------
+URL 
+https://github.com/docker/labs/blob/master/windows/windows-containers/Setup-Server2016.md
+
+Install-Module DockerMsftProvider -Force
+Install-Package Docker -ProviderName DockerMsftProvider -Force
+
+Install-Module -Name DockerMsftProvider -Force
+Install-Package -Name docker -ProviderName DockerMsftProvider -Force
+Restart-Computer -Force
+
+netsh advfirewall firewall add rule name="docker engine" dir=in action=allow protocol=TCP localport=2375
+		
+
+docker container run hello-world:nanoserver
+
+docker pull hello-world:nanoserver
+
+
+docker run -d -p 8000:8000 --name my-running-site microsoft/iis
+
+
+
+

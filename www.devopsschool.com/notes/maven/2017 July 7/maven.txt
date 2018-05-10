@@ -1,0 +1,226 @@
+Name -> ProductX
+Manager - MgrX
+
+-----------REDEFINED IN DEVOPS----------------------------
+	--- QUALITY RELEASE
+	--- IMMEDIATE RELEASE
+	--- COST
+
+Architect
+Dev - 10
+Source Code Integration -----> git
+
+	Source Code into the Binary
+		PLATFORM - WINDOWS - LINUX
+		COMPILER  - JAVA - DOT NET
+		10 DIFF ENV
+		Create a directory strucure
+		Copy the source code from git to directory
+		Copy the dependency
+			External
+			Internal
+		COmpile
+		test
+		Package
+	UNIT TEST
+	Binary --> Package
+	Copy into the FTP / SHARED  / ARTIFACT REPO
+==============================================================
+	 20 TIMES IN DAY = == MANUAL - AUTOMATION
+
+How to Automate?
+	PERL		DIFF TO LEARN, SHARE, EXTEND, DEBUG, BLAB....
+	PYTHON		DIFF TO LEARN, SHARE, EXTEND, DEBUG, BLAB....
+	BASH		LINUX ONLY
+	BATCH		WINDOWS ONLY
+What we need?
+EASY TO LEARN, SHARE, EXTEND, DEBUG, BLAB & MULTIPLATFORM
+=====================================================
+SOLUTIONS ARE == BUILD MGMT SYSTEMS
+
+MAKEFILE --> ANT --> MAVEN --> GRADLE  (JAVA)
+	 --> NANT --> MSBUILD 	 (DOT NET)
+
+
+.JAVA (HUMEN) ---> .CLASS(MACHINE - BINARY) == COMPILER
+DOT NET -==========================================
+
+PHP -- PERL == INTREPRETER
+COMPILATION -- INTREPTRETER
+======================================================
+DECLARTIVE			PROCEDural
+ANT				maven
+NANT
+MSBUILD
+gradle
+
+STEP BY STEP
+WRITE IT IN YOUR LOGIC
+========================
+APACHE.org === 1000 open sources projects  
+			DO NOT EMPLOY
+			THEY HAVE CONTRIBUTOR
+COMMON REQUIEMENT ===> WRITE A FUNCTIONALITY ( SET RULES)
+AUTOMATED IN MAVEN
+
+
+
+
+
+Qa
+IT
+DB
+OPS
+LEAD
+
+PLANNING WOULD BE STARTTED 
+MODULE -10
+
+What is Maven?
+	NOT A BUILD TOOL- IT IS A SOFTWARE PROJECT MGMT TOOL.
+	FREE
+	OPEN SOURCE
+	WRITTEN in JAVA
+	FOR THE JAVA PROJECTS
+	CAN BE USED FOR TECH
+	
+MAVEN HAS BEEN DEVELOPED USING PLUGINS CONCEPT
+		CORE - WHICH CAN UNDERSTAND PLUGINS
+		PLUGINS- ARE FEATURES
+			IN BUILT -- By Default - Installed with defuualt maven installation.
+			EXTERNAL --- 1000 maven external plugins
+
+How to install maven?
+	
+Pre - JDK 
+1. Download
+2. Unzip
+3. Add a bin directory into the path. 
+C:\Tools\maven\bin --> PATH
+
+Linux
+export PATH=$PATH;C:\Tools\maven\bin
+
+
+
+How to verify?
+> mvn
+
+How to check version?
+> mvn -version
+
+How Maven works --> How maven is designe for the problem statements?
+
+What is life cycle of humen?
+Born --> Kid --> teen --> Young --> Mid  --> Old --> Die
+PHASES
+
+What is the life cycle of any software project
+RA --> Code --> Compiile --> test -> Package --> Verify --> Deploy -- AT --> RELEASE === AUTOMATE
+
+Maven has 3 LifeCycle
+====================================
+default --- MOST IMPORTANT == 24 PHASES
+		Phases		How can you call these phases (GOAL)
+--------------------------------------------------------------------
+		compile		compile	 ---> maven-compiler-plugin --> compiler plugins	- inn Buil	
+		test		test	 ---> test plugins	- inn Built		
+		package		package	 ---> packaging plugins 	- inn Built
+		install		install  --> Install plugins	- inn Built
+
+clean		- 3 Phases
+Site		- 4 Phases
+
+
+How can you create project dir structure automated way?
+mvn archetype:generate
+-DgroupId=com.companyname.software
+-DartifactId=financialService
+-DarchetypeArtifactId=maven-archetype-quickstart
+-DinteractiveMode=false
+
+
+archetype:generate == plugin:goal
+-DgroupId=com.companyname.software
+-DartifactId=financialService
+
+
+Company Name - Adobe -- CTO
+Product - 200+
+
+		adobe
+			photoshop
+			flash
+			dreamweaver
+			acrobat
+
+	com.adobe.software.photoshop
+	com.adobe.software.flash
+	com.adobe.software.dreamweaver
+	com.adobe.software.acrobat
+	
+	Group iD === com.adobe.software
+	Artifact ID = photoshop
+
+
+
+=========================
+mvn archetype:generate -DgroupId=com.companyname.software -DartifactId=productx -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false
+
+How to do few phases automatically?
+compile
+testing
+packaging
+cleanup
+
+===================================================
+mvn --->pom.xml 
+mvn -f filename.xml
+
+pom - PROJECT OBJECT MODEL -- XML
+	XML BASED
+	WHICH Contains the config of maven
+
+Packaging in maven?
+	jar (default)
+	war
+	ear
+	pom
+
+
+VERSION in Maven
+========================
+RELEASE  -- FINAL and STABLE VERSION		== 1.0 1.0.1	
+SNAPSHOT -- NOT STABLE				== 1.0-SNAPSHOT
+
+
+Maven has in built dependecy mgmt capabilities.
+
+How maven store these depedency? == Maven has 3 kinds of repo....
+	Local Repo	=== USER_HOME.m2
+	Central Repo	=== http://repo.maven.apache.org/maven2/
+	Private		=== NEXUS | Artifactory | Archiva
+
+mvn ---> local repo ---
+		Central --> Local repo - Use
+
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

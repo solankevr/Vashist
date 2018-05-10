@@ -1,0 +1,71 @@
+Package Management- 
+1. Easy Deployment
+2. Manage the package
+3. Build package
+4. Distribute the package
+
+
+Windows - Install Manager + InstallAnywhere + InstallShield + Wise
+Mac - DMG
+
+
+Linux - REHL + Debian
+
+What you want to do with the package?
+Install - Update - Remove - Query
+
+What is the package?
+
+
+From you get the package?
+Repository -
+	Public - Which is avallable for any one
+	Private -  
+What are tools for package mgmt in linux
+RHEL - YUM + RPM
+FEDOREA  - DEB
+UBANTU - APT
+
+Yum - 
+
+yum install git
+yum update git
+yum remove git
+yum -help
+man yum
+
+rpm -ivh filename.rpm
+rpm -qi filename
+
+How to create Package:
+
+dpkg -i package
+dpkg -r package_name.deb
+dpkg -p package_name
+
+apt
+
+apt-get install git
+apt-get remove git
+apt-get update  git
+
+Dependencies
+
+
+
+How repostory works?
+apt-get install git
+
+Public git.1.6 --> LocalRepo git1.6 -->
+Public git.1.8 --> LocalRepo git1.8 -->
+
+apt-get update
+
+
+
+
+
+
+
+
+

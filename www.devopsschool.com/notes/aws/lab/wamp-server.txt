@@ -1,0 +1,37 @@
+==================XAMPP SERVER == APP SERVER =====================
+
+> yum install wget
+> wget https://www.apachefriends.org/xampp-files/5.6.32/xampp-linux-x64-5.6.32-0-installer.run
+> chmod 755 xampp-linux-x64-5.6.32-0-installer.run
+> ./xampp-linux-x64-5.6.32-0-installer.run
+
+> sudo /opt/lampp/lampp start
+
+===================WORDPRESS ===================
+wget https://wordpress.org/latest.zip
+yum install unzip
+unzip latest.zip
+cp -rf wordpress /opt/lampp/htdocs/
+
+TO BE BROWSED
+============================
+http://35.154.48.255/wordpress/
+
+
+DB instance identifier
+==============================
+rajeshmysql
+usernamerajesh
+GPDi567sg
+
+wordpress
+
+END POint - rajeshmysql.cik80c7hymay.ap-south-1.rds.amazonaws.com
+
+rajeshmysql.cik80c7hymay.ap-south-1.rds.amazonaws.com
+rajeshmysql.cik80c7hymay.ap-south-1.rds.amazonaws.com
+
+chmod -R 755 .
+
+
+mysql -h rajeshmysql.cik80c7hymay.ap-south-1.rds.amazonaws.com -P 3306 -u usernamerajesh -p

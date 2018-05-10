@@ -1,0 +1,149 @@
+Demo time
+====================================
+What is jenkins?
+Done
+
+Why jenkins?
+Done
+
+How to install Jenkins?
+-----------------------------------
+Pre
+JRE OR JDK
+	SYSTEM	---
+	DOWNLOAD - SET THE ENV
+> yum install java-1.8.0-openjdk-devel
+
+More - http://www.scmgalaxy.com/tutorials/complete-guide-of-java-installation-in-linux
+
+Install Jenkins
+-----------------------
+https://jenkins.io/download/
+https://pkg.jenkins.io/redhat/
+
+> systemctl status jenkins
+> systemctl start jenkins
+
+What is the rule of Jenkins?
+==================================
+
+A BUILD------------------->
+Where is your source code?				GIT	
+What is your compiler and did you confiure it?		JAVA			DOTNET			
+What is your builders and where is that?		ANT+MAVEN+GRADLE	MSBUILD+NANT+BATCH		
+
+A UT------------------->
+Where is your source code?				GIT	
+What is your compiler and did you confiure it?		JUNIT			NUNIT
+What is your builders and where is that?		ANT,MAVEN		MSBUILD
+
+A PACK------------------->
+Where is your source code?				GIT	
+What is your compiler and did you confiure it?		RPM,TAR,ZIP,IA			
+What is your builders and where is that?		ANT,MAVEN		MSBUILD
+
+A SCA --> A BUILD  --> A UT --> A PACK --> A DEP2REPO --> A AT --> A CC --> RELEASE
+
+
+LAB 1
+--------------
+Install and Configure Jenkins
+
+Lab 2 
+---------------
+Setup a Ant Jobs with jenkins
+https://github.com/scmgalaxy/helloworld-java-ant
+
+Questions?
+I want to change the ddefauilt port.
+What if build.xml has diff name
+
+Lab 3
+===========================
+src - https://github.com/scmgalaxy/helloworld-java-maven
+Goal name - 
+comile
+package
+
+
+Lab 5
+====================
+Reference
+http://www.scmgalaxy.com/tutorials/how-to-trigger-builds-remotely-in-jenkins
+
+
+Lab 6
+=======================
+SonarQube Integration
+
+Integrate SonarQube with jenkins
+-----------------
+Sonar Server - http://13.126.143.49:9000	b6b5bb2ed89e27fe16d29471e90fa22ee4573b87
+Scanner - DONE
+Src - 	https://github.com/scmgalaxy/java-sonar-runner-simple
+
+DAY 2
+===============================================
+Node Mgmt -- Jenkins --- Distributed
+A UT --> A PACK --> A DEP2REPO --> A AT --> A CC --> RELEASE
+Jenkins Security 
+Jenkins Commannds lines
+Jenkins Backup and Restore
+Jenkins Pipeline
+
+Node Mgmt -- Jenkins --- Distributed
+===================================================
+
+WINDOWS MACHINE	
+	IP ADDD		I DONT HAVE
+	username	rajesh
+	password	
+	ws		C:\Tools\jenkins-ws
+
+
+
+LINUX
+	IP ADDD
+	username
+	password
+	ws
+
+
+
+
+
+
+
+
+SERVERS
+USER NAME - ec2-user
+
+First Commands
+> sudo -s
+
+======================================
+1	13.126.170.66
+2	52.66.77.23
+3	13.126.91.90
+4	13.126.191.156
+5	13.126.213.31
+6	13.126.54.134
+7	13.126.77.211
+8	52.66.66.29
+9	13.126.114.25
+10 	35.154.107.39
+11	13.126.151.110
+12	13.126.11.108
+13	13.126.147.9
+14	13.126.175.254
+15	52.66.116.144
+16	35.154.50.87
+
+http://52.66.77.23:8090
+admin
+admin123
+
+52.66.77.23
+
+
+

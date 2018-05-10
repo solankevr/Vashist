@@ -1,0 +1,96 @@
+What is Docker?
+	Docker a Container mgmt tool
+
+What is Container?
+
+1990s....	PHYSCIAL
+---------------------
+10 SERVER
+	10 CPU
+	10 HDD
+	10 RAM
+	10 OS
+---------------------------
+10 Physical Server === 10 APPS
+	WHAT IS YOUR RESOURCES UTILIZATIOn - 10%
+	WASTE					 - 90%
+
+INTERNET -- BILLION----
+
+SERVER --- 1000 SERVER
+
+2000s
+	VIRTUALIZATION
+		
+		PRIVATE - vmware,esx..
+		PUB. - aws, azure, gc
+
+1 PHYS -> 10 VMS --->. 10 APS-
+1 SERVER
+	10 VMS
+	10 OS
+		CPU
+		RAM
+		HDD
+		LIC
+----------------------------------------------
+100% CLOUD
+	CONTAINERIZATION
+
+VIRTUALIZATION			CONTAINERIZATION
+1 SERVER
+	10 VMS			10 CONTAINER (Containers r light)
+	10 OS			1 OS --> 10 APPS (Each APP/CONTAINER BEHAVE AS IF THEY R INDEPENDENT)
+
+		CPU
+		RAM
+		HDD
+		LIC
+------------------------------------------------
+10VMS -10 APP 			100 CONTAIN - -100 APP
+SAVE CPU
+	RAM	
+	HDD
+	LICE
+
+
+How to use Docker?
+
+DOCKER ENGINE		SOFTWARE
+DOCKER IMAGE		PACKAGGE APP
+DOCKER REPO		A PLACE TO STORE A PACKAGE APP		https://hub.docker.com/
+DOCKER CONTAINER	RUN THE IMAGE -- RUNNING STATE OF THE IMAGE - ONEIMAGE YOU CAN RUN UNLIMITED
+
+> docker help
+> docker info
+> docker images
+> docker pull jenkins
+> docker ps
+> docker run
+> docker run -d -p 8080:8080 -p 50000:50000 jenkins
+> docker help run
+
+8080 - web 
+50000 - jenkins
+
+8080:8080
+external:internal
+
+> docker run -d -p 8081:8080 -p 50001:50000 jenkins
+> docker run -d -p 8082:8080 -p 50002:50000 jenkins
+
+> docker exec -it 4961b8143ce9 /bin/bash
+
+CTLR + P + Q
+
+> docker stop cont-id
+> docker ps -a
+> docker start cont-id
+> docker top cont-id
+> docker logs cont-id
+> docker inspect cont-id
+> docker rm cont-id
+> docker rmi image-id
+> docker commit -a "Rajesh" -m"test" 366f3fcb6397 mine
+
+

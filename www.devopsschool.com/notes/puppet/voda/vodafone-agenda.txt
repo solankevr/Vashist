@@ -1,0 +1,42 @@
+Introduction to Puppet DevOps Concept and Process in brief.
+
+Puppet Master-Agent Setup installation 
+	Resources
+	Templates
+	Classes
+		Nested
+		Inheritance
+		Defined type
+	Manifests
+	Modules
+	Facter
+	Variables
+	Hiera 
+		Puppet Hiera Implementation for generic Modules 
+	Language Constructs
+	Type and 
+	Providers
+	
+R10K use , installing & configuring
+
+Puppet - 
+	Environment
+	Roles
+	Profiles
+
+Puppet Advanced concepts for MCO (Mcollective and usage )
+
+Puppet Module Creation for independent applications like 
+	NTP, 
+	webservers, 
+	databases, 
+	docker
+
+Puppet - Extending puppet using Ruby DSL.
+
+
+Puppet 4: Working with Modules and Classes
+Puppet 4: Working with Files and Templates
+
+
+

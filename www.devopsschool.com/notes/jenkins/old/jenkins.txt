@@ -1,0 +1,45 @@
+VCS - Source Code- Git
+Build tools - Build - A
+Package
+Test 
+Deploy
+
+Manage the all above activities
+How can you share the information about each of the activires
+Collboarate
+
+Common Tool - Build + Packaging + Testing + Deploy
+
+Continous Integration - JENKINS 
+
+Build + TEST + DEPLOY 
+
+
+Teamcity + Bamboo + BuildForge + UBuild +
+
+
+How to install
+
+BUILD - 
+
+SOURCE - GIT - 		https://github.com/scmgalaxy/devops-pipeline.git
+BUILD TOOL - maven
+You will have to find out the - pom.xml
+Trigger the pom.xml
+
+
+PROJECT INFO
+Advanced Projects OPTIONS
+Source Code Management
+Build Triggers
+Build
+Post-build Actions
+
+
+
+Ant - Maven - GIT 
+
+
+
+
+

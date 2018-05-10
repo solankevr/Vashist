@@ -1,0 +1,26 @@
+#Install in Windows using mSI
+ps>aws
+ps>
+
+#Install in Linux ubuntu
+> sudo apt-get install python-pip
+> sudo pip install awscli
+> aws
+> aws configure
+> aws ec2 describe-instances
+
+> complete -C '/usr/local/bin/aws_completer' aws
+> aws ec2 describe-
+> aws ec2 describe-in
+
+> sudo pip install aws-shell
+> aws-shell 
+aws> 
+
+> aws s3 sync . s3://.....
+> aws s3 sync . s3 ://.....
+> aws s3 ls --recursie s3://.....
+> aws s3 sync . s3 ://..... --delete
+> aws s3 sync . s3 ://..... --delete --acl public-read
+> 
+

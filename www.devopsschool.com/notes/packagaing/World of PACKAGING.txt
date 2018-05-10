@@ -1,0 +1,67 @@
+World of Packaging  -
+Source -> Binary -> Package
+Why Packaging?
+
+
+System Based Packaging---------- 
+Windows	- MSI, EXE, 
+Mac - DMG
+Linux
+	UBANTU/DEB - DEB	deb -i packge
+	CENT/RHEL - RPM		rpm -ivh package
+
+
+REPO BASED ----
+
+Windows	- Nuget, chocolatey
+Mac - Apple Store
+Linux
+	UBANTU/DEB - Apt	apt-get install package
+	CENT/RHEL - YUM		yum install package
+
+Advantage of REPO?
+1. Cenralized 
+2. Less time consuming
+3. Dependency mgtm
+
+Application Based --------------
+WIndows - exe, MSI, zip, tar, gzip --> InstallAnywhere, InstallShiedld, Wise, winzip, Wintar
+Linux - 
+	UBANTU - debbuild
+	CENT - rpmbuild
+Application Based Packaging----
+Jar	
+WAR	
+EAR
+DLL
+SO
+
+Mobile Technology ---------
+Android - Google Play
+Apple - Apple Store
+Windows - WinStore
+
+apt
+> apt-get insall package
+> apt-get remove package
+> apt-get update package
+
+Yum
+> yum insall package
+> yum remove package
+> yum update package
+
+How to create RPM?
+SOURCE		Src
+SPEC		file.spec
+BUILD		Class
+RPM		-- rpm
+SRPM		--
+
+
+
+
+
+
+
+

@@ -1,0 +1,40 @@
+What is Jira?
+
+Issues tracking
+Bugs Tracking
+Incident Tracking
+Tasks Tracking 
+Feature Tracking
+
+=========
+Project Mgmt tool
+Agile Planning
+scrum
+Sprint Planning
+Project mgmt
+
+How to install jira?
+> Traditional Way
+> Docker way
+	> docker pull cptactionhank/atlassian-jira
+	> docker run --detach --publish 9095:8080 cptactionhank/atlassian-jira:latest
+	> http://192.168.43.37:9095
+
+How to configure Jira?
+YES
+
+Project Setup 
+Done
+
+Issues
+Done
+
+Admin Intriduction
+DONE
+
+How to Integrate Jira with Git (Github)
+
+
+
+
+

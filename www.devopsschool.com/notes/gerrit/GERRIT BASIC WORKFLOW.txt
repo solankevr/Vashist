@@ -1,0 +1,15 @@
+GERRIT BASIC WORKFLOW
+==================================================
+FIRST CLONE THE REPO			DONE
+SECOND INSTALL A CHANGE HOOKS		DONE
+> curl -Lo .git/hooks/commit-msg http://13.126.112.7:8080/tools/hooks/commit-msg
+
+COMMIT 					DONE
+VERIFY					DONE
+# Check chnage id is present or not in commits
+PUSH					DONE
+> git push origin HEAD:refs/for/master
+REVIEW PROCESS STARTTED
+		CODE REVIEW		DONE
+		VERIFICATIOn		DONE
+

@@ -1,0 +1,3 @@
+Gerrit Commands Lines
+
+start online reindexing using "gerrit index start" SSH command.

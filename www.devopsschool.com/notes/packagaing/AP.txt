@@ -1,0 +1,124 @@
+World Of Application - 
+SOURCE --> BINARY --> PACKAGING --> REPO(NEXUS OR NUGET) --> DEPLOY --> QA --> RELEASE
+
+What is Application Packaging?
+A way to deliver the software in easiest way by hiding the complexity of sofware in terms of configauration and installation.
+
+Why do we need a Application Packaging?
+1. Hiding the complexity of the software config
+2. Having the proper versioning 
+3. Having the name of the softare
+4. Remove it, Upgrade it, Install it
+
+System Based Packaging
+	Windows	
+		EXE  - VS, INSTALLANYWHERE, INSTALLSHIELD, WISE
+		ZIP - WINZIP
+		TAR - WINTAR, TARBALL.
+		MSI - VS, INSTALLANYWHERE, INSTALLSHIELD, WISE
+	Linux - CENTOS / RHEL
+		RPM - RPMBUILD
+	LINUX - UBUNTU
+		DEB - DEBIAN
+	LINUX - DEB
+		DEB - DEBIAN
+	MAC
+		DMG - DMG
+Application Based Packaging
+	JAVA
+		EAR - MAVEN, ANT, JAVA
+		JAR - MAVEN, ANT, JAVA
+		WAR - MAVEN, ANT, JAVA
+		BIN - EJB
+		TAR - WINTAR,, TARBALL,
+		ZIP - WINZIP	
+	DOT NET
+		MSI - VS, INSTALLANYWHERE, INSTALLSHIELD, WISE
+		EXE - VS, INSTALLANYWHERE, INSTALLSHIELD, WISE
+		DLL - VSS, COMMANDS, 
+		SO  - 
+
+APP | WEB SERVER 
+1. HTTPD
+2. TOMCAT
+3. IIS
+4. NGNIX
+5. JBOSS
+6. WEB LOGICS
+7. WEB SPHERE
+8. JETTY
+
+
+REPOSTORY MGTM SYSTEM
+====================================
+CENTRAL --> LOCAL --> SYSTEM
+>  yum install git
+
+	SYSTEM
+		LINUX - CENTOS - RHEL - YUM
+		LINUX - UBUNTU - APT-GET
+		WINDOWS - NUGET, CHOCLATE  
+	APPLICATION
+		NEXUS  (JAVA + DOTNET)
+		ARTIFACTORY
+		ARCHIVA
+	LANGUAGE
+		RUBY - RVM
+		GROVY - gvm
+		PYTHON - pip
+		PERL - ppm
+
+======================================
+MOBILE BASED REPO
+	GOOGLE PLAY - .apk
+	APP STORE
+	INTEL STORE
+	AMAZONE STORE
+
+YUM 
+===============
+How to create a repo in YUM?
+
+How to add yum repo in location Machine?
+
+How to use yum packages?
+> yum install git
+> yum remove git
+> yum update
+
+APT
+==============
+How to create a repo in APT?
+
+How to add apt repo in location Machine?
+wget -q -O - http://pkg.jenkins.io/debian-stable/jenkins.io.key | sudo apt-key add -
+
+How to use yum packages?
+apt-get install git
+apt-get remove git
+apt-get update
+
+JAR
+=========
+ANT, MAVEN
+
+rpm
+=================
+MASTER
+	SPEC	- default.spec 
+	SOURCES - COPY THE SOURCE
+	BUILD  - BINARY CODE OF SOFTWARE
+	RPMS - 
+	SRPMS
+
+> rpmbuild -ba - build binary and source rpms
+> rpmbuild -bb - build binary rpm
+> rpmbuild -bs - build source rpm
+
+		
+		
+		
+	
+
+
+	

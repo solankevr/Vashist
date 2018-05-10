@@ -1,0 +1,92 @@
+
+
+Code Coverage -----
+
+
+
+Code review Vs Code Coverage
+
+Peer Code Review
+Code Review
+Code Analysis
+Static Code Analyis
+Dynamic Code Anaysis
+
+
+Code Coverage - % of the testing on the software - 50%
+Test Coverage - % of the testing has been done on your test cases. 100%
+
+100 Java Class - 100 Functionaity - 50 test Case(50) (100%) 40 - 10
+
+SERVER X--- SOFTWAREX - AUTOMATED ---> Data--> Coverage--> HTML
+
+What is the % of the testing has been completed...
+
+1 class - 10 lines - 6
+
+1 Test Case - IF -2
+2 TEST ase - Else -3
+
+TEST - 50% - 
+
+
+Why we do Code Coverge?
+What is coverage?
+Tools - 
+
+EMMA - Code Analysis - Code Coverage
+JACOC0 - Dynamic Code Coverage
+COBERTURA - Static Code Coverage
+Clover - Comm
+
+Source Code --> Binary --> Package --> Depoy
+Source Code --> Instrumenting(Binary) --> Package --> Deploy 	TEST - COVERAGE FILE--- 	Static Code Coverage
+Source Code --> Binary --> Package --> Deploying --> Runing (Instrumentation) -- COVERAGE FILE 	Dynamic Code Coverage
+
+SRC--
+Line1	
+Line2
+Line3
+LIne4
+
+
+Compilation---
+Line1	
+Line2
+Line3
+LIne4
+Cobertura Method
+
+Line1	
+Line2
+Line3
+LIne4
+Cobertura Method
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

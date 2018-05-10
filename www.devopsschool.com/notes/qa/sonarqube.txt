@@ -1,0 +1,93 @@
+===================================================
+Is it right definition of Sonarqube?
+
+SonarQube (formerly Sonar) is a quality management platform focusing on continuous analysis of source code quality.
+
+Answer - YES
+
+===================================================
+
+Which is not a severities in this list
+Blocker
+Critical
+Major
+Biggest
+
+Answer - Biggest
+===================================================
+Is it right defintion of SonarQube Scanners?
+
+The SonarQube Scanner is recommended as the default launcher to analyze a project with SonarQube.
+
+Answer- YES
+
+===================================================
+
+How to extend the functionality of SonarQube?
+Modules
+Plugins
+Extension
+Ads on
+
+Answer =  Plugins
+===================================================
+
+Which statement is correct?
+
+Sonar will run CheckStyle, FindBugs and PMD by default for Java projects
+Sonar will run Checkmate by default for Java projects
+Sonar will run FindIssue by default for Java projects
+Sonar will run PMDtest by default for Java projects
+
+Answer - 
+Sonar will run CheckStyle, FindBugs and PMD by default for Java projects
+===================================================
+
+
+Which is not a axis of code quality in SonarQube?
+
+Architecture and Design
+Complexity
+Potential bugs
+Code Coverage
+
+Answer -Code Coverage 
+
+===================================================
+What is the prerequisite for SonarQube Installation?
+
+Java
+DOTNET
+JavaScript
+Php
+
+ANswer - Java
+
+====================================
+Which is not part of Code Technical Review in SoanrQube?
+
+Confirm 
+Change Severity
+Resolve 
+Submited
+
+Answer - Submited
+
+=========================================
+What is not a search criteria for the rules in SonarQube?
+
+Language
+Type
+Tag
+Develop
+
+Answer   - Develop
+=========================================
+Which is the not found in sonar-project.properties?
+
+sonar.projectVersion
+sonar.sources
+sonar.code
+sonar.language
+
+Answer - sonar.code

@@ -1,0 +1,127 @@
+Project Name - LnTX
+Project Mgr- Ujjawla
+-------------------------------------
+
+Goal - Software Dev LnTX 
+Reference - http://www.devopsschool.com/video/devops/DevOps-Essentials.html
+
+Requirement & Planning - Architect --> Trello, TFS, Jira, ServiceNow
+Design + Coding --> Source Code mgmt -> Git
+Code Review+ Static Code ->>> SonarQube
+Build mgmt --> Ant, Maven, MSBuild, Gradle
+Unit Testing ----> Junit Nunit
+Packaging - IA, IS, W, RMP, TA, Zip, Jar, War, Ear
+Repository - NExus, Artifatory, Nuget, Choc, PS, AS
+Deployment ---> QA Env
+		Chef, Puppet, Ansible
+AT - 
+Results -----> SonarQube
+--------------------------------
+PRE PROD
+	Application Performance by QA or DevOps
+	Infra - Servers Monitoring by DevOps Team
+	Log Monitoring -
+	
+	
+
+
+PROD
+-----------------------------------
+	Application Performance by QA or DevOps
+	Infra - Servers Monitoring by DevOps Team
+	Log Monitoring -
+	
+
+
+
+Example Of Container
+===========================
+APP -> LNTX
+
+JAVA --> JRE -->TOMCAT->MYSQL===30 MINS + 5 mins + 5 mins + 5 mins + 5 mins ==>50 MINS
+50 MINS VS 1 S
+
+1 PS -> 8GB ==> 3 VM ==> 3 APPS
+MGMT -> 8GB ==> 30 APPS
+
+HOW CAN YOU SAVE TIME TO DEPLOYE
+HOW CAN YOU REDUCE THE CPU, RAM, HDD, oS Cost 
+
+Answer - Docker
+http://www.devopsschool.com/tutorial/docker/
+> docker run -d -p 8080:8080 -p 50000:50000 jenkins
+> docker run -d -p 8090:8080 -p 50001:50000 jenkins
+docker run -d -p 8090:8080 -p 50001:50000 jenkins
+docker run -d -p 8090:8080 -p 50001:50000 jenkins
+docker run -d -p 8090:8080 -p 50001:50000 jenkins
+=============================================================
+SETUP a JAVA BASED SERVER WITH AGENT
+==========================================================
+Step 1 - TOOLS
+> sudo -s
+> yum install zip
+> yum install unzip
+
+Step 2 - JDK
+> wget -c --header "Cookie: oraclelicense=accept-securebackup-cookie" http://download.oracle.com/otn-pub/java/jdk/8u131-b11/d54c1d3a095b4ff2b6607d096fa80163/jdk-8u131-linux-x64.rpm
+> rpm -ivh jdk-8u131-linux-x64.rpm
+> java -version
+
+Step 3 - TOMCAT INSTALLTION
+> wget http://www-us.apache.org/dist/tomcat/tomcat-7/v7.0.85/bin/apache-tomcat-7.0.85.zip
+> unzip apache-tomcat-7.0.85.zip
+> mv apache-tomcat-7.0.85 tomcat
+> mv tomcat /opt/
+
+
+Step 4 - TOMCAT CONFIG
+> sudo groupadd tomcat
+> sudo mkdir /opt/tomcat
+> sudo useradd -s /bin/nologin -g tomcat -d /opt/tomcat tomcat
+
+> cd /opt/
+> chown -R root:tomcat tomcat
+> cd tomcat/bin
+> chmod 755 catalina.sh
+> sh startup.sh
+
+RUNNING - http://13.126.236.239:8080/
+
+Step 5 - INSTALL JENKINS
+> sh /opt/tomcat/bin/shutdown.sh
+> cd /opt/tomcat/webapps
+> wget http://mirrors.jenkins.io/war-stable/latest/jenkins.war
+> chown -R tomcat:root jenkins.war
+> mkdir /opt/jenkins
+
+#Add Entry in /opt/tomcat/bin/catalina.sh
+export CATALINA_OPTS="-DJENKINS_HOME=/opt/jenkins -Xmx512m"
+> cd /opt/tomcat/bin
+> sh startup.sh
+> systemctl stop firewalld
+
+JENKINS - http://13.126.236.239:8080/jenkins/
+
+Step 6 - INSTALL NEW RELIC AGENT
+
+Step 7 - CONFIG NEW RELIC AGENT
+
+NOTES -http://www.devopsschool.com/notes/newrelic/
+
+============================================
+Agent Installation in Tomcat 
+https://docs.newrelic.com/docs/agents/java-agent/installation/include-java-agent-jvm-argument#Installing_on_Tomcat
+1. Copy the license key
+
+2. Copy the Agent dir inside /opt/tomcat/
+
+3. Modify newrelic.yml with App name & Key
+
+4. 
+> cd /opt/tomcat/newrelic
+> java -jar newrelic.jar install
+> sh shutdown.sh
+> sh startup.sh
+
+
+         

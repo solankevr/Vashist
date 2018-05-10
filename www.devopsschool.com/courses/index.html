@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Our Courses | scmGalaxy</title>
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" type="image/icon" href="assets/images/favicon.ico"/>
+    <!-- Font Awesome -->
+    <link href="assets/css/font-awesome.css" rel="stylesheet">
+    <!-- Bootstrap -->
+    <link href="assets/css/bootstrap.css" rel="stylesheet">    
+    <!-- Slick slider -->
+    <link rel="stylesheet" type="text/css" href="assets/css/slick.css"/> 
+    <!-- Fancybox slider -->
+    <link rel="stylesheet" href="assets/css/jquery.fancybox.css" type="text/css" media="screen" /> 
+    <!-- Animate css -->
+    <link rel="stylesheet" type="text/css" href="assets/css/animate.css"/>  
+    <!-- Bootstrap progressbar  -->
+    <link rel="stylesheet" type="text/css" href="assets/css/bootstrap-progressbar-3.3.4.css"/> 
+     <!-- Theme color -->
+    <link id="switcher" href="assets/css/theme-color/default-theme.css" rel="stylesheet">
+
+    <!-- Main Style -->
+    <link href="style.css" rel="stylesheet">
+
+		
+	<!-- The Search CSS file -->
+		<link href="assets/css/search.css" rel="stylesheet" />
+		
+    <!-- Custom Fonts -->
+    
+	<!-- Open Sans for body font -->
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+    <!-- Lato for Title -->
+    <link href='https://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'> 
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+<body id="page-top" class="index" ng-app="instantSearch" ng-controller="InstantSearchController">
+
+	<!-- SCROLL TOP BUTTON -->
+		<a class="scrollToTop" href="#"><i class="fa fa-angle-up"></i></a>
+	<!-- END SCROLL TOP BUTTON -->
+
+	 <!-- Start header -->
+  <header id="header">
+    <!-- header top search -->
+    <div class="header-top">
+      <div class="container">
+        <form action="">
+          <div id="search">
+          <input type="text" placeholder="Type your search keyword here and hit Enter..." name="s" id="m_search" style="display: inline-block;">
+          <button type="submit">
+            <i class="fa fa-search"></i>
+          </button>
+        </div>
+        </form>
+      </div>
+    </div>
+    <!-- header bottom -->
+    <div class="header-bottom">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-6 col-sm-6 col-xs-6">
+            <div class="header-contact">
+              <ul>
+                <li>
+                  <div class="phone">
+                    <a href="http://www.scmgalaxy.com/events/register/index.html" target="_blank"><span class="glyphicon glyphicon-hand-right"></span> 
+                    Register Online Course</a>
+                 </div>
+                </li>
+                <li>
+                  <div class="mail">
+                    <a href="http://www.scmgalaxy.com/events/workshops/index.html" target="_blank"><span class="glyphicon glyphicon-hand-right"></span>
+                    Register Classroom Course</a>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-md-6 col-sm-6 col-xs-6">
+            <div class="footer-right">
+				<a href="https://www.facebook.com/scmgalaxy/" target="_blank"><i class="fa fa-facebook" title="Follow us on Facebook"></i></a>
+				<a href="https://twitter.com/scmgalaxy" target="_blank"><i class="fa fa-twitter" title="Twitter"></i></a>
+				<a href="https://scmgalaxy.wordpress.com/" target="_blank"><i class="fa fa-wordpress" title="Wordpress"></i></a>
+				<a href="http://scmgalaxy.blogspot.in/" target="_blank"><i class="fa fa-chrome" title="Blogger"></i></a>
+				<a href="http://www.slideshare.net/scmgalaxy" target="_blank"><i class="fa fa-slideshare" title="Slideshare"></i></a>
+				<a href="https://www.pinterest.com/scmgalaxy/" target="_blank"><i class="fa fa-pinterest" title="Pinterest"></i></a>
+				<a href="https://del.icio.us/scmgalaxy" target="_blank"><i class="fa fa-delicious" title="Delicious"></i></a>
+				<a href="https://github.com/scmgalaxy" target="_blank"><i class="fa fa-github" title="Github"></i></a>
+				<a href="https://plus.google.com/113308486952865913652" target="_blank"><i class="fa fa-google-plus" title="Google +"></i></a>
+				<a href="https://www.youtube.com/scmgalaxy"  onclick="window.open('https://www.youtube.com/scmgalaxy', 'newwindow', 'width=500, height=450'); return false;"><i class="fa fa-youtube" title="Watch Us on Youtube"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+  <!-- End header -->
+    <!-- BEGIN MENU -->
+  <section id="menu-area">      
+    <nav class="navbar navbar-default" role="navigation">  
+      <div class="container">
+        <div class="navbar-header">
+          <!-- FOR MOBILE VIEW COLLAPSED BUTTON -->
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <!-- LOGO -->              
+        <!-- TEXT BASED LOGO 
+          <a class="navbar-brand" href="http://www.scmgalaxy.com/">scmGalaxy</a>   -->           
+          <!-- IMG BASED LOGO  -->
+           <a class="navbar-brand" href="http://www.scmgalaxy.com/"><img src="assets/images/logo.png" alt="logo"></a>                   
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul id="top-menu" class="nav navbar-nav navbar-right main-nav">
+            <li><a href="http://www.scmgalaxy.com/">Home</a></li>          
+            <li><a href="http://www.scmgalaxy.com/tutorials" target="_blank">Tutorials</a></li>
+			<li><a href="http://www.scmgalaxy.com/events" target="_blank">Events</a></li>
+            <li><a href="http://www.scmgalaxy.com/forum.html" target="_blank">Forum</a></li>
+			<li><a href="http://www.scmgalaxy.com/testimonials.html" target="_blank">Testimonials</a></li>
+			<li class="active"><a href="http://www.scmgalaxy.com/courses" target="_blank">Courses</a></li>
+            <li><a href="http://www.scmgalaxy.com/contact">Contact</a></li>
+          </ul>                     
+        </div><!--/.nav-collapse -->
+      </div>     
+    </nav>
+  </section>
+  <!-- END MENU -->
+	
+		<!-- Start single page header -->
+			  <section id="single-page-header">
+				<div class="overlay">
+				  <div class="container">
+					<div class="row">
+					  <div class="col-md-6 col-sm-6 col-xs-12">
+						<div class="single-page-header-left">
+						  <h2>Our Courses</h2>
+						</div>
+					  </div>
+					  <div class="col-md-6 col-sm-6 col-xs-12">
+						<div class="single-page-header-right">
+						  <ol class="breadcrumb">
+							<li><a href="index.html">Home</a></li>
+							<li class="active">Our Courses</li>
+						  </ol>
+						</div>
+					  </div>
+					</div>
+				  </div>
+				</div>
+			  </section>
+		<!-- End single page header -->
+			  
+		<section id="">
+		
+	
+    	<!-- New Change -->
+		<div class="container">	
+			<hr><hr>
+		<br><br><br><br><br><br>
+		
+			<!--  Search Bar Start -->
+	
+			<div class="bar">
+				<!-- Create a binding between the searchString model and the text field -->
+				<input type="text" ng-model="searchString" placeholder="Enter your Courses" />
+			</div>
+		
+			<div class="row">
+				<div class="col-md-6 col-md-offset-3">
+					<ul>
+						<!-- Render a li element for every entry in the items array. Notice
+						 the custom search filter "searchFor". It takes the value of the
+						 searchString model as an argument.
+					 -->
+						<li ng-repeat="i in items | searchFor:searchString">
+							
+							<a href="{{i.url}}"><img ng-src="{{i.image}}" />
+							<p>{{i.title}}</p></a>
+						</li>
+					</ul>	
+				</div>
+			</div>
+		</div>
+		</section>
+			<!--  Search Bar End -->
+		 
+		</div>
+	<!-- Page Content -->
+
+    <div class="container">
+	<div class="feature-content">
+		
+		<hr style="width: 100%; color: black; height: 5px; background-color:black;" />
+
+	</div>
+	</div>
+	</section>
+	
+	<section id="">
+	<div class="container">
+		<table class="table table-striped">
+		<thead>
+			<tr>
+				<th>Source Code Management Courses</th>
+				
+				<th>Build Management Courses</th>	
+				<th>Package & Repository Management Courses</th>
+				
+				<th>Configuration Management Courses</th>
+			</tr>
+		</thead>
+		<tbody>	
+			<!-- First Row -->
+			<tr>
+				<td><a href="agenda/source-code-management-tools/git-training.html" target="_blank">Git Courses & Training</a></td>
+				<td><a href="agenda/build-management-tools/apache-maven-training.html" target="_blank">Apache Maven Courses & Training</a></td>
+				<td><a href="agenda/package-and-repository-management-tools/nuget-training.html" target="_blank">
+				Nuget Courses & Training</a></td>
+				<td><a href="agenda/configuration-management-tools/puppet-training.html" target="_blank">Puppet Courses & Training</a></td>
+			</tr>
+			<!-- Second Row -->
+			<tr>
+				<td><a href="agenda/source-code-management-tools/github-administrator-training.html" target="_blank">Github Administrator Training</a></td>
+				<td><a href="agenda/build-management-tools/gradle-training.html" target="_blank">Gradle Courses & Training</a></td>
+				<td><a href="agenda/package-and-repository-management-tools/rpm.html" target="_blank">
+				RPM Courses & Training</a></td>
+				<td><a href="agenda/configuration-management-tools/chef-training.html" target="_blank">Chef Courses & Training</a></td>
+				
+			</tr>
+			
+			<!-- Third Row -->
+			<tr>
+				<td><a href="agenda/source-code-management-tools/gitlab-administrator-training.html" target="_blank">Gitlab Administrator Training</a></td>
+				<td><a href="agenda/build-management-tools/apache-ant-training.html" target="_blank">Apache Ant Courses & Training</a></td>
+				<td><a href="agenda/package-and-repository-management-tools/apt-training.html" target="_blank">
+				Apt-Get Courses & Training</a></td>
+				<td><a href="agenda/configuration-management-tools/octopus-deploy-training.html" target="_blank">Octopus Deploy Training</a></td>
+			</tr>
+			
+			<!-- Forth Row -->
+			<tr>
+				<td><a href="agenda/source-code-management-tools/gerrit-user-administrator-training.html" target="_blank">Gerrit User Administrator Training</a></td>
+				<td><a href="agenda/build-management-tools/msbuild-training.html" target="_blank">Msbuild Courses & Training</a></td>
+				<td><a href="agenda/package-and-repository-management-tools/yum-training.html" target="_blank">
+				Yum Courses & Training</a></td>
+				<td><a href="agenda/configuration-management-tools/ansible-training.html" target="_blank">Ansible Courses & Training</a></td>
+			</tr>
+			
+		<!-- Fifth Row -->
+			<tr>
+				<td><a href="agenda/source-code-management-tools/bitbucket-administrator-training.html" target="_blank">Bitbucket Administrator Training</a></td>
+				<td><a href="agenda/build-management-tools/nant-training.html" target="_blank">Nant Courses & Training</a></td>
+				<td><a href="agenda/package-and-repository-management-tools/nexus-training.html" target="_blank">
+				Sonatype Nexus Courses & Training</a></td>
+				<td></td>
+			</tr>
+		<!-- Sixth Row -->
+			<tr>
+				<td><a href="agenda/source-code-management-tools/perforce-administrator-training.html" target="_blank">Perforce Administrator Training</a></td>
+				<td><a href="agenda/build-management-tools/makefile-training.html" target="_blank">Makefile Courses & Training</a></td>
+				<td><a href="agenda/package-and-repository-management-tools/artifactory-training.html" target="_blank">
+				Artifactory Courses & Training</a></td>
+				<td></td>
+			</tr>
+		<!-- Seventh Row -->
+			<tr>
+				<td><a href="agenda/source-code-management-tools/team-foundation-server-training.html" target="_blank">Team Foundation Server Training</a></td>
+				<td><a href="agenda/build-management-tools/grunt-courses-and-training.html" target="_blank">Grunt Courses and Training</a></td>
+				<td><a href="agenda/package-and-repository-management-tools/apache-archiva-training.html" target="_blank">
+				Apache Archiva Training</a></td>
+				<td></td>
+			</tr>
+			
+		<!-- Eighth Row -->
+			<tr>
+				<td><a href="agenda/source-code-management-tools/subversion-training.html" target="_blank">Subversion Courses & Training</a></td>
+				<td></td>
+				<td><a href="agenda/package-and-repository-management-tools/chocolatey-training.html" target="_blank">
+				Chocolatey Courses & Training</a></td>
+				<td></td>
+			</tr>
+			
+			<tr>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+			</tr>
+		</tbody>
+		</table>
+		<hr style="width: 100%; color: black; height: 5px; background-color:black;" />
+		<table class="table table-striped">
+		
+			<thead>
+				<tr>
+					<th>Continous Integration Tools Courses</th>
+					<th>Virtualization and Container Based Tools Courses</th>
+					<th>Issues and Bug Tracking Tools Courses</th>
+					<th>DevOps Monitoring Tools Courses</th>
+				</tr>
+				
+			</thead>
+			
+			<tbody>
+				<tr>
+					<td><a href="agenda/continous-integration-tools/bamboo-training.html" target="_blank">
+				Bamboo Courses & Training</a></td>
+					<td><a href="agenda/virtulization-and-container-tools/docker-training.html" target="_blank">Docker Courses & Training</a></td>
+					<td><a href="agenda/issues-and-bug-tracking-tools/jira-training.html" target="_blank">Jira Courses & Training</a></td>
+					<td><a href="agenda/monitoring-tools/logstash-training.html" target="_blank">Logstash Courses & Training</a></td>
+				</tr>
+			<!--Second Row Table 2 -->
+				<tr>
+					<td><a href="agenda/continous-integration-tools/jenkins-training.html" target="_blank">
+				Jenkins Courses & Training</a></td>
+					<td><a href="agenda/virtulization-and-container-tools/amazon-aws-training.html" target="_blank">Amazon Aws Courses & Training</a></td>
+					<td><a href="agenda/issues-and-bug-tracking-tools/zendesk-training.html" target="_blank">
+				Zendesk Courses & Training</a></td>
+					<td><a href="agenda/monitoring-tools/kibana-training.html" target="_blank">Kibana Courses & Training</a></td>
+				</tr>
+			<!--Third Row Table 2 -->
+				<tr>
+					<td><a href="agenda/continous-integration-tools/teamcity-training.html" target="_blank">Teamcity Courses & Training</a></td>
+					<td><a href="agenda/virtulization-and-container-tools/vagrant-training.html" target="_blank">
+				Vagrant Courses & Training</a></td>
+					<td></td>
+					<td><a href="agenda/monitoring-tools/mssystemcenter-training.html" target="_blank">Ms System center Training</a></td>
+				</tr>
+			<!--Forth Row Table 2 -->
+				<tr>
+					<td><a href="agenda/continous-integration-tools/team-foundation-server-training.html" target="_blank">
+				Team Foundation Server Traning</a></td>
+					<td><a href="agenda/virtulization-and-container-tools/codenvy-training.html" target="_blank">Codenvy Courses & Training</a></td>
+					<td></td>
+					<td><a href="agenda/monitoring-tools/stash-training.html" target="_blank">Stash Courses & Training</a></td>
+				</tr>
+				
+			<!--Fifth Row Table 2 -->
+				<tr>
+					<td><a href="agenda/continous-integration-tools/ibm-rational-build-forge-training.html" target="_blank">IBM Rational Build Forge Training</a></td>
+					<td><a href="agenda/virtulization-and-container-tools/building-devops-cicd-environment-microservices-and-containers.html" target="_blank">Building Devops CICD Environment Microservices and Containers</a></td>
+					<td></td>
+					<td><a href="agenda/monitoring-tools/graphite-training.html" target="_blank">Graphite Courses & Training</a></td>
+				</tr>
+				
+			<!--Sixth Row Table 2 -->
+				<tr>
+					<td><a href="agenda/continous-integration-tools/ubuild-udeploy-and-urelease-training.html" target="_blank">Ubuild Udeploy Urelease Training</a></td>
+					<td><a href="agenda/virtulization-and-container-tools/kubernetes-training.html" target="_blank">Kubernetes Courses & Training</a></td>
+					<td></td>
+					<td><a href="agenda/monitoring-tools/newrelic-training.html" target="_blank">Newrelic Courses & Training</a></td>
+				</tr>
+			<!--Seventh Row Table 2 -->
+				<tr>
+					<td><a href="agenda/continous-integration-tools/team-foundation-build-2010-training.html" target="_blank">Team Foundation Build 2010 Training</a></td>
+					<td></td>
+					<td></td>
+					<td><a href="agenda/monitoring-tools/nagios.html" target="_blank">Nagios Courses & Training</td>
+				</tr>
+			<!--Eighth Row Table 2 -->
+				<tr>
+					<td><a href="agenda/continous-integration-tools/team-foundation-server-2015-training.html" target="_blank">Team Foundation Server 2015 Training</a></td>
+					</td>
+					<td></td>
+					<td></td>
+					<td></td>
+				</tr>
+				<tr>
+					<td><a href="agenda/continous-integration-tools/UCD.html" target="_blank">
+				UrbanCode Deploy Courses and Training</a></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				</tr>
+				
+			</tbody>
+		</table>
+		<hr style="width: 100%; color: black; height: 5px; background-color:black;" />
+		<table class="table table-striped">
+			<tbody>
+				<tr>
+					<td class="text-center" colspan="4"><h4> Some Other Courses </h4></td>
+				<tr>
+		
+				<tr>
+					<td><a href="agenda/scripting-languages/powershell-training.html" target="_blank">Powershell Courses & Training </a>
+					</td>
+					<td>
+						<a href="agenda/cloud-tools/openstake-training.html" target="_blank"> 
+						Openstake Courses & Training
+						</a>
+					</td>
+					<td>
+						<a href="agenda/code-analysis-tools/sonarqube-training.html" target="_blank">Sonarqube Courses & Training</a>
+					</td>
+					<td>
+						<a href="agenda/test-automation/testing-automation.html" target="_blank"> Testing Automation </a>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<a href="agenda/code-coverage-tools/cobertura-training.html" target="_blank">Cobertura Courses & Training </a>
+					</td>
+					<td>
+						<a href="agenda/code-coverage-tools/coverity-training.html" target="_blank">Coverity Courses & Training </a>
+					</td>
+					<td>
+						<a href="agenda/code-coverage-tools/jacoco-traning.html" target="_blank">Jacoco Courses & Training </a>
+					</td>
+					<td>
+						<a href="agenda/programming-languages/groovy-training.html" target="_blank">Groovy Courses & Training </a>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<a href="agenda/programming-languages/perl-training.html" target="_blank"> Perl Courses & Training</a>
+					</td>
+					<td>
+						<a href="agenda/programming-languages/python-training.html" target="_blank">Python Courses & Training</a>
+					</td>
+					<td>
+						<a href="agenda/programming-languages/ruby-training.html" target="_blank">Ruby Courses & Training </a>
+					</td>
+					<td>
+						<a href="agenda/scripting-languages/bash-scripting-training.html" target="_blank">Bash scripting Courses & Training </a>
+					</td>
+				</tr>
+				<tr>
+					<td><a href="agenda/prerequisites/prerequisites-for-teamcity-training.html" target="_blank">Prerequisites for Teamcity Traning</a></td>
+					<td><a href="agenda/prerequisites/prerequisites-training-AWS.html" target="_blank">Prerequisites Training AWS</a></td>
+					<td><a href="agenda/prerequisites/prerequisites-training-Chef.html" target="_blank">Prerequisites Training Chef</a></td>
+					<td><a href="agenda/prerequisites/prerequisites-training-Jenkins.html" target="_blank">Prerequisites Training Jenkins</a></td>
+				</tr>
+				<tr>
+					<td>
+					<a href="agenda/prerequisites/Prerequisit-for-Docker-Kubernets-Microservices.html" target="_blank">Prerequisites Training Docker, <br>Kubernates & Microservices</a></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+	</section>
+	<section>
+	<!-- Start footer -->
+	  <footer id="footer">
+		<div class="container">
+		  <div class="row">
+			<div class="col-md-2 col-sm-6">
+			  <div class="footer-left">
+			   <p>By <a href="http://www.scmgalaxy.com/">scmGalaxy.com</a></p>
+			  </div>
+			</div>
+			<div class="col-md-10 col-sm-6">
+			  <div class="footer-right">
+				<a href="http://www.scmgalaxy.com/" target="_blank">Home</a>
+				<a href="http://www.scmgalaxy.com/tutorials" target="_blank">Tutorials</i></a>
+				<a href="http://www.scmgalaxy.com/events" target="_blank">Events</a>
+				<a href="http://www.scmgalaxy.com/forum.html" target="_blank">Forum</a>
+				<a href="http://www.scmgalaxy.com/testimonials.html" target="_blank">Testimonials</a>
+				<a href="http://www.scmgalaxy.com/courses" target="_blank">Courses</a>
+				<a href="http://www.scmgalaxy.com/contact" target="_blank">Contact</a>
+				<a href="http://www.scmgalaxy.com/courses/daywise" target="_blank">DayWise</a>
+				<a href="http://www.scmgalaxy.com/courses/prerequisites" target="_blank">Prerequisites</a>
+			  </div>
+			</div>
+		  </div>
+		</div>
+	  </footer>
+	  </section>
+  <!-- End footer -->
+
+    <!-- Scroll to Top Button (Only visible on small and extra-small screen sizes) -->
+    <div class="scroll-top page-scroll visible-xs visible-sm">
+        <a class="btn btn-primary" href="#page-top">
+            <i class="fa fa-chevron-up"></i>
+        </a>
+    </div>
+	
+	
+	 <!-- jQuery library -->
+  <script src="assets/js/jquery.min.js"></script>    
+  <!-- Include all compiled plugins (below), or include individual files as needed -->
+  <!-- Bootstrap -->
+  <script src="assets/js/bootstrap-min.js"></script>
+  <!-- Slick Slider -->
+  <script type="text/javascript" src="assets/js/slick-min.js"></script>    
+  <!-- mixit slider -->
+  <script type="text/javascript" src="assets/js/jquery.mixitup-min.js"></script>
+  <!-- Add fancyBox -->        
+  <script type="text/javascript" src="assets/js/jquery.fancybox.pack.js"></script>
+ <!-- counter -->
+  <script src="assets/js/waypoints.js"></script>
+  <script src="assets/js/jquery.counterup.js"></script>
+  <!-- Wow animation -->
+  <script type="text/javascript" src="assets/js/wow.js"></script> 
+  <!-- progress bar   -->
+  <script type="text/javascript" src="assets/js/bootstrap-progressbar.js"></script>  
+  
+ 
+  <!-- Custom js -->
+  <script type="text/javascript" src="assets/js/custom.js"></script>
+  
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.min.js"></script>
+	<script src="js/script.js"></script>
+</body>
+
+</html>

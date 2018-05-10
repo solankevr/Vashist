@@ -1,0 +1,7 @@
+Sample Java App  spring-petclinic
+https://github.com/spring-projects/spring-petclinic
+https://www.youtube.com/watch?v=oR_7EtCgc1M
+http://blog.ippon.fr/2013/03/11/improving-the-performance-of-the-spring-petclinic-sample-application-part-1-of-5/
+https://www.slideshare.net/julien.dubois/spring-one2gx-juliendubois
+
+To Create a Load - Jmeter

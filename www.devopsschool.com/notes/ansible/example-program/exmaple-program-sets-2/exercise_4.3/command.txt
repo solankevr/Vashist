@@ -1,0 +1,1 @@
+ansible webservers -i inventory -m user -a "name={{username}} password=12345" --sudo

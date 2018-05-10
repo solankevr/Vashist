@@ -1,0 +1,581 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Untitled Document</title>
+</head>
+
+<body>
+<h2>Learning objectives</h2>
+In this tutorial, you learn how to complete these tasks:
+<ul>
+  <li>Create a Git repository from which your project downloads the source for JUnit.</li>
+  <li>Create a build process and associate an agent pool to it.</li>
+  <li>Create a job that checks-out the JUnit source from GitHub and uses Maven to build JUnit, and run tests and generate test reports.</li>
+  <li>Create templates that define properties. You supply values for these properties when you create the project.</li>
+  <li>Create a project that is based on the templates you created.</li>
+  <li>Run a build and monitor its progress.</li>
+  <li>Examine build details and troubleshoot problems.</li>
+</ul>
+<h2>System requirements</h2>
+To run this tutorial, you need the following resources:
+<ul>
+  <li>An installation of IBM® UrbanCode™ Build, version 6.1 or later.</li>
+  <li>An IBM UrbanCode Build agent installed.</li>
+  <li>An installation of Maven on the computer where the agent is installed.</li>
+</ul>
+<h2>Prerequisites</h2>
+<p>To complete this tutorial, you must have an account on the server with permissions to create and edit projects, jobs, and repositories, and to create and run processes.</p>
+<ul>
+  <li><strong>Configure the tutorial system</strong><br />
+    <p>      To run the tutorial project, you must configure an agent, install the required plug-ins, and create an artifact set.</p>
+  </li>
+  <li><strong>Lesson 1: Create a Git repository</strong><br />
+    <p>      Repository integrations enable IBM UrbanCode Build to checkout code, access change logs, and do other project-related activities.</p>
+  </li>
+  <li><strong>Lesson 2: Creating a job and adding steps</strong><br />
+    <p>      A job is a series of steps that, taken together, complete some activity, such as building a project. The steps are run one at a time in the order you specify.</p>
+  </li>
+  <li><strong>Lesson 3: Creating a project template</strong><br />
+    <p>      Projects manage builds, dependencies, and artifacts. A project template is a reusable blueprint that defines a generic project.</p>
+  </li>
+  <li><strong>Lesson 4: Creating a source template</strong><br />
+    <p>      A source template is a reusable source configuration that can be used by any project that requires the same source type.</p>
+  </li>
+  <li><strong>Lesson 5: Creating a process template</strong><br />
+    <p>      Build a process template for the tutorial project.</p>
+  </li>
+  <li><strong>Lesson 6: Creating a project</strong><br />
+    <p>      You use projects to configure and run builds. After a build runs, projects provide a wealth of information that you can use to manage the project lifecycle and troubleshoot problems.</p>
+  </li>
+  <li><strong>Lesson 7: Running the build</strong><br />
+    <p>      Run the project build process to transform the source code into the finished application, JUnit.</p>
+    <p>&nbsp;</p>
+  </li>
+</ul>
+<h2>Configure the tutorial system</h2>
+<div>
+  <div>
+    <h2 id="taskd77636e26">About this task</h2>
+  </div>
+  To complete the tutorial, you must have an agent that is running on a target computer. An agent is a lightweight process that runs on a target computer and does the actual work of building the project. This target computer can be a virtual image, or a physical computer, including the one where the server is installed. You must have access to this computer and be able to install the agent on it.
+  <p>To prepare the tutorial system:</p>
+</div>
+<div>
+  <h2 id="taskd77636e30">Procedure</h2>
+</div>
+<ol>
+  <li>Prepare a computer for use as the target system. This computer must meet the system requirements that are listed in <a href="https://www.ibm.com/support/knowledgecenter/SS8NMD_6.1.2/com.ibm.ucbuild.doc/topics/sysRequire.html?view=kc#systemRequirements.d13e1">System requirements</a>.</li>
+  <li>Install the plug-ins used in the tutorial. The tutorial uses the following plug-ins: Git, Maven, and JUnit. The Maven plug-in is installed with the product. Download and install the Git and JUnit plug-ins. Plug-ins can be downloaded from the IBM® UrbanCode™ Buildplug-in site: <a href="https://developer.ibm.com/urbancode/plugins/ibm-urbancode-build/" target="_blank" data-widget="tooltip">https://developer.ibm.com/urbancode/plugins/ibm-urbancode-build/</a>. For information about installing plug-ins,</li>
+  <li><strong>Install an agent on the target computer</strong>. For performance reasons, agents are generally not installed on the same computer where the IBM UrbanCode Build server is located. For the tutorial, installing the agent on the computer where the server is located is fine.</li>
+  <li>Configure the agent. Your agent must be included in the list of configured agents on the Agents page with a status of Online.</li>
+  <li>Create an agent pool and add the installed agent to it.</li>
+  <li>Install the open source tools Git and Maven on the computer where the IBM UrbanCode Build agent is located. Add the home directory for each tool to the PATH variable on the target system. Add the MAVEN_HOME variable to the PATH variable.</li>
+  <li>Ensure that the artifact set included with the product, <strong>maven</strong>, is available. If it is not installed, create the artifact set by completing these steps:
+<ol type="a">
+      <li>From the IBM UrbanCode Build dashboard, click System, then click <strong>Artifact Sets</strong>.</li>
+      <li>In the Artifact Sets page, click <strong>Create New</strong>.</li>
+      <li>In the New Artifact Set dialog box, in the <strong>Name</strong> field, type maven.</li>
+      <li>Click <strong>Save</strong>.</li>
+    </ol>
+  </li>
+  <li>Optional: Configure Java™. The agent that runs the tutorial project must be configured to use a Java JDK instance, and not a JRE. If the agent is configured to use a JRE (identified by the agent's java.home property), reconfigure the agent to point to a JDK. Alternately, you can add the JDK_HOME property to the installed.properties file, which is in the agent_installation/conf/agent directory. In addition, the tutorial's Maven Build step must reference that property with the JAVA_HOME setting.</li>
+</ol>
+<div>
+  <div>
+    <h2 id="taskd77636e208">&nbsp;</h2>
+  </div>
+</div>
+<h1 tabindex="0">Lesson 1: Create a Git repository</h1>
+<div>
+  <h2 id="taskd78164e37">Procedure</h2>
+</div>
+<ol>
+  <li>On the IBM UrbanCode Build dashboard, click <strong>System &gt; Repositories.</strong></li>
+  <li>Using the Repositories page, click <strong>Create Repository</strong>.</li>
+  <li>In the <strong>Source Plug-in</strong> list, select <strong>Git</strong> and then click <strong>Set</strong>.</li>
+  <li>In the <strong>Name</strong> field, type demoHub.</li>
+  <li>In the <strong>Repository Base URL</strong> field, type https://github.com/junit-team. This GitHub project contains the JUnit source code.</li>
+  <li>Click <strong>Save</strong>.</li>
+</ol>
+<h1 tabindex="0">Lesson 2: Creating a job and adding steps</h1>
+<h2>Creating a job</h2>
+<div>
+  <div>Most job steps are created from plug-ins. Plug-in steps can be thought of as distinct pieces of automation.</div>
+  <div>
+    <div>
+      <h3 id="taskd78873e72">About this task</h3>
+    </div>
+    By combining steps from various plug-ins, you can create fully automated build processes. The number of steps that are provided by a particular plug-in can vary, and each step has a variable number of properties. Property values can be supplied when you define a step or at process run time.</div>
+</div>
+<div xml:lang="en-us" id="job_create">
+  <div>
+    <div>
+      <p>Create a job by completing the following steps:</p>
+    </div>
+    <div>
+      <h3 id="taskd78873e86">Procedure</h3>
+    </div>
+    <ol>
+      <li>On the IBM UrbanCode Build dashboard, click <strong>Templates &gt; Jobs.</strong></li>
+      <li>On the Jobs page, click <strong>Create</strong>.</li>
+      <li>In the Create a Job window, specify the name to be Demo Job.</li>
+      <li>Click <strong>Save</strong>. The Main tab for the new job is displayed.</li>
+    </ol>
+    <div>
+      <div>
+        <h3 id="taskd78873e133">Results</h3>
+      </div>
+      Use the Main tab to add steps to the job. Except for the first step, steps can be inserted before or after other steps. When you run the job, the steps are run in the order you specify.</div>
+  </div>
+</div>
+<div xml:lang="en-us" id="job_stamp">
+  <h2>Creating a stamp step</h2>
+  <div>
+    <div>A stamp is a custom identifier that is applied to a build. Stamps are often used in addition to the automatically generated build life identifiers. A stamp step is part of most jobs.</div>
+    <div>
+      <h3 id="taskd78873e144">Procedure</h3>
+    </div>
+    <ol>
+      <li>If the Main tab for the Demo Job is not displayed, then from the IBM UrbanCode Build dashboard, click <strong>Templates &gt; Jobs</strong>, and then click <strong>Demo Job</strong>.</li>
+      <li>Click <strong>Create Step.</strong></li>
+      <li>Using the Steps dialog, click <strong>Build</strong>. The <strong>Build</strong> list expands to display the available build-type steps and plug-ins.</li>
+      <li>Click <strong>Create Stamp</strong> step, and then click <strong>Select</strong>. The Stamp dialog is displayed. The dialog that is displayed after selecting a step contains properties for the selected step, and other properties common to all steps.</li>
+      <li>In the <strong>Name</strong> field, type <strong>Create Stamp</strong>.</li>
+      <li>In the <strong>Stamp</strong> field, enter a script to define the stamp: 1.0.0.${p:buildlife/id}. The simplest way to make a unique stamp is to associate it with the build-life number. This short script looks-up the current build-life ID and applies it to the stamp. This script references a property that is part of every build life. Another option might be to reference a property that you can create and define later. For the tutorial, the build life property is fine. For information about the available properties, see the Scripting API Reference server_url/tools/scripting/ibm-ucb-scripting/.</li>
+      <li>Click <strong>Save</strong>.</li>
+      <li></li>
+    </ol>
+  </div>
+</div>
+<p>&nbsp;</p>
+<h2>Cleaning the workspace</h2>
+<div>
+  <h3 id="taskd78873e268">Procedure</h3>
+</div>
+<ol>
+  <li>Click the <strong>Insert After</strong> action for the Create stamp step. After a job has its first step, steps are inserted before or after other steps. The <strong>Insert After</strong> action, as the name implies, inserts the new step after the selected step.
+<div><img src="https://www.ibm.com/support/knowledgecenter/SS8NMD_6.1.2/com.ibm.ucbuild.doc/images/tutorial-step-insertAfter.gif" alt="The Insert After action" /></div>
+  </li>
+  <li>On the Steps dialog, click <strong>Source</strong> and then click <strong>Clean Workspace</strong>.</li>
+  <li>Click <strong>Select</strong>. The Clean Workspace step is selected.</li>
+  <li>In the <strong>Name</strong> field, type Clean.</li>
+  <li>Click <strong>Save</strong>.</li>
+</ol>
+<h2>Populating the workspace</h2>
+<div>
+  <div>This step places the checked-out code (defined later in the project's source configuration) in the agent's workspace.</div>
+  <div>
+    <h3 id="taskd78873e330">Procedure</h3>
+  </div>
+  <ol>
+    <li>Use the <strong>Insert After </strong>action for the Clean step.</li>
+    <li>On the Steps dialog, click <strong>Source</strong> and then click <strong>Populate Workspace</strong>.</li>
+    <li>Click <strong>Select</strong>.</li>
+    <li>In the <strong>Name</strong> field, type <strong>Populate</strong>.</li>
+    <li>Click Save.</li>
+  </ol>
+</div>
+<h2>Creating a get changelog step</h2>
+<div>
+  <div>This step retrieves source changes since the last build. The prior build life is located by using status or stamp parameters.</div>
+  <div>
+    <h3 id="taskd78873e381">Procedure</h3>
+  </div>
+  <ol>
+    <li>Click the <strong>Insert After</strong> action for the Populate step.</li>
+    <li>On the Steps dialog, click <strong>Source</strong> and then click <strong>Get Source Change</strong>s.</li>
+    <li>Click <strong>Select</strong>.</li>
+    <li>In the <strong>Name</strong> field, type Get Changelog.</li>
+    <li>Select <strong>Success</strong> on the <strong>Start Status</strong> list. The value that is selected determines which source items are retrieved. In this case, only items with a value of Success are retrieved.</li>
+    <li>Ensure that <strong>Save Changes in Database</strong> is selected (it is by default). This parameter can be used in build reports.</li>
+    <li>Click <strong>Save</strong>.</li>
+  </ol>
+</div>
+<p>&nbsp;</p>
+<h2>Creating the set version step</h2>
+<div>
+  <div>Create a version ID that Maven can use.</div>
+  <div>
+    <h3 id="taskd78873e454">Procedure</h3>
+  </div>
+  <ol>
+    <li>Click the <strong>Insert After</strong> action for the Get Changelog step.</li>
+    <li>On the Steps dialog, click <strong>Build &gt; Build Tools &gt; Maven</strong>, and then click <strong>Maven Build</strong>.</li>
+    <li>In the <strong>Name</strong> field, type Set Version.</li>
+    <li>Ensure that the default value pom.xml is set in the <strong>Maven POM File field</strong>. Maven uses the project object model file (POM) to control builds.</li>
+    <li>In the <strong>Goals</strong> field, type versions:set. Goals are similar to Ant tasks and define the actions that Maven performs.</li>
+    <li>Optional: If you did not put the Maven home variable on your system PATH variable, enter it in the <strong>Maven Home</strong> field.</li>
+    <li>In the <strong>Properties</strong> field, type newVersion=${p:buildlife/latestStamp}.</li>
+    <li>Click <strong>Save</strong>.</li>
+  </ol>
+</div>
+<h2>Creating the Maven build step</h2>
+<div>
+  <div>This step uses Maven to build the project.</div>
+  <div>
+    <h3 id="taskd78873e543">Procedure</h3>
+  </div>
+  <ol>
+    <li>Click the <strong>Insert After</strong> action for the Set Version step.</li>
+    <li>On the Steps dialog, click <strong>Build &gt; Build Tools &gt; Maven</strong>, and then click <strong>Maven Build</strong>. This step uses the same plug-in step as the previous step, Set Version.</li>
+    <li>In the <strong>Name</strong> field, type Maven Build.</li>
+    <li>Ensure that the default value pom.xml is set in the <strong>Maven POM File</strong> field.</li>
+    <li>In the <strong>Goals</strong> field, type ${p:maven.goals}. Unlike the other properties you used in the job, this value references a new property. Later, you create the property and define the value.</li>
+    <li>Optional: If you did not put the Maven home variable on your system PATH variable, enter it in the<strong> Maven Home</strong> field.</li>
+    <li>Click <strong>Save</strong>.</li>
+  </ol>
+</div>
+<p>&nbsp;</p>
+<h2>Creating the publish unit tests step</h2>
+<div>
+  <div>JUnit is a testing framework for Java™. This step runs tests and reports the results. It is configured to always run.</div>
+  <div>
+    <div>
+      <h3 id="taskd78873e624">Before you begin</h3>
+    </div>
+    Before you begin this lesson, make sure that you complete the steps that are described in Configure the tutorial system.</div>
+  <div>
+    <h3 id="taskd78873e635">Procedure</h3>
+  </div>
+  <ol>
+    <li>Click the <strong>Insert After</strong> action for the Maven Build step.</li>
+    <li>On the Steps dialog, click <strong>Quality &gt; Unit Testing &gt; JUnit</strong>, and then click <strong>JUnit Report</strong>.</li>
+    <li>In the <strong>Name</strong> field, type Publish Unit Tests.</li>
+    <li>In the <strong>Report Name</strong> field, type JUnit Report.</li>
+    <li>In the <strong>Source Directory</strong> field, type target/surefire-reports.</li>
+    <li>In the <strong>Include Patterns</strong> field, type TEST*.xml.</li>
+    <li>Display the <strong>Pre-Condition Script</strong> list by clicking <strong>Show Additional Option</strong>s, and then select <strong>Always</strong>. Unlike the other steps in this job, this step always runs even if the preceding step fails. Test reports are displayed on the Tests tab for a selected build life. Reports are also written to the location you specified with the <strong>Source Directory</strong> field. Test files that match the pattern that is specified in the <strong>Include Patterns</strong> field are written to the same directory.</li>
+    <li>Click <strong>Save</strong>.</li>
+  </ol>
+</div>
+<h2>Creating the upload artifacts step</h2>
+<div>
+  <div>Upload the build artifacts to the CodeStation repository.</div>
+  <div>
+    <h3 id="taskd78873e735">Procedure</h3>
+  </div>
+  <ol>
+    <li>Click the<strong> Insert After</strong> action for the Publish Unit Tests step.</li>
+    <li>On the Steps dialog, click <strong>Build Systems</strong>, and then click <strong>CodeStation</strong>.</li>
+    <li>Click <strong>Upload Artifatcs</strong>, and then click <strong>Select</strong>.</li>
+    <li>In the CodeStation-Upload Artifacts window, in the <strong>Name</strong> field, type Upload Artifacts.</li>
+    <li>Click <strong>Save</strong>.</li>
+  </ol>
+</div>
+<h2>Creating the assign success step</h2>
+<div>
+  <div>If all previous steps are successful, this step assigns a status of Success to the entire job. If the preceding steps are not successful, this step does not run and the next step runs instead.</div>
+  <div>
+    <h3 id="taskd78873e792">Procedure</h3>
+  </div>
+  <ol>
+    <li>Click the <strong>Insert After</strong> action for the Upload Artifacts step.</li>
+    <li>On the Steps dialog, click <strong>Build</strong>, and then click <strong>Assign Status</strong>.</li>
+    <li>In the <strong>Name</strong> field, type Assign Success.</li>
+    <li>In the <strong>Status</strong> list, select <strong>Success</strong>.</li>
+    <li>Click <strong>Save</strong>. Because the <strong>Pre-Condition Script</strong> field is set to <strong>All Prior Success</strong> by default, you can accept the value.</li>
+  </ol>
+</div>
+<h2>Creating the assign failure step</h2>
+<div>
+  <div>This step assigns a status of Failure to the job. The step runs if any of the preceding steps fail.</div>
+  <div>
+    <h3 id="taskd78873e854">Procedure</h3>
+  </div>
+  <ol>
+    <li>Click the <strong>Insert Afte</strong>r action for the Assign Success step.</li>
+    <li>On the Steps dialog, click <strong>Build</strong>, and then click <strong>Assign Status</strong>.</li>
+    <li>In the <strong>Name</strong> field, type <strong>Assign Failure</strong>.</li>
+    <li>In the <strong>Status</strong> list, select <strong>Failure</strong>.</li>
+    <li>Display the <strong>Pre-Condition Script</strong> list, and select <strong>Any Prior Failur</strong>e.</li>
+    <li>Click <strong>Save</strong>.</li>
+  </ol>
+</div>
+<p><img src="https://www.ibm.com/support/knowledgecenter/SS8NMD_6.1.2/com.ibm.ucbuild.doc/images/tutorial-step-fail.gif" alt="The finished Demo Job job"/></p>
+<p>&nbsp;</p>
+<h1 tabindex="0">Lesson 3: Creating a project template</h1>
+<div>
+  <div>
+    <h2 id="taskd82282e17">About this task</h2>
+  </div>
+  Because project templates are reusable, you can apply the same standards to similar projects. Properties can be defined and the values supplied later by the projects created from the templates. A project template might always use a particular type of build script, for example, but the name or location of the script can vary by project.
+  <p>In this lesson, you create a project template that you use later to create the tutorial project.</p>
+</div>
+<div>
+  <h2 id="taskd82282e21">Procedure</h2>
+</div>
+<ol>
+  <li>On the IBM® UrbanCode™ Build dashboard, click <strong>Templates</strong>. The Projects tab is open by default .</li>
+  <li>Click <strong>Create</strong>.</li>
+  <li>In the <strong>Name</strong> field, type Demo Project Template.</li>
+  <li>Click <strong>Save</strong>. The Main tab for the new project template is displayed.</li>
+  <li>Click <strong>Build Pre-Processing</strong>, and click <strong>Edit</strong>..</li>
+  <li>Click <strong>Agent Pool Selection</strong>, and then select the agent pool you created when you configured the tutorial system.</li>
+  <li>Click <strong>Save</strong>.</li>
+</ol>
+<h1 tabindex="0">Lesson 4: Creating a source template</h1>
+<div>A source template is a reusable source configuration that can be used by any project that requires the same source type.</div>
+<div>
+  <div>
+    <h2 id="taskd82819e17">Before you begin</h2>
+  </div>
+  Ensure that you installed the Git source-type plug-in before you start this lesson.</div>
+<div>
+  <div>
+    <h2 id="taskd82819e19">About this task</h2>
+  </div>
+  In this lesson, you define a Git configuration that is used by the tutorial project.</div>
+<div>
+  <h2 id="taskd82819e21">Procedure</h2>
+</div>
+<ol>
+  <li>On the IBM® UrbanCode™ Build dashboard, click <strong>Templates</strong>, click <strong>Source</strong>, and then click <strong>Create</strong>.</li>
+  <li>In the <strong>Source Type list</strong>, select <strong>Git</strong>. All installed source-type plug-ins are listed.</li>
+  <li>Click Select. Fields that are related to the selected source type are displayed.</li>
+  <li>In the <strong>Name</strong> field, type GitHub.</li>
+  <li>In the <strong>Working Directory Script</strong> list, select<strong> Default Workflow Directory</strong>.</li>
+  <li>In the <strong>Remote URL</strong> field, type <strong>${p:git.project}</strong>. This refers to a property you create in the next section. You supply the property value when you configure the project.</li>
+  <li>In the <strong>Branch</strong> field, type <strong>${p?:git.branch}</strong>.</li>
+  <li>Click <strong>Save</strong>.</li>
+</ol>
+<h2>Creating properties for the source template</h2>
+<div>
+  <div>Define the properties you referenced in the previous section.</div>
+  <div>
+    <h3 id="taskd82819e147">Procedure</h3>
+  </div>
+  <ol>
+    <li>If the Source tab is not already displayed, then on the IBM UrbanCode Build dashboard, click Templates, click Source, and then click the GitHub source template that you created earlier in the lesson.</li>
+    <li>Click Properties, and then click <strong>Create</strong>.</li>
+    <li>Create the git.project property by completing these steps.
+      <ol type="a">
+        <li>In the <strong>Name</strong> field, type git.project.</li>
+        <li>In the <strong>Label</strong> field, type Git Project. The label text identifies the property to users that use the source template.</li>
+        <li>In the <strong>Description</strong> field, type Path of the GitHub project within the account. The description text is displayed to users.</li>
+        <li>In the <strong>Display Type</strong> list, select <strong>Text</strong>.</li>
+        <li>In the <strong>Value</strong> area, accept the default option <strong>Defined</strong>. The <strong>Value</strong> option determines when and where the value for the property is defined. By selecting <strong>Defined</strong>, you can provide a value in the <strong>Default Value</strong> field, or supply the value on the project configuration before the project runs.</li>
+        <li>Leave the <strong>Default Value</strong> field blank. You define the property value when you configure the project.</li>
+        <li>Select the<strong> Value Required</strong> check box.</li>
+        <li>Click <strong>Save</strong>.</li>
+      </ol>
+    </li>
+    <li>Create the git.branch property by completing these steps.
+      <ol type="a">
+        <li>On the Properties tab, click <strong>Create</strong>.</li>
+        <li>In the <strong>Name</strong> field, type git.branch.</li>
+        <li>In the <strong>Label</strong> field, type Git Branch.</li>
+        <li>In the <strong>Description</strong> field, type Source branch. Leave the field blank for the master branch.</li>
+        <li>In the <strong>Display Type</strong> list, select <strong>Text</strong>.</li>
+        <li>Leave the <strong>Default Value</strong> field blank.</li>
+        <li>Clear the <strong>Required</strong> check box.</li>
+        <li>Click <strong>Save</strong>.</li>
+      </ol>
+    </li>
+  </ol>
+</div>
+<p>&nbsp;</p>
+<p><img src="https://www.ibm.com/support/knowledgecenter/SS8NMD_6.1.2/com.ibm.ucbuild.doc/images/tutorial-source.gif" alt="The GitHub source template properties"/></p>
+<h1 tabindex="0">Lesson 5: Creating a process template</h1>
+<div>
+  <div>Build a process template for the tutorial project.</div>
+  <div>
+    <div>
+      <h2 id="taskd80937e17">About this task</h2>
+    </div>
+    In this lesson, you create a process template, define a process, create a property, and an artifact set that is used by the project.</div>
+  <div>
+    <h2 id="taskd80937e19">Procedure</h2>
+  </div>
+  <ol>
+    <li>On the IBM® UrbanCode™ Build dashboard, click Templates, click Process, and then click Create.</li>
+    <li>In the <strong>Name</strong> field, type Demo Build Process.</li>
+    <li>Under <strong>Type</strong>, make sure that<strong> Build Process</strong> is selected.</li>
+    <li>Click <strong>Save</strong>.</li>
+  </ol>
+  <div>
+    <div>
+      <h2 id="taskd80937e64">Results</h2>
+    </div>
+    The Main tab for the new process template is displayed.</div>
+</div>
+<div></div>
+<div xml:lang="en-us" id="tutorial_workflow">
+  <h2>Creating a process definition</h2>
+  <div>
+    <div>Process definitions identify the jobs that comprise a build.</div>
+    <div>
+      <div>
+        <h3 id="taskd80937e103">About this task</h3>
+      </div>
+      In order for a job to be used in a project, it must be assigned to the process. A process can have several jobs and their order in the process is determined similarly to the way steps are inserted into jobs. In this lesson, you assign the job you created in the last lesson to a process definition.</div>
+    <div>
+      <h3 id="taskd80937e105">Procedure</h3>
+    </div>
+    <ol>
+      <li>On the IBM UrbanCode Build dashboard, click <strong>Templates &gt; Process</strong>.</li>
+      <li>In the Process Templates page, click <strong>Demo Build Process</strong>, and then click <strong>Definition</strong>.</li>
+      <li>Click Start, and then select <strong>Insert Job Afte</strong>r. The <strong>Insert Job After</strong> action is displayed after you click <strong>Start</strong>, as show in the following figure:
+<div><img src="https://www.ibm.com/support/knowledgecenter/SS8NMD_6.1.2/com.ibm.ucbuild.doc/images/job_insert.gif" alt="The Insert Job After action" /></div>
+      </li>
+      <li>In the Insert Start Job window, in the <strong>Job</strong> list, select the job you created in the last lesson, <strong>Demo Job</strong>.</li>
+      <li>In the <strong>Pre-condition</strong> list, select <strong>Always</strong>.</li>
+      <li>In the <strong>Agent Selection</strong> area, select <strong>Agent Pool Selection</strong>, and then select the agent pool you created when you configured your tutorial system. An agent in the agent pool runs the jobs assigned to the workflow.</li>
+      <li>In the <strong>Working Directory</strong> list, select <strong>Default Workflow Directory</strong>. An agent's default working directory is:
+<pre>agent_directory/var/work/project/<a href="javascript:void(0);" id="copy-btn-0"><img src="https://www.ibm.com/support/knowledgecenter/images/icons/copy.png" title="Copy" alt="copy to clipboard" width="26" height="26" /></a></pre>
+      </li>
+      <li>Click <strong>Insert Job</strong>.</li>
+    </ol>
+  </div>
+</div>
+<p><img src="https://www.ibm.com/support/knowledgecenter/SS8NMD_6.1.2/com.ibm.ucbuild.doc/images/tutorial-workflow_actions.gif" alt="Process definition actions"/></p>
+<h2>Creating process template properties</h2>
+<div>
+  <div>Define the property you referenced in Lesson 2.</div>
+  <div>
+    <div>
+      <h3 id="taskd80937e231">About this task</h3>
+    </div>
+    In this step, you define the property you referenced in the Maven Build step, ${p:maven.goals}</div>
+  <div>
+    <h3 id="taskd80937e241">Procedure</h3>
+  </div>
+  <ol>
+    <li>Using the Demo Build Process, click <strong>Properties</strong>, and then click <strong>Create</strong>.</li>
+    <li>In the <strong>Name</strong> field, type maven.goals.</li>
+    <li>In the <strong>Label</strong> field, type Maven Goals.</li>
+    <li>In the <strong>Display Type</strong> list, select <strong>Text</strong>.</li>
+    <li>In the <strong>Default Value</strong> field, type package. This is a Maven lifecycle build phase.</li>
+    <li>Select the <strong>Value Required</strong> check box.</li>
+    <li>Click <strong>Save</strong>.</li>
+  </ol>
+</div>
+<h2>Creating process artifact sets</h2>
+<div>
+  <div>Generated artifacts are assigned to an artifact set. An artifact set is a collection of build artifacts.</div>
+  <div>
+    <div>
+      <h3 id="taskd80937e307">Before you begin</h3>
+    </div>
+    Ensure that you configured a Maven artifact set before you start this step.</div>
+  <div>
+    <div>
+      <h3 id="taskd80937e317">About this task</h3>
+    </div>
+    In this lesson, you configure the artifact set that is used by the project.</div>
+  <div>
+    <h3 id="taskd80937e319">Procedure</h3>
+  </div>
+  <ol>
+    <li>Ensure that the window for your build process is displayed and click Artifacts, and then click New Artifact Config.</li>
+    <li>In the Artifact Set list, select the artifact set you created earlier, maven.</li>
+    <li>In the Base Directory field, type target.</li>
+    <li>In the Include Artifacts field, type *.jar.</li>
+    <li>Click Save.</li>
+  </ol>
+</div>
+<h1 tabindex="0">Lesson 6: Creating a project</h1>
+<div>
+  <div>You use projects to configure and run builds. After a build runs, projects provide a wealth of information that you can use to manage the project lifecycle and troubleshoot problems.</div>
+  <div>
+    <div>
+      <h2 id="taskd81733e17">Before you begin</h2>
+    </div>
+    Ensure that you completed all of the preceding steps before you start this lesson.</div>
+  <div>
+    <div>
+      <h2 id="taskd81733e19">About this task</h2>
+    </div>
+    Projects are built from templates. In this lesson, you will use the templates that you made earlier to create the tutorial project. You can run builds automatically on a predetermined schedule, or you can run builds manually, as you do in the tutorial. To define the tutorial project, you select the process that you defined earlier. When you start the build, the workflow begins running the job that you created with the job template. The project determines the source code to use, and manages any dependencies. Each build generates a unique build life ID.</div>
+  <div>
+    <h2 id="taskd81733e21">Procedure</h2>
+  </div>
+  <ol>
+    <li>On the IBM® UrbanCode™ Build dashboard, click Projects, and then click Create.</li>
+    <li>Select the project template that you created in <a href="https://www.ibm.com/support/knowledgecenter/SS8NMD_6.1.2/com.ibm.ucbuild.doc/topics/tutorial_project_template.html?view=kc#tutorial_project_template" data-widget="tooltip">Lesson 3</a>, Demo Project Template.</li>
+    <li>In the Name field, type Demo Project.</li>
+    <li>Click Save.</li>
+  </ol>
+</div>
+<div></div>
+<div id="tutorial_project_build">
+  <h2>Configuring the project build process</h2>
+  <div>
+    <div>A project must be associated with a build process. A project might have any number of build processes associated with it.</div>
+    <div>
+      <h3 id="taskd81733e99">Procedure</h3>
+    </div>
+    <ol>
+      <li>Ensure that the Configuration tab for the Demo Project project is displayed, then, under Build Processes, click New.</li>
+      <li>In the Template list, select Demo Build Process, and then click Select. The Maven Goals field is derived from the process template that you created in last lesson.</li>
+      <li>In the Name field, type Demo Build.</li>
+      <li>In the Maven Goals field, accept the value, package. The package value is a basic Maven lifecycle build phase. The packageattribute instructs Maven to put the compiled code into a distributable format, such as a JAR file. You can use the tutorial project to run other Maven builds and change the goals.</li>
+      <li>Click Save.</li>
+    </ol>
+    <div>
+      <div>
+        <h3 id="taskd81733e161">Results</h3>
+      </div>
+      The Configuration tab for the new build process is displayed.</div>
+  </div>
+</div>
+<div id="tutorial_project_source2">
+  <h2>Configuring the project source</h2>
+  <div>
+    <div>A project's build source is defined by assigning a source template to a build configuration.</div>
+    <div>
+      <div>
+        <h3 id="taskd81733e172">Before you begin</h3>
+      </div>
+      Ensure that the Configuration tab for the build process you defined in the previous section is displayed.</div>
+    <div>
+      <div>
+        <h3 id="taskd81733e177">About this task</h3>
+      </div>
+      You define the source configuration by selecting the source template that you created earlier, and by using template properties to identify the source location.</div>
+    <div>
+      <h3 id="taskd81733e179">Procedure</h3>
+    </div>
+    <ol>
+      <li>Under Source Configuration, click Create.</li>
+      <li>In the Source Template list, select the source template that you created earlier, GitHub, and then click Select.</li>
+      <li>In the Name field, type GitHub.</li>
+      <li>In the Repository list, select the repository that you created earlier, demoHub.</li>
+      <li>In the Git Project Path field, type junit. Because the project uses the master branch, you can leave the Git Branch field blank.</li>
+      <li>Click Save.</li>
+    </ol>
+  </div>
+</div>
+<p>&nbsp;</p>
+<p><img src="https://www.ibm.com/support/knowledgecenter/SS8NMD_6.1.2/com.ibm.ucbuild.doc/images/tutorial-project-done2.gif" alt="The finished Demo Build process"/></p>
+<h1 tabindex="0">Lesson 7: Running the build</h1>
+<div>Run the project build process to transform the source code into the finished application, JUnit.</div>
+<div>
+  <div>
+    <h2 id="taskd82551e17">Before you begin</h2>
+  </div>
+  Ensure that you completed all previous steps in the tutorial.</div>
+<div>
+  <div>
+    <h2 id="taskd82551e19">About this task</h2>
+  </div>
+  You run a build by running a build process that is defined for the project. The build process takes the source material and transforms it, using a job that is assigned to the project, into the final output.</div>
+<div>
+  <h2 id="taskd82551e21">Procedure</h2>
+</div>
+<ol>
+  <li>On the IBM® UrbanCode™ Build dashboard, click Projects, and then expand the project that you created in the last lesson, Demo Project. Builds configured for the selected project are listed beneath the project, as shown in the following figure:
+    <div><img src="https://www.ibm.com/support/knowledgecenter/SS8NMD_6.1.2/com.ibm.ucbuild.doc/images/tutorial-project-expand.gif" alt="The builds for the Demo Project listed" /></div>
+  </li>
+  <li>Click DemoBuild. The Main tab for the DemoBuild project build is displayed.</li>
+  <li>Click Build. The build process starts and the My Activity tab for the build is displayed. The build, with a new build life number, is listed with a status of Running, as shown in the following figure:
+    <div><img src="https://www.ibm.com/support/knowledgecenter/SS8NMD_6.1.2/com.ibm.ucbuild.doc/images/tutorial-project-running.gif" alt="The Demo Build is running" /></div>
+  </li>
+</ol>
+Refresh the My Activity page. If the build is successful, the status changes to Complete; otherwise, the status changes to Failed. A successful run is shown in the following figure:
+<div><img src="https://www.ibm.com/support/knowledgecenter/SS8NMD_6.1.2/com.ibm.ucbuild.doc/images/tutorial-project-run.gif" alt="A successful build" /></div>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+</body>
+</html>

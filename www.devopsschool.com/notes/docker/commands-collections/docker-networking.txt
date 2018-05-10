@@ -1,0 +1,207 @@
+==========================
+FROM ubuntu
+RUN apt-get update && apt-get install -y iputils-ping traceroute net-tools iproute2
+
+ENTRYPOINT ["/bin/bash"]
+
+> docker build -t image-net .
+
+==============================
+
+> docker run -it --name=net1 image-net
+> ip link show
+> docker run -it --name=net2 image-net
+> ip link show
+> docker attach net1
+> ip a
+> ping 8.8.8.8
+> traceroute 8.8.8.8
+> docker inspect net2
+# Check Network setting .....
+	bridge
+	ip address
+	port mappings
+> docker ps
+> ls -l /var/lib/docker/containers # Containers Meta Data
+> ls -l /var/lib/docker/containers/cont-id
+	# hosts
+	# resolv.conf
+
+==========================================
+> docker network ls
+> docker run -itd --name=container1 busybox
+> docker run -itd --name=container2 busybox
+> docker network inspect bridge
+
+none
+The none network adds a container to a container-specific network stack. That container lacks a network interface.
+
+This mode will not configure any IP for the container and doesn’t have any access to the external network as well as for other containers. It does have the loopback address and can be used for running batch jobs.
+
+# docker run -it --network=none ubuntu:14.04 /bin/bash
+# docker run -it --network=none ubuntu /bin/bash
+root@66308c6686be:/# ifconfig
+
+# docker inspect 66308c6686be | grep -i ipaddr
+
+
+host
+The host network adds a container on the host’s network stack. As far as the network is concerned, there is no isolation between the host machine and the container. For instance, if you run a container that runs a web server on port 80 using host networking, the web server is available on port 80 of the host machine.
+
+# docker run -it --net=host ubuntu:14.04 /bin/bash
+# docker run -it --net=host ubuntu /bin/bash
+
+root@labadmin-VirtualBox:/# hostname
+
+# ip addr | grep -A 2 eth0
+
+
+User-defined networks
+=========================================
+> docker network create --driver bridge other-network
+> docker inspect other-network
+> docker run --network=<NETWORK>
+> docker run --net=other-network --name=ub1 ubuntu
+
+ROUGH
+===================================
+BARE mACHINNE
+	eth0:
+	lo
+
+After the Docker Enginer Start
+	docker0
+
+===================================================================
+===================================================================
+Before Installing DockerEngine
+----------------------------------
+eth0: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 9001
+        inet 172.31.23.252  netmask 255.255.240.0  broadcast 172.31.31.255
+        inet6 fe80::61:f2ff:fedb:1bc8  prefixlen 64  scopeid 0x20<link>
+        ether 02:61:f2:db:1b:c8  txqueuelen 1000  (Ethernet)
+        RX packets 317  bytes 33579 (32.7 KiB)
+        RX errors 0  dropped 0  overruns 0  frame 0
+        TX packets 319  bytes 39050 (38.1 KiB)
+        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+
+lo: flags=73<UP,LOOPBACK,RUNNING>  mtu 65536
+        inet 127.0.0.1  netmask 255.0.0.0
+        inet6 ::1  prefixlen 128  scopeid 0x10<host>
+        loop  txqueuelen 1  (Local Loopback)
+        RX packets 0  bytes 0 (0.0 B)
+        RX errors 0  dropped 0  overruns 0  frame 0
+        TX packets 0  bytes 0 (0.0 B)
+        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+
+---------------------------------------
+Afer Installing DockerEngine
+--------------------------------------
+Same output as above
+
+---------------------------------------
+Afer Stratting the DockerEngine
+--------------------------------------
+
+docker0: flags=4099<UP,BROADCAST,MULTICAST>  mtu 1500
+        inet 172.17.0.1  netmask 255.255.0.0  broadcast 0.0.0.0
+        ether 02:42:61:50:9b:38  txqueuelen 0  (Ethernet)
+        RX packets 0  bytes 0 (0.0 B)
+        RX errors 0  dropped 0  overruns 0  frame 0
+        TX packets 0  bytes 0 (0.0 B)
+        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+
+eth0: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 9001
+        inet 172.31.23.252  netmask 255.255.240.0  broadcast 172.31.31.255
+        inet6 fe80::61:f2ff:fedb:1bc8  prefixlen 64  scopeid 0x20<link>
+        ether 02:61:f2:db:1b:c8  txqueuelen 1000  (Ethernet)
+        RX packets 54830  bytes 81091852 (77.3 MiB)
+        RX errors 0  dropped 0  overruns 0  frame 0
+        TX packets 16145  bytes 1207864 (1.1 MiB)
+        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+
+lo: flags=73<UP,LOOPBACK,RUNNING>  mtu 65536
+        inet 127.0.0.1  netmask 255.0.0.0
+        inet6 ::1  prefixlen 128  scopeid 0x10<host>
+        loop  txqueuelen 1  (Local Loopback)
+        RX packets 0  bytes 0 (0.0 B)
+        RX errors 0  dropped 0  overruns 0  frame 0
+        TX packets 0  bytes 0 (0.0 B)
+        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+---------------------------------------------
+How to check the list of network?
+> docker network ls
+
+How to describe the network brdige?
+> docker inspect 8bf2e2945be5
+
+ONE SCNARIO?
+> docker pull ubuntu
+> docker run -it ubuntu /bin/bash
+> CTP + P + Q
+
+Did you get this? - A virtual ethernet to conntect container to your docker0
+------------------------
+veth6550a7a: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500
+        inet6 fe80::6033:bbff:fea0:839f  prefixlen 64  scopeid 0x20<link>
+        ether 62:33:bb:a0:83:9f  txqueuelen 0  (Ethernet)
+        RX packets 0  bytes 0 (0.0 B)
+        RX errors 0  dropped 0  overruns 0  frame 0
+        TX packets 16  bytes 1296 (1.2 KiB)
+        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+
+How to create a your own Bridge in Docker?
+> =========================================
+> docker network create --driver bridge verizon1
+> docker network ls
+
+> docker run -it --network=verizon1 ubuntu /bin/bash 
+> CTP + P + Q
+
+PINGING FROM HOST
+==============================
+ping to docker0 container?
+[root@ip-172-31-23-252 ~]# ping 172.18.0.2
+PING 172.18.0.2 (172.18.0.2) 56(84) bytes of data.
+64 bytes from 172.18.0.2: icmp_seq=1 ttl=64 time=0.061 ms
+64 bytes from 172.18.0.2: icmp_seq=2 ttl=64 time=0.051 ms
+64 bytes from 172.18.0.2: icmp_seq=3 ttl=64 time=0.050 ms
+
+ping to verizon container?
+--- 172.18.0.2 ping statistics ---
+3 packets transmitted, 3 received, 0% packet loss, time 1999ms
+rtt min/avg/max/mdev = 0.050/0.054/0.061/0.005 ms
+[root@ip-172-31-23-252 ~]# ping 172.17.0.2
+PING 172.17.0.2 (172.17.0.2) 56(84) bytes of data.
+64 bytes from 172.17.0.2: icmp_seq=1 ttl=64 time=0.045 ms
+64 bytes from 172.17.0.2: icmp_seq=2 ttl=64 time=0.046 ms
+64 bytes from 172.17.0.2: icmp_seq=3 ttl=64 time=0.052 ms
+
+Can you ping each other from container being in diff bridge?
+inside the containers?
+> apt-get update && apt-get install -y iputils-ping traceroute net-tools iproute2
+root@ee0f0fd7b6e2:/# ping 172.17.0.2
+PING 172.17.0.2 (172.17.0.2) 56(84) bytes of data.
+^C
+--- 172.17.0.2 ping statistics ---
+10 packets transmitted, 0 received, 100% packet loss, time 9000ms
+
+
+> docker network create --driver bridge verizon2
+> docker inspect other-network
+> docker run --network=<NETWORK>
+> docker run --net=other-network --name=ub1 ubuntu
+
+----------------Scanario with null---------------------------
+docker run -it --network=none ubuntu /bin/bash 
+
+----------------Scanario with host---------------------------
+docker run -it --network=host ubuntu /bin/bash 
+172.31.23.252
+
+
+
+
+
+
+

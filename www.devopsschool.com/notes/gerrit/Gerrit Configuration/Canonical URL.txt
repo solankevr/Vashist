@@ -1,0 +1,3 @@
+The canonical web url must be set. Optional base URL for repositories available over the anonymous git protocol. For example, set this to git://mirror.example.com/base/ to have Gerrit display patch set download URLs in the UI. Gerrit automatically appends the project name onto the end of the URL.
+
+By default unset, as the git daemon must be configured externally by the system administrator, and might not even be running on the same host as Gerrit.

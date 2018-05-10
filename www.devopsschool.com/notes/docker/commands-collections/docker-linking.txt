@@ -1,0 +1,21 @@
+==========================
+FROM ubuntu
+RUN apt-get update && apt-get install -y iputils-ping traceroute apache2
+
+EXPOSE 80
+
+ENTRYPOINT ["/bin/bash"]
+CMD ["-D", "FOREGROUND"]
+
+> docker build -t img .
+========================================
+
+> docker run --name=src -d img
+> docker run --name=rcvr --link=src:alias-src -it ubuntu /bin/bash
+> docker inspect rcvr
+# check the networking links
+
+> docker attach rcvr
+> env
+> env | grep
+> more /etc/hosts
