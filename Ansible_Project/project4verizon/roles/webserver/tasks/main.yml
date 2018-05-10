@@ -1,0 +1,10 @@
+---
+- name: Uninstall httpd
+  yum: name=httpd state=absent
+
+- name: Install httpd
+  yum: name=httpd state=present
+
+- name: Make sure httpd service is running
+  service: name=httpd state=started
+...
